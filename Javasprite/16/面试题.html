@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //总结：
+        //当给一个对象设置一个属性的时候，直接设置给了当前的对象上，不会走原型链
+        //当获取一个对象的属性的时候，会沿着沿着原型链依次查找当前的属性
+
+
+        /*
+            测试题1
+            - 当提供一个新的对象作为prototype属性，并不会更新已经创建的实例和原型之间的连接
+        */
+        //创建一个构造函数A
+        var A = function () {}
+        //给A的原型对象扩展了一个属性n 值为1
+        A.prototype.n = 1
+        //实例化一个A 得到实例化对象b
+        var b = new A()
+        //把A构造函数的原型对象 给换成了一个新的对象
+        A.prototype = {
+            n: 2,
+            m: 3
+        }
+        //又实例化了一个A 得到实例化对象c
+        var c = new A()
+
+        console.log(b.n, b.m, c.n, c.m) //1 undefined 2 3
+
+
+        /*
+         测试题2
+         */
+        var F = function () {};
+        Object.prototype.a = function () {
+            console.log('a()')
+        };
+        Function.prototype.b = function () {
+            console.log('b()')
+        };
+        var f = new F();
+        f.a() //a   F.prototype--Object.prototype--null
+        // f.b() //报错
+        F.a() //a  Function.prototype--Objcet.prototype-null
+        F.b() //b
+    </script>
+</body>
+</html>

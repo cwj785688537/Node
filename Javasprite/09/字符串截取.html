@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        slice:字符串截取
+            - 参数1：开始位置
+            - 参数2：结束位置（不包含）可以为负数 如果忽略该参数，则默认到末尾
+
+        substr:根据长度来截取字符串
+            - 参数1：开始位置
+            - 参数2：截取长度 如果忽略该参数，则默认到末尾
+            - ECMA不再推荐使用
+
+        substring：字符串截取
+            - 参数1：开始位置
+            - 参数2：结束位置（不包含） 可以为负数 如果忽略该参数，则默认到末尾
+        */
+
+        var str1 = 'abcdefg'
+        // var re1= str1.slice(3,5)
+        // var re1= str1.slice(3,-1)
+        var re1= str1.slice(3)
+        console.log(re1);
+
+        var str2 = '123456'
+        var re2 = str2.substr(2)
+        console.log(re2);
+
+        var str3 = 'abcdefgh'
+        // var re3 = str3.substring(3,5)
+        // var re3 = str3.substring(3,-1)//如果使用负数会不符合常规，所以尽量不要使用负数
+        var re3 = str3.substring(3)
+        console.log(re3);
+    </script>
+</body>
+</html>

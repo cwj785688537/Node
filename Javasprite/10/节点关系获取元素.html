@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <!-- <li>4</li> -->
+    </ul>
+    <script>
+        var oBox = document.getElementById('box')
+
+        //1. children 获取一个元素的所有子元素节点
+        //IE8可以获取到注释节点（避免：要么不用 要么别在这么写注释）
+        var oBoxLis = oBox.children
+        console.log(oBoxLis);
+
+        //2.parentNode 父元素节点
+        console.log(oBoxLis[1].parentNode);
+
+        /* 
+            firstChild 在IE8中获取的是第一个子元素节点，在浏览器中获取的是第一个子节点
+            firstElementChild:在IE8中没有这个属性，在现代浏览器中获取的是第一个子元素节点
+        */
+
+        //兼容性获取
+        if(oBox.firstElementChild){
+            console.log(oBox.firstElementChild);
+        }else{
+            console.log(oBox.firstChild);
+        }
+
+        //兼容性封装 获取第一个子元素节点
+        function getFirChild(Ele){
+            return Ele.firstElementChild||Ele.firstChild
+        }
+        var re  = getFirChild(oBox)
+        console.log(re);
+
+        //同理 封装获取最后一个子元素节点
+        function getLastChild(Ele) {
+            return Ele.lastElementChild || Ele.lastChild
+
+        }
+
+        //同理 封装获取上一个兄弟元素
+        function getPrevEle(Ele) {
+            return Ele.previousElementSibling || Ele.previousSibling
+        }
+
+        //同理 封装获取下一个兄弟元素
+        function getNextEle(Ele) {
+            return Ele.nextElementSibling || Ele.nextSibling
+        }
+
+
+        var re = getLastChild(oBox);
+        console.log(re);
+
+
+
+        var re = getPrevEle(oBoxLis[1]);
+        console.log(re);
+
+
+        var re = getNextEle(oBoxLis[1]);
+        console.log(re);
+    </script>
+</body>
+</html>

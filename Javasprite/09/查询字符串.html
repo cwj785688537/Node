@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        查询字符串：
+            charAt(n):查询下标为n的字符
+                - 可以使用字符串给中括号下标的方式替代
+
+            indexOf:查询某串字符第一次出现在字符串中的位置，如果没有则返回-1
+            lastIndexOf:倒叙查询 但是下标仍然是从左向右
+
+            scarch:和indexOf类似，只不过search查询条件可以是一个正则表达式
+
+            match：匹配，一般和正则同时使用，匹配符合条件的字符，组成一个数组
+        */
+
+        var str1 = 'abcdefg'
+        // var re = str1.charAt(6)
+        var re = str1[6]
+        console.log(re)
+        console.log(str1);
+
+        var re = str1.indexOf('bcd',3)
+        console.log(re);
+
+        var str1 = 'abcd3nd4'
+        var reg1 = /[0-9]/ig
+        var re =str1.search(reg1)
+        console.log(re);//返回的是第一个数字的下标
+
+        var str1 = 'abcd3nd4'
+        var reg1 = /[0-9]/ig
+        var re =str1.match(reg1)
+        console.log(re);//返回的是所有数组组成的数组
+    </script>
+</body>
+</html>

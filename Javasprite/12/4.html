@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的遍历</title>
+</head>
+<body>
+<script>
+    var person = {
+        headTeacher:{
+            name:"小宁姐",
+            sex:"20",
+            age:"nv",
+            method:"班主任"
+        },
+        jobTeacher:{
+            name:"丽丽",
+            sex:"22",
+            age:"nv",
+            method:"就业"
+        },
+        bossTeacher:{
+            name:"老谭",
+            sex:"50",
+            age:"男",
+            method:"校长"
+        }
+    }
+    console.log(person.length);//undefined 对象是没有length属性的
+
+    function teacherMessage(obj) {
+        alert("我的名字是"+obj.name);
+        alert("我的年龄是"+obj.age);
+        alert("我的性别是"+obj.sex);
+        alert("我的作用是"+obj.method);
+    }
+
+    // for in 循环  专门用来遍历对象
+    // for in中定义的变量 代表着 对象的键名
+    for(var i in person){
+        // console.log(i);
+       console.log((person[i]));
+    }
+</script>
+</body>
+</html>

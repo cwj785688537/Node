@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  var x = 1
+         var obj = {
+             f:function(){
+                 console.log(this.x)
+             },
+             x:2
+         }
+         obj.f()//因为是obj.f，所以使用的是obj里x的值
+         var f1 = obj.f
+         f1() */
+
+        var x = 1
+         var obj = {
+             f:function(){
+                 console.log(this.x)
+             },
+             x:2
+         };
+         //this只在函数调用中生效，只要有运算符就不算函数调用了
+         (a = obj.f)();//1
+         (false||obj.f)();//1
+         (obj.f,obj.f)();//1  
+         (obj.f)();//2  小括号只是逻辑分隔符，不是运算符
+         obj.f();//2
+    </script>
+</body>
+
+</html>

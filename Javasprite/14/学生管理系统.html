@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <div>
+            <label>
+                姓名：<input type="text" id="name">
+            </label>
+        </div>
+        <div>
+            <label>
+                年龄：<input type="text" id="age">
+            </label>
+        </div>
+        <div>
+            <label>
+                性别：<input type="text" id="sex">
+            </label>
+        </div>
+        <button id="btn">添加</button>
+    </form>
+
+    <table id="table" border='1' style="border-collapse: collapse;" width=500>
+        <caption>学生管理系统</caption>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>14</td>
+            <td>男</td>
+            <td><a href="#">删除</a></td>
+        </tr>
+    </table>
+    <script>
+        var oBtn = document.getElementById('btn')
+        var oName = document.getElementById('name')
+        var oAge = document.getElementById('age')
+        var oSex = document.getElementById('sex')
+        var oTable = document.querySelector('#table tbody')
+        var oDeles = document.querySelectorAll('#table tr td a')
+
+        oBtn.onclick = function () {
+            //获取信息
+            var userName = oName.value
+            var userAge = oAge.value
+            var userSex = oSex.value
+            //创建一个tr
+            var newTr = document.createElement('tr')
+
+            //创建tr的内容
+            var trStr = '<td>' + userName + '</td>\
+            <td>'+ userAge + '</td>\
+            <td>'+ userSex + '</td>\
+            <td><a href="#">删除</a></td>'
+
+            //内容和tr合并
+            newTr.innerHTML = trStr
+
+            oTable.appendChild(newTr)
+
+            //重新获取所有的a标签
+            var oDeles = document.querySelectorAll('#table tr td a')
+            //然后给所有的a标签绑定点击事件
+            oDeles.forEach(function (item) {
+                item.onclick = function () {
+                    //删除当前的tr
+                    this.parentNode.parentNode.remove()
+                }
+            })
+        }
+        //将a元素的点击事件放在外面就可以在不点击事件的情况下删除第一个tr
+        oDeles.forEach(function (item) {
+            item.onclick = function () {
+                //删除当前的tr
+                this.parentNode.parentNode.remove()
+            }
+        })
+    </script>
+</body>
+
+</html>

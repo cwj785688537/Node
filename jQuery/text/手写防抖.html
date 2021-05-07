@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt">
+    <script>
+        /* 
+            防抖：
+                代码只在最后一次执行
+        */
+
+        var oIpt = document.getElementById('ipt')
+
+        // 把核心代码提炼出来
+        function core(e){
+            console.log('核心代码');
+            console.log(this);
+            console.log(e);
+        }
+        oIpt.oninput = debounce(core,500)
+
+        function debounce(fn,time){
+            // 把timer设置在父作用域，这样每次设置的计时器都是同一个
+            var timer = null
+            return function(){
+                // 每次事件发生的时候，可能上一次的代码还没执行完，但是我们需要重新开始计时了
+                // 所以需要把上一次的计时器清掉，再重新添加
+                clearTimeout(timer)
+
+                // 获取this，这里的this指向事件源
+                var _this = this
+                // 因为核心代码可能需要event事件，arguments[0]是事件event函数
+                // console.log(arguments[0]);
+                var arg = arguments[0]
+                //当事件触发后，设置一个计时器，让核心代码延迟执行
+                timer = setTimeout(function(){
+                    fn.call(_this,arg)
+                },time)
+            }
+        }
+    </script>
+</body>
+</html>

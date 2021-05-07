@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // es5
+        // function fn1(a,b){
+        //     // 如果实参传的是一个空字符串，则下面这行代码识别不出来，会写入一个空
+        //     b = b || 'world'
+        //     // 下面这行代码更严禁一点，但是为了避免写if语句，一般会选择上面的代码
+        //     if(typeof b === 'undefined'){
+        //         b = 'world'
+        //     }
+        //     console.log(a,b);
+        // }
+        // fn1('hello','')
+        // fn1('hello')
+        // fn1('hello','world')
+
+        //es6
+        // 给形参设置默认值的方式
+        // function fn1(a = 'hello',b='world'){
+        //     console.log(a,b);
+        // }
+        // fn1()
+        // fn1('hello')
+        // fn1('hello','world')
+
+        // 剩余参数（reset参数）
+        // function fn(a,b){
+        //     console.log(a,b);
+        //     console.log(arguments);
+        // }
+
+        // 使用... 剩下的实参会变成一个数组传入args中
+        // function fn(a,b,...args){
+        //     console.log(a,b,args);
+        //     console.log(arguments);
+        // }
+
+            function fn(...args){
+                console.log(args);
+            }
+        fn(1,2,3,4,5)
+    </script>
+</body>
+</html>

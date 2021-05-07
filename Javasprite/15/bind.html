@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        /* 
+            bind和call类似，只不过比call少了一个功能
+                call：
+                    1.改变this指向
+                    2.调用函数
+
+                bind：
+                    1.改变this指向
+                    2.返回一个被改变this指向的函数，并不调用
+        */
+           
+
+        var obj = {
+            name:'laownag',
+            fn:function(a,b){
+                console.log(a+b);
+                return this
+            }
+        }
+       /*  console.log(obj.fn.bind(window,1,2)());//window
+        console.log(obj.fn.bind(null, 1, 2)()); //window
+        console.log(obj.fn.bind(undefined, 1, 2)()); //window
+        console.log(obj.fn.bind(1, 1, 2)()); //number的包装类型
+        console.log(obj.fn.bind("1", 1, 2)()); //string的包装类型
+        console.log(obj.fn.bind(true, 1, 2)()); //boolean的包装类型
+        console.log(obj.fn.bind([], 1, 2)()); //当前对象
+        console.log(obj.fn.bind({}, 1, 2)()); //当前对象
+        console.log(obj.fn.bind(function () {}, 1, 2)()); //当前函数
+        console.log(obj.fn.bind(new Date(), 1, 2)()); //当前对象 */
+
+       /*  var newFn = obj.fn.bind({},1,2)
+        newFn() */
+
+        document.onclick = function(){
+            //想让计时器中的this指向当前事件对象document
+            /* var _this = this//先将this用一个变量接住
+            setTimeout(function(){
+                console.log(_this);
+            },1000) */
+
+            setTimeout(function(){
+                console.log(this);//计时器中this的指向都是window
+            },1000)
+            setTimeout((function(){
+                console.log(this);
+            }).bind(this),1000)//这里的this指的是调用对象document
+        }
+    </script>
+</body>
+</html>

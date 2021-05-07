@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+
+        /* 
+            插入节点
+                - A.appendChild(B)
+                    在A元素内部的末尾 添加B节点
+
+                - A.insertBefore(new,old)
+                    new和old都是A的子节点
+                    把new插入到old的前边
+                    new和old是兄弟关系
+        */
+        var oList = document.querySelector('.list')
+        var oListLis = document.querySelectorAll('.list li')
+
+        //创建一个新的元素
+        document.createElement('元素名')
+
+        var oBtn = document.getElementById('btn')
+        oBtn.onclick = function(){
+            //创建一个元素，这个元素对象会存放在内存中，并不会在页面中出现
+            var newLi = document.createElement('li')
+            console.log(newLi);
+
+            //创建一个文本节点 保存在内存中 需要插入到元素中
+            var newLiCon = document.createTextNode('新的li')
+
+            //把文本节点插入到元素节点中
+            newLi.appendChild(newLiCon)
+            console.log(newLi);
+
+            //把新创建的Li插入到ul内部
+            // oList.appendChild(newLi)
+
+            //把新创建的Li插入到第二个LI的前边
+            oList.insertBefore(newLi,oListLis[1])
+
+            //自己封装 在oList内部的最前边插入newLi
+            afterChild(oList,newLi)
+
+            //自己封装 insertAfter 在oListLis[1]元素的后边添加元素newLi
+            insertAfter(newLi,oListLis[1])
+        }
+
+        //封装插入方法
+        //在A的内部的最前边插入一个B
+        function afterChild(A,B){
+            //先获取A内部的第一个子元素
+            var AfirstChild = A.firstElementChild
+            A.insertBefore(B,AfirstChild)
+        }
+
+        //在B元素的后边 添加一个兄弟A
+        function insertAfter(A,B){
+            //先获取B的后边的兄弟元素
+            var BAfter = B.nextElementSibling
+
+            //在BAfter 前边插入A
+            BAfter.parentNode.insertBefore(A,BAfter)
+        }
+    </script>
+</body>
+</html>

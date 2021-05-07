@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //默认绑定
+        function foo() {
+            console.log(this);
+        }
+
+        var obj = {
+            do: function () {
+                foo();
+            },
+        };
+        //obj.do先找到do函数，然后调用函数，里面的foo()是自己调用的，所以this指向window
+        obj.do();
+
+
+        //隐式绑定
+        function foo() {
+            console.log(this.a);
+        }
+        var obj = {
+            a: 2,
+            foo: foo,
+        };
+        //obj.foo先找到obj中的foo，然后调用foo()，此时的this指向obj
+        obj.foo();
+
+        //隐式丢失
+        function foo() {
+            console.log(this.a);
+        }
+        var obj = {
+            a: 2,
+            foo: foo,
+        };
+        var fn1 = obj.foo;
+        var a = "hello";
+        fn1();//obj.foo把地址值给了fn1，但是并没有调用foo，而是fn1()自调用，所以此时的this指向window
+
+        function foo() {
+            console.log(this.a);
+        }
+        function doFoo(fn) {
+            fn(); //传参也是隐式赋值，所以传递函数也是隐式赋值，赋值的是foo函数本身
+        }
+        var obj = {
+            a: 2,
+            foo: foo,
+        };
+        //先执行括号中的内容，返回foo，然后将foo传入doFoo中，在调用foo()，所以此时this指向window
+        doFoo(obj.foo);
+    </script>
+</body>
+
+</html>

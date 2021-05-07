@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" class="box1 box2" study='js'></div>
+    <img src="../../../Javasprite.picture/11/01.jpg" id="img">
+    <script>
+        /* 
+        元素的属性分类：
+            - 自有属性：元素自带的一些属性
+                - 设置和获取的时候：元素.属性名
+                - 当有的属性名和js的关键字保留字冲突的时候，需要适当的修改，比如class，当获取和设置的时候使用className
+
+            - 自定义属性：
+                - 不能直接通过 元素.属性名 来操作
+                - 可以设置成功，但是是把元素当做了一个对象 设置了属性或方法，并没有设置给DOM节点上
+        */
+
+        //自有属性
+        var oBox = document.getElementById('box')
+        var oImg = document.getElementById('img')
+        console.log(oBox.id);
+        console.log(oImg.src);
+        oBox.id = 'inner'
+        console.log(oBox.id);
+        console.log(typeof oBox.id);
+        console.log(oBox.className);
+
+        //自定义属性
+        console.log(oBox.study);//自定义属性这样使用 会把oBox当做一个对象，并不会当做DOM节点去节点上获取study属性
+        oBox.study = 'jquery'//把oBox当做对象，拓展了一个study属性，和DOM节点无关
+        console.log(oBox.study);
+        console.log(typeof oBox.study);
+    </script>
+</body>
+</html>

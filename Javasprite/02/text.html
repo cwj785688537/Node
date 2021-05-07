@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <label for="user">用户名</label>
+        <input type="text" id="user">
+        <br>
+        <label>
+            密码<input type="password" id="pass" >
+        </label><br>
+        <button type="submit" id="btn">登录</button>
+    </form>
+    <script>
+        var oUser = document.getElementById("user")
+        var oPass = document.getElementById("pass")
+        var oBtn = document.getElementById("btn")
+        console.log(oUser,oPass)
+
+        oBtn.onclick = function(){
+            var userName = oUser.value
+            var passWord = oPass.value
+            if(userName==="lipeihua"&&passWord==='123456'){
+                alert("欢迎登陆")
+            }else{
+                alert("请重新输入")
+            }
+        }
+    </script>
+</body>
+</html>

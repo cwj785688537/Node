@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+         - alert()
+            警告框 没有返回值
+
+        - confirm():
+            确认框：可以选择确认和取消
+            返回布尔值：代表用户的选择
+
+        - prompt():
+            可输入弹窗
+            返回用户输入的值 或者null
+        */
+
+        function sayFather(){
+            var rel = prompt('叫爸爸')
+            if(rel==='爸爸'){
+                var re2 = confirm('你刚才叫的是爸爸吗？')
+                if(re2){
+                    alert('儿子乖')
+                }else{
+                    //递归调用
+                    sayFather()
+                }
+            }else{
+                //递归调用
+                sayFather()
+            }
+        }
+        sayFather()
+    </script>
+</body>
+</html>

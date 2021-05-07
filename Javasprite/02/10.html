@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>登录练习</title>
+</head>
+
+<body>
+    <form action="#">
+        <label for="user">用户名</label>
+        <input type="text" id="user">
+        <br>
+        <label>
+            密码<input type="password" id="pass" >
+        </label><br>
+        <button type="submit" id="btn">登录</button>
+    </form>
+    <script>
+        //    1.获取元素
+        var oUser = document.getElementById("user");
+        var oPass = document.getElementById("pass");
+        // 打印不出来？？？？
+        // 
+        console.log(oUser, oPass)
+        // 
+        //  2.点击元素
+        //   点击登录的时候声明
+        var obj = document.getElementById("btn")
+        obj.onclick = function () {
+            console.log(oUser, oPass);
+            var userName=oUser.value;
+            var password=oPass.value;
+            console.log(userName,password)
+            // 这里用的三个等号
+            // 程序错的，输入正确的也不显示“欢迎登陆”？？？
+            if (userName=== "zixuan" && password === "123") {
+                alert("欢迎登录")
+            } else {
+                alert("错误")
+            }
+        }
+    </script>
+</body>
+
+</html>

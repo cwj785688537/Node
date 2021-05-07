@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            padding: 20px;
+            border: 1px solid #000;
+            margin: 30px;
+            /* display: none; */
+           visibility: hidden;
+        }
+
+        .con{
+            /* display: block; */
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="con">1</div>
+    </div>
+    <script>
+         /* 
+            clientWidth:
+                - 获取元素的宽度(content+padding)
+                - 当元素隐藏的时候 clientWidth
+                - 当图片没有加载完成，并且没有设置width属性的时候，也获取不到
+         */
+
+         var oBox = document.getElementById('box')
+         console.log(oBox.clientWidth);
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+            节流：
+                在规定时间内主要代码只执行一次
+        */
+
+        var oBox = document.getElementById('box');
+
+        //把事件函数独立出来，否则将会高频率的触发
+        function move(e) {
+            console.log("核心代码");
+            //核心代码可能需要this，但是这个函数并不是真正的事件函数，所以需要去throttle中处理一下this
+            console.log(this);
+            //核心代码可能还会需要event事件对象，但是这个函数并不是真正的事件函数，需要去throttle中处理
+            console.log(e);
+        }
+        oBox.onmousemove = throttle(move, 1000);
+
+        function throttle(fn, time) {
+            //初始化一个上一次的事件
+            var lastTime = 0
+            //这个return的函数，就是真正的事件函数
+            return function () {
+                //为了防止时间高频触发，需要给他设置一个看门狗
+                // 获取当前时间
+                var nowTime = Date.now()
+                //如果当前时间减去上一次的时间大于需要间隔的事件就return退出函数
+                if (nowTime - lastTime < time) {
+                    return
+                }
+                //看门狗放行后就把当前时间改为上一次的时间
+                lastTime = nowTime
+
+                //放行后才能调用核心代码
+                fn.call(this, arguments[0])
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        递减（++）和递减（--）就是通过不断的加1或减1，然后把结果赋值给左侧
+        - 如果a++或者++a是单条语句，则两个语句作用一致
+        - 如果是一个非数字运算，则先转为数字
+        */
+
+        // 单条语句
+        var a = 1
+        // a++
+        ++a
+        console.log(a)
+
+        console.log('-----------------')
+        //单条语句带赋值
+        var a = 1
+        k = 0
+        // k = a++
+        k = ++a
+        console.log(k)
+
+        console.log('-----------------')
+        var str = "a"
+        console.log(str++)//转为数字'a'就是NaN
+    </script>
+</body>
+</html>

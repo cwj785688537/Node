@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 100px;
+            overflow: hidden;
+        }
+
+        #con {
+            width: 100px;
+            height: 100px;
+            margin: 30px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="con"></div>
+    </div>
+    <script>
+        /* 
+            clientX:  获取事件发生位置 到 视口的 距离  
+            offsetX:  获取事件发生位置 到 精确的目标元素边缘的距离
+            pageX:  获取事件发生位置 到 文档边缘的距离
+            screenX: 获取事件发生位置 到 电脑屏幕边缘的距离
+        */
+
+        var oBox = document.getElementById('box');
+        //直接在事件函数中书写一个形参，就可以接受到event事件对象
+        oBox.onclick = function (e) {
+            // console.log(e.clientY);
+            console.log(e.offsetY);
+            // console.log(e.pageY);
+            // console.log(e.screenY);
+
+        }
+    </script>
+</body>
+
+</html>

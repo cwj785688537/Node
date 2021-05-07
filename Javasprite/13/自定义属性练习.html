@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <script>
+        /* 
+            随机点击几个li 然后点按钮，让刚才点击的Li变红
+        */
+       var oBtn = document.getElementById('btn')
+       var oListLis = document.querySelectorAll('.list li')
+
+       oListLis.forEach(function(item){
+           item.onclick = function(){
+               //当点击的时候 给当前元素做一个标记（自定义属性）
+            //    item.setAttribute('click',true)
+               item.dataset.click = true
+           }
+       })
+
+      /*  oBtn.onclick = function(){
+           //遍历所有的li 让有标记的元素变红
+           oListLis.forEach(function(item){
+               if(item.getAttribute('click')){
+                   item.style.background = 'red'
+                   //重置
+                   item.removeAttribute('click')
+               }else{
+                   item.style.background = '#fff'
+               }
+           })
+       } */
+
+       oBtn.onclick = function(){
+           //遍历所有的li 让有标记的元素变红
+           oListLis.forEach(function(item){
+               if(item.dataset.click){
+                   item.style.background = 'red'
+                   //重置
+                  delete item.dataset.click
+               }else{
+                   item.style.background = '#fff'
+               }
+           })
+       }
+    </script>
+</body>
+</html>

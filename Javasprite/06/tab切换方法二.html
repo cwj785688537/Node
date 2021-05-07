@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #outer {
+            width: 600px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            box-sizing: border-box;
+        }
+
+        #title {
+            display: flex;
+        }
+
+        #title h2 {
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid #000;
+            box-sizing: border-box;
+            font-size: 24px;
+            background-color: azure;
+            cursor: pointer;
+        }
+
+        #title h2.active {
+            background-color: red;
+            color: #fff;
+        }
+
+        #con li {
+            height: 400px;
+            line-height: 400px;
+            text-align: center;
+            font-size: 40px;
+            display: none;
+        }
+
+        #con li.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="title">
+            <h2 class="active">标题一</h2>
+            <h2>标题二</h2>
+            <h2>标题三</h2>
+        </div>
+        <ul id="con">
+            <li class="show">内容一</li>
+            <li>内容二</li>
+            <li>内容三</li>
+        </ul>
+    </div>
+    <script>
+        var oOuter = document.getElementById('outer')
+        var oH2s = oOuter.getElementsByTagName('h2')
+        var oCon = document.getElementById('con')
+        var oLis = oCon.getElementsByTagName('li')
+        //计算下标长度
+        for (var i = 0; i < oH2s.length; i++) {
+            oH2s[i].index = i
+        }
+        //外层的for是为了给所有的h2绑定点击事件
+        for (var i = 0; i < oH2s.length; i++) {
+            //给下标
+            oH2s[i].index = i
+            oH2s[i].onclick = function () {
+                //里层的for是为了改变所有的H2，判断哪个H2和当前点击的是同一个
+                for (var i = 0; i < oH2s.length; i++) {
+                    //清除所有样式
+                    oH2s[i].classList.remove('active')
+                    oLis[i].classList.remove('show')
+                }
+                //给当前元素添加样式
+                this.classList.add('active')
+                oLis[this.index].classList.add('show')
+            }
+        }
+    </script>
+</body>
+
+</html>

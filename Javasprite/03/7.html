@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        关系运算：
+            两个操作数进行比较，一定会返回一个布尔值
+            - 大小比较：> >= < <=
+        */
+
+        //数字
+        console.log(3>2)
+        console.log(-3>2)
+
+        console.log('-----------------')
+        // 有一个字符串，一个Number，则都转为number比较 NaN和任意类型比较都是false
+        console.log(3>'3')
+        console.log(3>'32')
+        console.log(3>'a')
+        console.log(3<='a')
+
+        console.log('-----------------')
+        // 有两个字符串
+        // 按照asc码进行按照顺序依次比较，如果比较出结果，则直接停止
+        // 小写字母>大写字母>数字
+        console.log('3'>'23')
+        console.log('ab'>'ac')
+        console.log('a'>'A')
+
+        console.log('-----------------')
+        // 其他
+
+        // 如果有一个布尔值，则转为数字比较
+        console.log(true>3)
+        console.log(true>'3')
+
+        console.log('-----------------')
+        // null转数字
+        console.log(null>3)
+        console.log(null<'3')
+
+        console.log('-----------------')
+        // undefined转数字为NaN，和任意值比较都是false
+        console.log(undefined>3)
+        console.log(undefined>=3)
+        console.log(undefined<'3')
+        console.log(undefined<='3')
+
+        console.log('-----------------')
+        // Object和number 则转number
+        console.log([]>3)
+        console.log([]<=3)
+        console.log([1]<=3)
+        console.log([1,2]<3)
+
+        console.log('-----------------')
+        // obj和string比较，则转string
+        console.log([1,2]<='3')
+        console.log([1,2]>'3')
+        console.log({}<='3')
+        console.log({}>'3')
+
+        console.log('-----------------')
+        // ojb之间，转string
+        console.log({}<=[])
+        console.log({}>[])
+
+        console.log('-----------------')
+        // 如果obj和另外一个不是字符串和ogj类型的值，则都转number
+        console.log({}>true)
+        console.log({}<=true)
+    </script>
+</body>
+</html>

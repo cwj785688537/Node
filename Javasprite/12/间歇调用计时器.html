@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            间歇调用计时器：
+                setInterval方法
+                第一次执行就是延迟执行的
+
+            取消：
+                clearInterval(timerID)
+        */
+
+        var timerID = setInterval(function(){
+            console.log('nihao');
+        },1000)
+
+        console.log(timerID);
+
+        document.onclick = function(){
+            clearInterval(timerID)
+        }
+    </script>
+</body>
+</html>

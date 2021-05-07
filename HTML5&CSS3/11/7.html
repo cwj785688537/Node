@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: #333;
+        }
+        ul{
+            width: 1010px;
+            /* border: 1px solid red; */
+            margin: 50px auto;
+            padding: 0;
+            font-size: 0;
+            list-style-type: none;
+        }
+        ul li{
+            float: left;
+            margin-left: 10px;
+            margin-right: 10px;
+            position: relative;
+        }
+        ul li a{
+            display: block;
+           
+           
+        }
+        ul::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        ul li a::after{
+            display: none;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            border: 10px solid rgba(255, 255, 255, .5);
+        }
+        ul li a:hover::before{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+   <ul>
+       <li>
+           <a href="#">
+               <img src="../../picture/12/img/x1.jpg">
+            </a>
+       </li>
+       <li>
+        <a href="#">
+           <img src="../../picture/12/img/x2.jpg">
+        </a>
+       </li>
+       <li>
+        <a href="#">
+           <img src="../../picture/12/img/x3.jpg">
+        </a>
+       </li>
+   </ul>
+</body>
+</html>

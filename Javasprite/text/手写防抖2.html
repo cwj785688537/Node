@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function debounce(fn, time) {
+            var timer = null
+            return function ({
+                //清除计时器
+                clearTimeout(timer)
+
+            //因为计时器里的this指向window，所以用一个变量保存this
+            var _this = this
+            var arg = arguments[0]
+            console.log(arg);
+            //当事件触发后，定义一个延时计时器，让核心代码延迟执行
+            timer = setTimeout(function () {
+                fn.call(_this, arg)
+            }, time)
+        })
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>1</li>
+            <li id="two">2</li>
+            <p></p>
+            <li id="three">3</li>
+            <li id="four">4</li>
+        </ul>
+    </div>
+    <script src="./jquery-1.12.4.js"></script>
+    <script>
+        console.log($('ul').children());//找到ul下的所有子元素
+        console.log($('ul').find('#two'));//找到ul下的指定子元素
+        console.log($('#two').siblings());//找到li下的所有兄弟元素
+        console.log($('#two').siblings('#three'));//找到li下的指定的兄弟元素
+        console.log($('#two').parent());//找到li下的父元素
+        console.log($('li').eq(2));//根据下标找到指定的li标签
+        console.log($('li').index());//返回下标 注意：如果对象中包含了多个DOM对象，那么返回的就是第一个DOM对象的下标
+    </script>
+</body>
+</html>

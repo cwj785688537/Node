@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <script>
+        //拓展运算符在数组中的使用
+        // let arr = [1,2,3]
+
+        // console.log(...arr);
+        // console.log([1,2,3,...[4,5,6],7]);
+
+        // function fn(x,y,z){
+        //     console.log(x,y,z);
+        // }
+        // fn(...arr)
+
+        // 复制数组
+        // let newArr = [...arr]
+        // console.log(newArr);
+        // console.log(newArr === arr);
+
+        //合并数组
+        // let arr1 = ['a','b','c']
+        // let newArr = [...arr,...arr1]
+        // console.log(newArr);
+
+        //字符串转为数组
+        // let str = 'abcd'
+        // let newArr = [...str]
+        // console.log(newArr);
+
+        // Array的静态方法
+        // 1.将伪数组转成数组 Arry.from(伪数组)
+        // let lis = document.getElementsByTagName('li')
+        // // console.log(lis);
+        // // 把伪数组转成数组
+        // let newArr = Array.from(lis)
+        // console.log(newArr);
+        // newArr.forEach(function(item,index){
+        //     console.log(item,index);
+        // })
+
+        // Array.of(数字，数字)将数字转成数组
+        // let arr1 = Array.of(1,2,3,4)
+        // console.log(arr1);
+        // let arr2 = Array.of(1)
+        // console.log(arr2);
+
+        // arr.form(lis)
+
+        //find和findIndex
+        // let arr = ['a','b','c','d']
+        let arr = [{name:'hj'},{name:'ph'},{name:'tt'}]
+        //返回指定元素
+        let re = arr.find(function(item,index){
+            console.log(item,index);
+            // 当返回结果是true的时候，后面就不会遍历了，就将当前的item返回
+            return item.name === 'ph'
+        })
+        console.log(re);
+
+        //返回下标
+        let index = arr.findIndex(function(item,index){
+            return item.name === 'ph'
+        })
+        console.log(index);
+    </script>
+</body>
+</html>

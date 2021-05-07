@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">切换</button>
+    <script>
+        /* 
+        逻辑非：!
+            -!A
+            - 逻辑非返回的是布尔值，先把A转换为布尔值，然后取反
+        */
+       console.log(!0)
+       console.log(!'')
+       console.log(!1)
+       console.log(!"1")
+
+       console.log('-----------------')
+       /* 
+            点击按钮切换颜色，默认为红色
+            每次点击按钮的时候切换颜色
+
+            1.获取元素
+            2.定义一个开关
+            3.绑定按钮
+            4.每次点击的时候，判断开关的状态
+       */
+      var oBtn = document.getElementById('btn')
+      var flag = true;//定义一个开关，默认true为红色
+      oBtn.onclick = function(){
+        //   每次点击的时候，判断开关状态
+        if(flag){
+            document.body.style.backgroundColor = "green"
+        }else{
+            document.body.style.backgroundColor = "red"
+        }
+        flag = !flag
+      }
+
+      console.log('-----------------')
+    //   输入手机号，如果为纯数字，则弹出成功，否则没有效果
+    var tel = '123456'
+    if(!isNaN(tel)){
+        alert('成功')
+    }
+    </script>
+</body>
+</html>

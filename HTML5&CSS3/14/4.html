@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            margin: 0;
+            position: relative;
+        }
+        div{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 150px;
+            height: 150px;
+            /* border: 1px solid red; */
+          
+        }
+        div::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 105px;
+            height: 150px;
+            /* border: 1px solid green; */
+            border-radius: 50% 50% 0 0;
+            background-color: red;
+            /* transform: rotate(-49deg); */
+            animation-name: heart-left;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+        div::after{
+            content: '';
+            position: absolute;
+            right: 0px;
+            width: 105px;
+            height: 150px;
+            /* border: 1px solid blue; */
+            border-radius: 50% 50% 0 0;
+            background-color: red;
+            /* transform: rotate(49deg); */
+            animation-name: heart-right;
+          animation-duration: 1s;
+          animation-iteration-count: infinite;
+        }
+        @keyframes heart-left{
+            0%{
+                transform: scale(1,1);
+                transform: rotate(-49deg);
+            }
+            30%{
+                transform: scale(1.1,1.1);
+                transform: rotate(-48deg);
+            }
+            50%{
+                transform: scale(1,1);
+                transform: rotate(-49deg);
+            }
+            75%{
+                transform: scale(1.1,1.1);
+                transform: rotate(-48deg);
+            }
+            80%{
+                transform: scale(1,1);
+                transform: rotate(-49deg);
+            }
+            100%{
+                transform: scale(1.1,1.1);
+                transform: rotate(-48deg);
+            }
+        }
+        @keyframes heart-right{
+            0%{
+                transform: scale(1,1);
+                transform: rotate(49deg);
+            }
+            30%{
+                transform: scale(1.1,1.1);
+                transform: rotate(48deg);
+            }
+            50%{
+                transform: scale(1,1);
+                transform: rotate(49deg);
+            }
+            75%{
+                transform: scale(1.1,1.1);
+                transform: rotate(48deg);
+            }
+            80%{
+                transform: scale(1,1);
+                transform: rotate(49deg);
+            }
+            100%{
+                transform: scale(1.1,1.1);
+                transform: rotate(48deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

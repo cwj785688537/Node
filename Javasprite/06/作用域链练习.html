@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* //demo1
+        var v = "hello";
+       (function () {
+           alert(v); //undefined
+           var v = "world";
+       })();
+       alert(v); //hello */
+
+        //demo2
+        /*  (function () {
+             alert(a + b + c); //NaN
+             var a = "1";
+             var f = function () {};
+             var b = "2";
+             var c = "3";
+         })(); */
+
+        /*   //demo3
+          (function () {
+              f2(); //1
+              f1(); //f1 is not a function 因为f1是已经声明了的变量，不是函数
+              var f1 = function () {
+                  alert(2)
+              };
+  
+              function f2() {
+                  alert(1);
+              }
+          })(); */
+
+        //demo4
+        /* var a = 1;
+
+        function outer() {
+            var b = 2;
+
+            function inner() {
+                var c = 4;
+                alert(a); //1
+            }
+            inner();
+        }
+        outer(); */
+
+        //demo5
+        /*  var a = 1;
+ 
+         function check() {
+             a = 100; //
+             alert(a); //100
+         }
+         check();
+         alert(a); //100 */
+
+        //demo6
+        /*   var v = "hello";
+          if (true) {
+              alert(v); //hello
+              var v = "world";
+          }
+          alert(v); //world */
+
+        //demo7
+        /* function rain() {
+            var x = 1;
+
+            function man() {
+                x = 100;
+            }
+            man();
+            alert(x); //100
+        }
+        rain();
+        console.log(x)//因为全局没有声明x，所以打印x会报错 */
+
+        /*  //demo8
+         var x = 1;
+ 
+         function rain() {
+             alert(x); //undefined
+             var x = 'man';
+             alert(x); //'man'
+         }
+         rain()
+  */
+
+        /*  //demo9
+         function rain() {
+             //当页面中没有出现声明某个变量，而直接赋值，则这个变量是全局变量
+              x = 100;
+         }
+         rain();
+         alert(x); //100 */
+
+        /*   //demo10
+          var t = 'a';
+  
+          function test2() {
+              alert(t); //undefined
+              var t = 'b';
+              alert(t); //'b'
+          }
+          test2(); */
+
+        /*  //demo11
+         var t = 'a';
+ 
+         function test2() {
+             alert(t); //'a'
+             t = 'b';
+             alert(t); //'b'
+         }
+         alert(t); //'a'
+         test2();
+         alert(t); //'b' */
+
+        /*  //demo12
+         var a = "Hello";
+ 
+         function test() {
+             alert(a); //Hellw
+             a = "World";
+             alert(a); //World
+         }
+         test(); */
+
+        //demo13
+        /*  var a = 1;
+ 
+         function test() {
+             alert(a); //undefined
+             a = 4;
+             alert(a) //4
+             var a = 2;
+             alert(a); //2
+         }
+         test();
+         alert(a); //1 */
+
+
+        //1   -10
+        //  求1-n之间所有数的和
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        #btn{
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">点我</button>
+    <script>
+        /* 
+            获取系统滚动条的位置：
+                - IE9+：window.pageXOffset/window.pageYOffset
+                - IE6+:Html元素的scrollTop或者scrollLeft属性
+                - IE6：body元素的scrollTop
+
+            设置系统滚动条：
+                - IE6+：给Html元素的scrollTOP或者scrollLeft属性设置
+                - IE6：Body元素的scrollLeft设置
+                - 全兼容：window.scrollTo(x,y):设置系统滚动条，X是横向 Y是竖向
+        */
+
+        var oBtn = document.getElementById('btn')
+        oBtn.onclick = function(){
+            // console.log(window.pageYOffset);
+            // console.log(document.documentElement.scrollTop);
+            // console.log(document.body.scrollTop);
+
+            // document.documentElement.scrollTop = 300
+            window.scrollTo(0,500)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        Math.random():生成随机数[0,1)
+        */
+
+        for (var i = 0; i < 30; i++) {
+            // console.log(Math.random());
+        }
+
+        //生成一个[0，100）的随机整数
+        for (var i = 0; i < 30; i++) {
+            // console.log(Math.floor(Math.random() * 100));
+        }
+
+        //生成一个[40，100）的随机整数
+        for (var i = 0; i < 30; i++) {
+            // console.log(Math.floor(Math.random() * 60 + 40));
+        }
+
+        //封装生成[a,b)的随机正整数
+        function random(a,b){
+            return Math.floor(Math.random()*(b-a)+a)
+        }
+        console.log(random(10,50));
+    </script>
+</body>
+
+</html>

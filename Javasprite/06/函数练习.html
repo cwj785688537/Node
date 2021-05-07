@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*   //数值互换
+          //1
+          var a = 1
+          var b = 2
+          var c = a
+          a = b
+          b = c
+          //2
+          var a = 1
+          var b = 2
+          a = a + b//a是3
+          b = a - b//b是1
+          a = a - b//a变成2 */
+
+        /*  //求n-m之间所有数的和
+         function sum1(n, m) {
+             if (n > m) {
+                 n = n + m
+                 m = n - m
+                 n = n - m
+             } else {
+                 var cont = 0
+                 for (var i = n; i <= m; i++) {
+                     cont += i
+                 }
+             }
+             return cont
+         }
+         var re = sum1(100,300)
+         console.log(re) */
+
+        //求1-n之间所有数的和
+
+        /* var sum = 0
+        function sum2(n) {
+            if (n > 0) {
+                for (var i = 1; i <= n; i++) {
+                    sum += i
+                }
+            } else{
+                    for (var i = 1; i >= n; i--) {
+                        sum += i
+                    }
+                }
+                return sum
+            }
+        
+        var re = sum2(1)
+        console.log(re) */
+
+
+
+       /*  //圆的面积
+        var sum = 0
+        function circle(n){
+            if(n>0){
+                sum = 3.14*n*n
+            }else{
+                alert('请输入正确的数字')
+            }
+            return sum
+        }
+        var re = circle(8)
+        console.log(re) */
+
+       /*  //求两个数中的最大值
+        function sum2(n,m){
+            if(n>m){
+               alert(n)
+            }else if(n=m){
+               alert(n)
+            }else{
+                alert(m)
+            }
+          
+        }
+       sum2(3,3) */
+
+       /*  //求3个数中的最大值
+        function a(a,b,c){
+            if(a>b&&a>c){
+                alert(a)
+            }else if(b>a&&b>c){
+                alert(b)
+            }else if(c>a&&c>b){
+                alert(c)
+            }else{
+                alert(a)
+            }
+        }
+        a(1,6,3) */
+
+        //判断一个数是否是素数（又叫质数，只能被1和自身整除的数）
+        function a(n){
+            if(n%1===n&&n%n===0){
+                alert(n)
+            }else{
+                alert('请输入素数')
+            }
+        }
+        a(9)
+    </script>
+</body>
+
+</html>

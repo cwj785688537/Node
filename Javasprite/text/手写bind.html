@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            手写bind:
+                作用：
+                    1.返回了一个改变this指向的 调用bind的那个函数
+        */
+
+        Function.prototype.myBind = function(context){
+            //bind返回了一个函数，当未来调用这个函数的时候，把fn的this改变，并且调用fn
+            //在这个位置的this就是调用mybind的函数fn this
+            var _this = this
+            //拿到给fn传递到参数
+            var argArr = Array.from(arguments).slice(1)
+            return function(){
+                //在这里用函数外的this拿到fn
+                _this.apply(context,argArr)
+            }
+        }
+
+       function fn(a,b){
+           console.log(a+b);
+           console.log(this);
+       }
+
+       var re = fn.bind(1,1,2)
+       re()
+
+       var re2 = fn.myBind(1,1,2)
+       console.log(re2);
+       re2()
+       
+       var re3 = fn.myBind(1,[1,2])
+       re3()
+    </script>
+</body>
+</html>

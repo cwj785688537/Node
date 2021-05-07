@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 需求：将一个数组中的值，储存到一个对象中
+        // var arr = ['a','b','c'] ==> {a:0,b:1,c:3}
+        var arr = ['a', 'b', 'c']
+        /*  //定义一个空对象
+         var obj = {}
+         //遍历数组，在遍历的过程中，给对象添加属性和值
+         arr.forEach(function(item,index){
+             obj[item] = index
+         })
+         console.log(obj); */
+
+        /* 
+            使用reduce
+                - 数组中有几个元素，reduce的回调函数就会执行几次
+                - 第一次回调函数执行，就会吧intiValue，赋值给pre
+                - 第二次回调函数执行，就会把上一次回调函数返回的结果，赋值给pre
+                - 第三次回调函数执行，会把上一次回调函数返回的结果，赋值给pre
+                - 当reduce遍历数组完毕，会将最后一次的pre返回出去
+        */
+        var obj = arr.reduce(function (pre, item, index) {
+            console.log(pre);
+            pre[item] = index
+            return pre
+        }, {})
+        console.log(obj);
+
+        //输出arr所有元素累加的结果
+        var arr = [1, 5, 8, 4, 2] //20
+        var res = arr.reduce(function (pre, item) {
+            return pre + item
+        }, 0)
+        console.log(res)
+    </script>
+</body>
+
+</html>

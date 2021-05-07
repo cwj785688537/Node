@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点我</button>
+    <div id="box" data-study='js' data-you='hello' eat='tea'></div>
+    <script>
+        /* 
+            首先html5规定，自定义属性需要用data-为前缀
+            使用html5规定设置自定义属性的时候，也会自动添加data-前缀
+
+            每一个元素都有一个dataset属性，这个属性是一个对象，包含了当前元素所有的自定义属性的key-value值
+
+            只要对元素的dataset属性操作，则就可以对当前元素的自定义属性操作了 
+        
+        */
+
+        var oBtn = document.getElementById('btn')
+        var oBox = document.getElementById('box')
+
+        oBtn.onclick = function(){
+            console.log(oBox.dataset);//带data的前缀的属性可以打印出来
+
+            //添加
+            oBox.dataset.drink = 'alittle-tea'
+
+            //删除 删除dataset对象的某个属性即可
+            delete oBox.dataset.you
+
+            //获取
+            console.log(oBox.dataset.study);
+        }
+    </script>
+</body>
+</html>

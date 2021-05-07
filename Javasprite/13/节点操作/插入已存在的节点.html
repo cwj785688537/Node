@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oList = document.querySelector('.list');
+        var oListLis = document.querySelectorAll('.list li');
+        /* 
+            插入节点
+                - A.appendChild(B)
+                    在A元素内部的末尾 添加B节点
+
+                - A.insertBefore(new,old)
+                    new和old都是A的子节点
+                    把new插入到old的前边
+                    new和old是兄弟关系
+        */
+
+        var oBtn = document.getElementById('btn')
+        oBtn.onclick = function () {
+            //把已经存在的oListLis[1]的元素插入到父元素的最下边，原来的元素将被移动，原来的位置被后面元素覆盖
+            // oList.appendChild(oListLis[1])
+
+            //循环添加元素
+            var newSpan = document.createElement('span')
+            newSpan.innerHTML = '我是span'
+
+            for (var i = 0; i < oListLis.length; i++) {
+                oListLis[i].appendChild(newSpan)
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        #returnTop {
+            width: 100px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: aqua;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            text-align: center;
+            line-height: 50px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="returnTop">回到顶部</div>
+    <script>
+        //监听滚动条，当滚动条高度大于300的时候显示，小于300的时候消失
+        window.onscroll = function(){
+            //每次滚动条滚动的时候，就获取一次滚动条的位置
+            var winScroll = window.pageYOffset
+            // var winScroll = scrollTop
+            if(winScroll > 300){
+                oReturnTop.style.display = 'block'
+            }else{
+                oReturnTop.style.display = 'none'
+            }
+        }
+
+
+        var oReturnTop = document.getElementById('returnTop')
+        var returnTopTimer
+        //绑定点击事件
+        oReturnTop.onclick = function(){
+            //起始位置
+            var startLocation = window.pageYOffset
+            //结束位置
+            var endLocation = 0
+            //起始步数
+            var startStep = 0
+            //结束步数
+            var endStep = 30
+            //每一步走的距离
+            var everyStep = (endLocation - startLocation) / endStep
+
+            //动画
+            returnTopTimer = setInterval(function(){
+                startLocation += everyStep
+                //临界值
+                startStep++
+                if(startStep >= endStep){
+                    //步数走完了就清除计时器
+                    clearInterval(returnTopTimer)
+                }
+                //赋值操作
+                window.scrollTo(0,startLocation)
+            },1)
+        }
+    </script>
+</body>
+
+</html>

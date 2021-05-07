@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 判断两个数，如果有一个是非数字，则提示用户，否则就计算两个数字的和
+        var a = '1a'
+        var b = '5'
+        if(isNaN(a) || isNaN(b)){
+            alert('至少有一个非法值')
+        }else{
+            alert(Number(a)+Number(b))
+        }
+    </script>
+</body>
+</html>

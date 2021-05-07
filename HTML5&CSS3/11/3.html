@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        #radio{
+            /* border: 1px solid red; */
+            margin: 0 auto;
+            padding: 0;
+            width: 400px;
+            list-style-type: none;
+        }
+        #radio li input[type="radio"][name="hehe"]{
+            display: none;
+        }
+        #radio li input[type="radio"][name="hehe"] + label{
+            display: block;
+            /* border: 1px solid blue; */
+            width: 400px;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 20px;
+            vertical-align: middle;
+            font-size: 14px;
+
+        }
+        #radio li input[type="radio"][name="hehe"] + label::before{
+            display: inline-block;
+            content: "";
+            height:20px ;
+            width: 20px;
+            border:1px solid #DE8650 ;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+        #radio li input[type="radio"][name="hehe"]:checked + label::before{
+            content:"√";
+            display: inline-block;
+            background-color: #DE8650;
+            color: #fff;
+            height:20px ;
+            line-height: 20px;
+            width: 20px;
+            border:1px solid #DE8650 ;
+            vertical-align: middle;
+            text-align: center;
+        }
+        #radio li input[type="radio"][name="hehe"][id="chou"]:checked + label::after{
+            display: inline-block;
+            content: "小伙子，你说的真对啊！";
+            font-size: 12px;
+            color: #DE8650;
+        }
+    </style>
+</head>
+<body>
+    <ul id="radio">
+        <li>
+            <input type="radio" name="hehe" id="shuai">
+            <label for="shuai">xxx真帅！</label>
+        </li>
+        <li>
+            <input type="radio" name="hehe" id="yingjun">
+            <label for="yingjun">xxx真英俊！</label>
+        </li>
+        <li>
+            <input type="radio" name="hehe" id="you">
+            <label for="you">xxx又帅又英俊！</label>
+        </li>
+        <li>
+            <input type="radio" name="hehe" id="chou">
+            <label for="chou">闫海静真丑！</label>
+        </li>
+    </ul>
+</body>
+</html>

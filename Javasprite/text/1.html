@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [
+            { method: 'get', fn: function () { console.log('输出1', this) } },
+            { method: 'get', fn: function () { console.log('输出2', this) } }
+        ]
+
+        Array.prototype.forEach = function (cb) {
+            console.log(this,'---------this')//arr
+            for (let i = 0; i < this.length; i++) {
+                const { method, fn } = this[i]
+                //this指向arr
+                cb.call(this, fn.bind(this), method)
+                // cb(fn,method)
+            }
+        }
+
+        // // map filter reduce indexOf sort reverse
+        arr.forEach(function (fn, method) {
+            console.log(this, 'this')//arr+'this'  //window
+            fn()//arr                               //window
+            console.log(method)//get
+        })
+
+        /* 
+        arr，this
+        
+        */
+    </script>
+</body>
+
+</html>

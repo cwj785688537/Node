@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            js继承：
+                当一个对象可以使用另外一个对象的属性和方法的时候，我们称作为继承
+        */
+
+        var o1 ={
+            name:'laowang',
+            do:function(){
+
+            }
+        }
+        var o2 = {
+
+        }
+        //如果经过一系列操作，o2可以使用o1的属性和方法，则我们称作继承
+        console.log(o2.name);
+        console.log(o2.do);
+
+        /* 
+            js继承：面向对象中的继承（类的继承）
+        */
+
+        //封装一个Person类（父类，超类）
+        function Person(name,age,sex){
+            this.name = name
+            this.age = age
+            this.sex = sex
+        }
+        Person.prototype.eat = function(){
+            console.log('吃饭');
+        }
+
+        //封装一个Student类（子类，派生类）
+        function Student(classRoom,name,age,sex){
+            /* 
+                - 构造函数继承
+                - 让父类的构造函数中的this指向当前的实例化对象（this）
+                - 调用Person函数，并把Person函数的this指向当前构造函数的this
+            */
+
+            Person.call(this,name,age,sex)
+            this.classRoom = classRoom
+        }
+
+        //原型链继承
+        //如果按照以下这种方法写，则student和Person将共享一个原型对象，子类修改也会影响父类
+        //Stdent.prototype = Person.prototype //重写原型对象
+        //Person的实例化对象也是可以访问Person.prototype，所以我们可以把父类的实例化对象赋值给子类的原型对象
+        Student.prototype = new Person()
+        //虽然实现了继承，但是构造器属性出现了问题
+        // console.log(Student.prototype.constructor);
+        //修正子类原型对象的构造器指向
+        Student.prototype.constructor = Student
+
+        Student.prototype.study = function(){
+            console.log('学习');
+        }
+
+        var s1 = new Student(321,'laowang',18,'nan')
+        console.log(s1);
+        console.log(s1.name);
+        console.log(s1.eat);
+        console.log(s1.study);
+        console.log(s1.constructor);
+
+        var p1 = new Person()
+        console.log(p1.eat);
+        console.log(p1.study);
+    </script>
+</body>
+</html>

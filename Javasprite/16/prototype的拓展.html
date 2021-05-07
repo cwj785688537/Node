@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            一旦我们把方法扩展到构造函数的原型上，则所有的实例化对象就都能够使用
+        */
+       String.prototype.trimAll = function(){
+           //在原型对象的方法中，this指向调用当前方法的实例化对象
+           var newStr = ''
+           for (var i = 0; i < this.length; i++) {
+               if(this[i] === ' '){
+                   continue
+               }
+               newStr += this[i]
+           }
+           return newStr
+       }
+
+       var str1 = '1 232 34  324'
+       console.log(str1.trimAll());
+
+       Array.prototype.szqxqc = function(){
+           this.sort(function(a,b){
+               return a-b
+           })
+           console.log(this);
+
+           var newArr = []
+           for (var i = 0; i < this.length; i++) {
+               if(this[i] === this[i+1]){
+                   continue
+               }
+               newArr.push(this[i])
+           }
+           return newArr
+       }
+
+       var arr = [1,2,3,4,,3,2,,2,4,5,,3]
+       console.log(arr.szqxqc());
+    </script>
+</body>
+</html>

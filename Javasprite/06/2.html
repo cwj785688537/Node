@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       //封装一个函数 打印this
+       //this指向其所在函数的调用者 如果没有则指向window
+       function fn1(){
+           console.log(this)
+       }
+       //this和函数的调用方式相关
+       fn1()//直接调用 window
+
+       //把函数写在对象中
+       var obj = {
+           name:'xiaowang',
+           do:fn1,
+           eat:function(){
+               console.log(this)
+               fn1()
+           }
+       }
+       obj.do()//上下文对象调用
+       obj.eat()//这里的this是指obj
+
+       var f = obj.do//因为使用了变量将obj获取，所以指向的是window
+       f()
+
+       document.onclick = fn1//事件函数 上下文调用 document
+
+       function inner(){
+           console.log(this)//window
+       }
+       function outer(){
+           var b=inner()
+
+       }
+       outer()
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            overflow: hidden;
+            
+        }
+        #inner{
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+    <script>
+        /* 
+            阻止传播：
+                主流浏览器：e.stopPropagation()
+                低版本IE：e.cancelBubble = true
+
+                只能阻止当前事件的传播
+        */
+       var oInner = document.getElementById('inner')
+       var oOuter = document.getElementById('outer')
+
+       oInner.onmouseup = function(e){
+           console.log('抬起');
+       }
+       oInner.onmousedown = function(e){
+           console.log('按下');
+       }
+       oInner.onclick = function(e){
+           //因为需要阻止的是onclick事件，所以要阻止传播在写在onclick事件上
+           e.stopPropagation()
+       }
+
+
+       oOuter.onclick = function(e){
+           console.log('点击事件');
+       }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">按钮1</button>
+    <button id="btn2" onclick="fn()">按钮2</button>
+    <script>
+        /* 
+            静态绑定：在程序执行前方法已经被绑定
+            动态绑定：当事件被执行后才进行绑定
+        */
+        var oBtn1 = document.getElementById('btn1')
+        var oBtn2 = document.getElementById('btn2')
+
+        //基本事件模型的 动态绑定
+        //把一个函数赋值给了事件属性，并且当事件发生的时候，函数自动执行
+        oBtn1.onclick = function(){
+
+        }
+
+        //静态绑定
+        function fn(){
+            alert(1)
+        }
+    </script>
+</body>
+</html>

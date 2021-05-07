@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 1000px;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box')
+
+        oBox.onmousedown = function (e) {
+            //鼠标按下后 获取当前元素的定位的位置
+            var oBoxPoint = {
+                x: oBox.offsetLeft,
+                y: oBox.offsetTop
+            }
+            //获取当前按下时候的clientX
+            var mouseToWin = {
+                x: e.clientX,
+                y: e.clientY
+            }
+            //绑定鼠标移动事件
+            document.onmousemove = function (e) {
+                //鼠标移动的时候 一直获取最新的clientX 减去按下时候的clientX得到移动的差值，再加上原来的位置，就得到最新的位置
+                var oBoxLocation = {
+                    left: e.clientX - mouseToWin.x + oBoxPoint.x,
+                    top: e.clientY - mouseToWin.y + oBoxPoint.y
+                }
+                //临界值判断
+                if (oBoxLocation.left <= 0) {
+                    oBoxLocation.left = 0
+                } else if (oBoxLocation.left >= document.documentElement.clientWidth - oBox.offsetWidth) {
+                    oBoxLocation.left = document.documentElement.clientWidth - oBox.offsetWidth
+                }
+
+                if (oBoxLocation.top <= 0) {
+                    oBoxLocation.top = 0
+                } else if (oBoxLocation.top >= document.documentElement.clientHeight - oBox.offsetHeight) {
+                    oBoxLocation.top = document.documentElement.clientHeight - oBox.offsetHeight
+                }
+
+                //赋值操作
+                oBox.style.left = oBoxLocation.left + 'px'
+                oBox.style.top = oBoxLocation.top + 'px'
+            }
+
+            //当松开的时候，要把move事件给取消
+            document.onmouseup = function(){
+                //因为每次重新按下的时候，都是绑定up和move事件，所以当用户up的时候，可以把up和move事件全部移除
+                document.onmousemove = null
+                document.onmouseup = null
+                document.onmousedown = null
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            margin: 300px;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+            getBoundingClientRect()
+                - 获取一个元素到视口的距离
+
+                - 得到是一个对象
+                    - left属性：获取元素的左边缘到视口左边缘的距离
+                    - right属性：获取元素右边到视口左边缘的距离
+                        （right比left多了一个元素的宽度+padding+两个边框）
+
+                    - top和bottom是同理
+
+                    - width和height属性是（content+padding+border）
+        */
+       var oBox = document.getElementById('box')
+       
+       console.log(oBox.getBoundingClientRect());
+    </script>
+</body>
+</html>

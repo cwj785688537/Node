@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        div:first-of-type{
+            height: 956px;
+            background-image: url(../../picture/12/01.jpg);
+            background-position: top center;
+            background-repeat: no-repeat;
+        }
+        div:nth-of-type(2){
+            height:321px ;
+            background-image: url(../../picture/12/02.png);
+            background-position: top center;
+            background-repeat: no-repeat;
+        }
+        div:nth-of-type(3){
+            height: 600px;
+            background-image: url(../../picture/12/03.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        div:last-of-type{
+            position: relative;
+            /* border: 1px solid red; */
+            margin: 0 auto;
+            height: 584px;
+            width: 960px;
+        }
+        div:last-of-type::before{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: '';
+            display: block;
+            /* border: 1px solid blue; */
+            width: 664px;
+            height: 763px;
+            background-image: url(../../picture/12/05.png);
+        }
+        div:last-of-type::after{
+            position: absolute;
+            width: 487px;
+            height: 107px;
+            content: '';
+            display: block;
+            background-image: url(../../picture/12/04.png);
+            top:120px;
+            right: 0px;
+
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

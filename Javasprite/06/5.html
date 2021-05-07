@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        创建对象的注意事项
+        字面量方法创建对象，这种方法创建对象的时候，可以直接书写属性在对象中
+        对象章书写属性的格式是 key:value
+        对象的value可以使任意类型
+        对象的key其实是可以当做字符串解析的，不过不可以添加引号
+        */
+       var a = 'hello'
+       var obj1 = {}
+       var obj1 = {
+           name:'laowang',
+           age:20,
+           girl:{
+            name:'gebi',
+            age:18
+           }
+       }
+       console.log(obj1)
+
+       //实例化创建对象，这种方法创建对象添加类名，只能一个个添加了，不能在创建的时候添加
+       var obj2 = new Object()
+       console.log(obj2)
+    </script>
+</body>
+</html>

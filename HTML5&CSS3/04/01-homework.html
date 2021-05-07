@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            button,.dl{
+                margin-left: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="./input.html" method="GET">
+        <label for="email">邮箱地址</label>
+        <input type="text" name="youxiang" id="email"><br>
+        <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+        <input type="password" name="mima" id="password"><br>
+        <label for="renpassword">确认密码</label>
+        <input type="password" name="queren" id="renpassword"><br>
+        上传头像
+        <input type="file" multiple><br>
+        性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别
+        <label for="man">男</label>
+        <input type="radio" name="xingbie" value="nan"id="man">
+        <label for="women">女</label>
+        <input type="radio" name="xingbie"  value="nv" id="women"><br>
+        兴&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;趣
+        <label for="ds">登山</label>
+        <input type="checkbox" name="xingqu" value="dengshan" id="ds">
+        <label for="jy">郊游</label>
+        <input type="checkbox" name="xingqu" value="jiaoyou" id="jy">
+        <label for="dy">钓鱼</label>
+        <input type="checkbox" name="xingqu" value="diaoyu" id="dy">
+        <label for="yy">养鱼</label>
+        <input type="checkbox" name="xingqu" value="yangyu" id="yy">
+        <label for="cw">饲养宠物</label>
+        <input type="checkbox" name="xingqu" value="chongwu" id="cw">
+        <label for="yx">网络游戏</label>
+        <input type="checkbox" name="xingqu" value="youxi" id="yx"><br>
+        国&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;家
+        <select name="country" >
+            <option value="zg">中国</option>
+            <option value="hg">韩国</option>
+            <option value="rb">日本</option>
+        </select><br>
+        地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区
+        <select name="diqu" >
+            <optgroup label="中国地区">
+            <option value="sz">深圳</option>
+            <option value="gz">广州</option>
+            <option value="bj">北京</option>
+        </optgroup>
+            <optgroup label="韩国地区">
+            <option value="sr">首尔</option>
+            <option value="fs">釜山</option>
+            <option value="rc">仁川</option>
+        </optgroup>
+            <optgroup label="日本地区">
+            <option value="dj">东京</option>
+            <option value="db">大阪</option>
+            <option value="cq">川崎</option>
+        </optgroup>
+    </select><br>
+    备&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;注   
+    <textarea name="beizhu"></textarea><br>
+    <input  class="dl" type="image" src="../picture/194423-1613475863c1a0_s.jpg" width="100">
+    <button type="submit">登录</button>
+    <!-- <input type="submit" value="登录"> -->
+    </form>
+    </body>
+</html>

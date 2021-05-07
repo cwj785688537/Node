@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 800px;
+            height: 500px;
+            background-color: #eee;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        #box {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            left: 40px;
+            top: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="box"></div>
+    </div>
+    <script>
+        var oOuter = document.getElementById('outer')
+        var oBox = document.getElementById('box')
+
+        //初始化一个left的值，初始化一个开关 保存X的运动方向
+        var l = 40
+        var flagX = true //默认定义true向右
+
+        var t = 120
+        var flagY = true //默认定义true向下
+
+        setInterval(function () {
+            if (flagX) {
+                l++
+                //临界值判断：大盒子不带边框 - 小盒子带边框
+                if (l >= oOuter.clientWidth - oBox.offsetWidth) {
+                    flagX = !flagX
+                }
+            } else {
+                l--
+                if (l <= 0) {
+                    flagX = !flagX
+                }
+            }
+            // console.log(l);
+            if (flagY) {
+                t++
+                //临界值判断：大盒子不带边框 - 小盒子带边框
+                if (t >= oOuter.clientHeight - oBox.offsetHeight) {
+                    flagY = !flagY
+                }
+            } else {
+                t--
+                if (t <= 0) {
+                    flagY = !flagY
+                }
+            }
+            console.log(t);
+            oBox.style.top = t + 'px'
+            oBox.style.left = l + 'px'
+        }, 1)
+    </script>
+</body>
+
+</html>

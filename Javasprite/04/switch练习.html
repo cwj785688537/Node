@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    请输入用户的成绩
+    <input type="text" id="ipt">
+    <button id="btn">确定</button><br>
+    成绩是：<p id="con"></p>
+    <script>
+    /* 
+        在输入框中输入学员成绩，得到对应的等级
+        90-100 S
+        80-89 A
+        70-79 B
+        60-69 C
+        不及格 F
+        */
+        var oIpt = document.getElementById('ipt')
+        var oBtn = document.getElementById('btn')
+        var oCon = document.getElementById('con')
+
+        //绑定点击事件
+        oBtn.onclick = function () {
+            //获取用户输入的值，并转为number类型
+            var userCon = oIpt.value
+            //如果用户输入的值不是0-100之间，则提示直接输入
+            if (!(userCon >= 0 && userCon <= 100)) {
+                alert('请重新输入')
+                oIpt.value = ''
+                //return语句是直接退出当前函数，不再执行当前函数
+                return
+            }
+            //这里就是输入内容在范围内
+            switch (parseInt(userCon / 10)) {
+                case 10:
+                case 9:
+                    oCon.textContent = 'S'
+                    break
+                case 8:
+                    oCon.textContent = 'A'
+                    break
+                case 7:
+                    oCon.textContent = 'B'
+                    break
+                case 6:
+                    oCon.textContent = 'C'
+                    break
+                default:
+                    oCon.textContent = 'Z'
+            }
+        }
+    </script>
+</body>
+
+</html>

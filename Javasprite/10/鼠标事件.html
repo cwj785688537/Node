@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 500px;
+            background-color: red;
+            overflow: hidden;
+        }
+        #box #con1{
+            height: 100px;
+            margin: 100px 0;
+            background-color: yellow;
+        }
+        #box #con2{
+            height: 100px;
+            margin: 100px 0;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="con1"></div>
+        <div id="con2"></div>
+    </div>
+    <script>
+        /* 
+            鼠标事件：
+                mousedown:鼠标按下
+                mouseup:鼠标抬起
+                mousemove:鼠标在元素上移动
+                mouseover:鼠标移入
+                mouseenter:鼠标移入（没有冒泡）
+                mouseout:鼠标移出
+                mouseleave:鼠标移出（没有冒泡）
+        */
+       var oBox = document.getElementById('box')
+
+      /*  var lastTime = 0//初始化一个上一次的时间
+       oBox.onmousemove = function(){
+           var now = Date.now()
+           console.log(now-lastTime);
+           console.log('鼠标移动');
+
+           //把当前时间赋值给lastTime变成上一次的时间 方便下一次使用
+           lastTime = now
+       } */
+
+      /*  //冒泡，就是当鼠标进入元素最里层也会返回一个指令给最外层导致打印
+       oBox.onmouseover = function(){
+           console.log('mousemove');
+       }
+       oBox.onmouseout = function(){
+           console.log('mouseout');
+       }
+ */
+       oBox.onmouseenter = function(){
+           console.log('mouseenter');
+       }
+       oBox.onmouseleave = function(){
+           console.log('mouseleave');
+       }
+    </script>
+</body>
+</html>

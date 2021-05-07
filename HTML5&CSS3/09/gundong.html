@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #banner{
+            margin: 0 auto;
+            position: relative;
+            /* border: 1px solid red; */
+            width: 1130px;
+            height: 286px;
+            overflow: hidden;
+        }
+        #banner ul{
+            position: absolute;
+            margin: 0px;
+            padding: 0px;
+            width: 5650px;
+            height: 286px;
+            list-style-type: none;
+            left: 0px;
+        }
+        #banner ul li{
+            float: left;
+        }
+        #banner ul li a{
+            display: block;
+        }
+        #banner ul li img{
+            width: 1130px;
+            height: 286px;
+        }
+        .arrow-prev,.arrow-next{
+            position: absolute;
+            width: 42px;
+            height: 70px;
+            /* border: 1px solid red; */
+            top: 50%;
+            margin-top: -35px;
+            background-image: url(../../picture/09/img/icon-slides.png);
+            background-repeat: no-repeat;
+        }
+        .arrow-prev{
+            left: 0;
+            background-position: -84px 0;
+            
+        }
+        .arrow-next{
+            right: 0;
+            background-position: -126px 0;
+        }
+        #banner:hover .arrow-prev{
+            background-position: 0 0;
+        }
+        #banner:hover .arrow-next{
+            background-position: -42px 0;
+        }
+        #banner #bottom{
+            
+            position: absolute;
+            /* border: 1px solid red; */
+            width: 100px;
+            height: 10px;
+            left: 50%;
+            margin-left: -50px;
+            bottom: 30px;
+            
+        }
+        #banner #bottom div{
+            float: left;
+            /* border: 1px solid red; */
+            width: 10px;
+            height: 10px;
+            background-color:rgba(0,0,0,.3);
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        #banner #bottom div:first-child{
+            background-color: rgba(255, 255, 255, .5);
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <ul>
+            <li>
+                <a href="#">
+                <img src="../../picture/09/img/0121365f23ed70a80120a82197289b.png">
+            </a>
+            </li>
+            <li>
+                <a href="#">
+                <img src="../../picture/09/img/012f595f23ab03a80120a8218c8e64.png">
+            </a>
+            </li>
+            <li>
+                <a href="#">
+                <img src="../../picture/09/img/0148a25f23aaf6a801215aa038b8a3.png">
+            </a>
+            </li>
+            <li>
+                <a href="#">
+                <img src="../../picture/09/img/0149115f23ab31a80120a8212535f0.png">
+            </a>
+            </li>
+            <li>
+                <a href="#">
+                <img src="../../picture/09/img/015e9c5f23ab15a801215aa0795d4e.png">
+            </a>
+            </li>
+        </ul>
+    
+    <div class="arrow-prev"></div>
+    <div class="arrow-next"></div>
+    <div id="bottom">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</div>
+</body>
+</html>

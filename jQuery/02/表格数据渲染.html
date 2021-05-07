@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border: 1px solid #c0c0c0;
+        }
+
+        th,
+        td {
+            border: 1px solid #d0d0d0;
+            color: #404060;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #09c;
+            font: bold 16px '微软雅黑';
+            color: #fff;
+        }
+
+        td {
+            font: 14px '微软雅黑';
+        }
+
+        tbody tr {
+            background-color: #f0f0f0;
+        }
+
+        tbody tr:hover {
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+    </style>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            // 模拟从后台拿到的数据
+            var datas = [
+                {
+                    name: '海静',
+                    url: 'http://www.atguigu.com',
+                    type: '光头lsp',
+                },
+                {
+                    name: '沛华',
+                    url: 'http://www.atguigu.com.com',
+                    type: '渣男锡纸烫',
+                },
+                {
+                    name: '彤彤',
+                    url: 'http://web.atguigu.cn',
+                    type: '嘿嘿嘿',
+                },
+            ]
+            //给按钮绑定点击事件
+            $('#j_btnGetData').click(function () {
+                //使用数组拼接可以节省字符串的使用
+                var arr = []
+                //对数据进行遍历
+                datas.forEach(function (item, index) {
+                    //创建一个tr,再根据有几个数据创建几个td
+                    arr.push('<tr>')
+                    //对数据中的对象进行遍历
+                    for (var key in item) {
+                        arr.push('<td>')
+                        //将对象中的每一个数据放入当前td中
+                        arr.push(item[key])
+                        arr.push('</td>')
+                    }
+                    arr.push('</tr>')
+                })
+                //将拼接好的字符串放入tbody中
+                $('#j_tbData').html(arr.join(''))
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <input type="button" value="获取数据" id="j_btnGetData" />
+    <table>
+        <thead>
+            <tr>
+                <th>标题</th>
+                <th>地址</th>
+                <th>说明</th>
+            </tr>
+        </thead>
+        <tbody id="j_tbData"></tbody>
+    </table>
+</body>
+
+</html>

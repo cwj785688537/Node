@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        if判断的优化
+        有一个变量a和变量c，如果a大于3，则c为4，否则c为5
+        */
+        var a = 1,
+            c = 2;
+
+        //if
+        /* if (a > 3) {
+            c = 4;
+        } else {
+            c = 5;
+        }
+        console.log(c); */
+
+        //三元
+        /* a > 3 ? c = 4 : c = 5;
+        c = a > 3 ? 4 : 5; */
+
+        //短路原理
+        /* a>3 && (c=4)
+        a > 3 || (c=5)
+        console.log(c) */
+
+        a >3 && (c=4) || (c=5)
+        console.log(c)
+    </script>
+</body>
+</html>

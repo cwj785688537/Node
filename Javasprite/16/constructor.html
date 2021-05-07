@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            construtor:
+                构造器属性
+                默认存放在原型对象上
+                指向当前原型对象的构造函数
+
+                可以获取某个对象的构造器（构造函数）是谁
+        */
+
+        function Person(){
+
+        }
+
+        //只有Person的实例化对象才有可能访问到test
+        Person.prototype.test = function(){
+            console.log('test');
+        }
+        console.log(Person);
+        console.log(Person.prototype);
+        console.log(Person.prototype.constructor === Person);//true
+
+        //cnostructor主要可以判断某个对象的构造器是谁
+        var p1 = new Person()
+        console.log(p1.constructor);
+        console.log(p1.constructor === Person);
+        console.log(p1.__proto__);
+        console.log(p1.prototype);
+
+        console.log([].constructor);
+        console.log('123'.constructor);
+        console.log((function(){}).constructor);
+
+        //Function构造函数是Function自己给实例化出来的
+        console.log(Function.__proto__ === Function.prototype);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ${}中可以写js表达式（只要有返回值的就是js表达式：变量、常亮、字面量、函数、函数调用、三元运算、其他运算）
+        // 但是for/while/do~while/switch/if这些不是表达式是语句
+
+        let text1 = '文本1'
+        let text2 = '文本2'
+        let str = `<div>
+                    <p>${text1}</p>
+                    <span>${text2}</span>
+                </div>`
+                console.log(str);
+
+
+        let str1 = `<div>
+                    <p>${[1,2,3]}</p>
+                    <span>${1+4}</span>
+                </div>`
+                console.log(str1);
+    </script>
+</body>
+</html>

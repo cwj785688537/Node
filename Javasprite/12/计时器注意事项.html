@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //计时器的this指向，目前ES5写法将永远指向window
+       /*  setTimeout(function(){
+            console.log(this);
+        },1000) */
+
+        //绑定计时器是同步的，但是计时器的执行是异步的
+        /* for (var i = 0; i < 5; i++) {
+            setTimeout(function(){
+                console.log(i);
+            },0)
+        }
+        console.log(i); */
+
+        //解决问题（闭包）
+        for (var i = 0; i < 5; i++) {
+            (function(i){
+                setTimeout(function(){
+                    //当计时器执行的时候，for循环已经执行完成，并且这时i为5
+                    console.log(i);
+                },0)
+            })(i)
+        }
+        console.log(i);//5
+    </script>
+</body>
+</html>

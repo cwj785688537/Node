@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./api.js"></script>
+    <script>
+        // 需求：当异步操作a完成之后，执行异步操作b,b完成之后，执行异步操作c
+
+        //如果单纯使用promise的写法，还是会有回调地狱问题，而且逻辑更加复杂
+        // new Promise((resolve) => {
+        //     setTimeout(() => {
+        //         console.log('异步操作a执行完毕了');
+        //         resolve([1, 2, 3])
+        //     }, 1000);
+        // }).then((data) => { 
+        //     return new Promise((resolve) => {
+        //         setTimeout(() => {
+        //         console.log('异步操作b执行完毕了');
+        //         resolve(data)
+        //     }, 1000);
+        //     })
+        // })
+        // .then((data) => { 
+        //     return new Promise((resolve) => {
+        //         setTimeout(() => {
+        //         console.log('异步操作c执行完毕了');
+        //         resolve(data)
+        //     }, 1000);
+        //     })
+        // })
+
+        // 实际开发的写法：promise配合async和await
+
+        // fn()
+        // async function fn(){
+        //     await new Promise((resolve) => {
+        //         setTimeout(() => {
+        //             console.log('异步操作a完成了');
+        //             resolve()
+        //         }, 1000);
+        //     })
+        //     await new Promise((resolve) => {
+        //         setTimeout(() => {
+        //             console.log('异步操作b完成了');
+        //             resolve()
+        //         }, 1000);
+        //     })
+        //     await new Promise((resolve) => {
+        //         setTimeout(() => {
+        //             console.log('异步操作c完成了');
+        //             resolve()
+        //         }, 1000);
+        //     })
+        //     console.log('end');
+        // }
+
+        // 最终需要将new Promise封装起来（一定会将多个异步操作封装成多个函数，在异步函数中调用这个函数，在前面加上await）
+        async function fn(){
+            await a()
+            await b()
+            await c()
+        }
+        fn()
+    </script>
+</body>
+
+</html>

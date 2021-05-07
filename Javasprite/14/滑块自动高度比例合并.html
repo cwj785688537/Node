@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 禁止系统滚动条 */
+        html,
+        body {
+            overflow: hidden;
+            margin: 0;
+        }
+
+        #bar {
+            position: fixed;
+            height: 100%;
+            width: 40px;
+            right: 0;
+            top: 0;
+            background-color: #bfa;
+        }
+
+        #box {
+            position: absolute;
+            width: 100%;
+            background-color: coral;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="con"></div>
+    <div id="bar">
+        <div id="box"></div>
+    </div>
+    <script>
+        //生成内容
+        var oCon = document.getElementById('con')
+        for (var i = 0; i < 300; i++) {
+            oCon.innerHTML += i + '<br>'
+        }
+
+        //基础滑块的拖拽
+        var oBar = document.getElementById('bar')
+        var oBox = document.getElementById('box')
+
+        //自动生成滑块的高度
+        /* 
+            屏幕的高度/文档的高度 = 滑块的高度 / 滑槽的高度
+
+            滑块的高度 = 屏幕的高度 * 滑槽的高度 / 文档的高度
+        */
+        //屏幕的高度
+        var screenHeigth = document.documentElement.clientHeight
+        //滑槽的高度
+        var oBarHigth = oBar.clientHeight
+        //文档的高度
+        var oDocHeigth = oCon.offsetHeight
+
+        //可以求一个比例
+        var scale = oDocHeigth / screenHeigth
+        
+        //滑块的高度
+        var oBoxHeigth = oBarHigth / scale
+        //赋值
+        oBox.style.height = oBoxHeigth + 'px'
+
+        oBox.onmousedown = function (e) {
+            e.preventDefault()//去除浏览器的默认样式，比如选中
+            //获取最初滑块距离滑槽的距离
+            var mouseToBox = e.offsetY
+
+            document.onmousemove = function (e) {
+                e.preventDefault()
+                var boxLocation = e.clientY - mouseToBox
+
+
+                //判断临界值
+                if (boxLocation <= 0) {
+                    boxLocation = 0
+                } else if (boxLocation >= oBar.clientHeight - oBox.offsetHeight) {
+                    boxLocation = oBar.clientHeight - oBox.offsetHeight
+                }
+                oBox.style.top = boxLocation + 'px'
+
+                //因为滑块的高度是计算出来的
+                oCon.style.marginTop = -boxLocation * scale + 'px'
+                
+            }
+            document.onmouseup = function () {
+                document.onmouseup = null;
+                document.onmousedown = null;
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

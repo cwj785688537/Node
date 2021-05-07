@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 构造函数 Person
+        function Person(name,age){
+            // name和age最终都添加到了实例身上，所以这两个属性叫做实例属性
+            // 实例的属性只能被实例访问
+            this.name = name
+            this.age = age
+        }
+        var p1 = new Person('laowang',18)
+
+        // 面向对象语言中添加到类上面的属性叫做静态属性
+        Person.test = '123'
+        Person.prototype.add = '456'
+        console.log(p1.test);
+        console.log(p1.add);
+    </script>
+</body>
+</html>

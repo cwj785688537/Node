@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        函数的参数：
+            - 形参：定义函数时，自己起的参数的名字（可以当做变量）
+            - 实参：调用函数时，实际传入的参数
+        */
+        //参数相同的
+        /*  function sum(a,b){
+             console.log(a+b)
+         }
+         sum(1,5) */
+
+        //参数不同的
+        /* function sum(a, b, c) {
+            console.log(a + b + c)
+        }
+        sum(1,null,2) */
+
+        //封装一个计算n个数字相加的和
+        function sum (a,b){
+            /* 
+            arguments:表示当前所在实参的集合
+                - 拥有一个length属性，代表当前实参的长度
+                - arguments只能在函数中使用
+            */
+           console.log(arguments)
+           console.log(arguments.length)
+
+           /* 
+           函数名也有length方法，返回函数的形参长度
+           */
+        //   console.log(sum.length)
+        }
+        sum(1,2,3,4)
+        //在外层也可以获取到函数的形参长度
+        console.log(sum.length)
+    </script>
+</body>
+
+</html>

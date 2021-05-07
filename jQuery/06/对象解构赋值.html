@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let console = {
+        //     log:function(){
+
+        //     }
+        // }
+        // let { log } = console;
+        // log(3);
+
+        // let obj ={
+        //     name:'laowang'
+        // }
+        // let {name} = obj
+        // console.log(name);
+
+
+        // let obj = {a:1,b:[2,3,4]}
+        // let {a,b:[b1,b2,b3]} = obj
+        // console.log(a,b1,b2,b3);
+
+        // let arr = [1,2,3]
+        // let{0:first,[arr.length - 1]:last} = arr
+        // console.log(first,last);
+        
+        //可以直接将变量变成对象
+        // let a = 1, b = 2
+        // console.log({a,b});
+
+        // let {c:foo,d:hoo} = {foo:1,hoo:2}
+        // console.log(foo,hoo);
+        // console.log(c,d);
+
+        let obj = {
+            foo:1,
+            hoo:2
+        }
+        // :前面的是需要去对象中找的值，:后面的值改变的名字
+        let{foo:c,hoo:d} = obj
+        console.log(c,d);
+        
+    </script>
+</body>
+
+</html>

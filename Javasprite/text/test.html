@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        1: <input type="text" id="a"><br>
+        2: <input type="text" id="b"><br>
+        con: <input type="text" id="con"><br>
+        <button id="btn">提交</button>
+    </form>
+    <script>
+        var oBtn = document.getElementById('btn')
+        var oCon = document.getElementById('con').value
+        var oA = document.getElementById('a').value
+        var oB = document.getElementById('b').value
+        var sum = 0
+        console.log(oCon);
+        function add(a,b){
+            sum = a+b
+            return sum
+        }
+        // oCon.add(oA,oB)
+    </script>
+</body>
+
+</html>

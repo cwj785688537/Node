@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        加法运算符
+            -规则：
+                -正常数字相加
+                - 出现字符串的加法，都转为字符串
+                - 其他
+                    -如果出现对象类型，则直接变为字符串累加
+                    - 其他都转为number计算
+        */
+
+        //正常数字相加
+        console.log(1+1)
+
+        // 出现字符串的加法
+        console.log(1+'1')
+        console.log('a'+'1')
+        console.log(null+'1')
+        console.log(undefined+'1')
+        console.log([]+'1')
+        console.log([1]+'1')
+        console.log([1,2]+'1')
+        console.log({}+'1')
+        console.log('-----------------')
+        // 其他
+        console.log(1+null)
+        console.log(1+undefined)
+        console.log(1+[])
+        console.log(1+[1])
+        console.log(1+[1,2])
+        console.log(1+{})
+        console.log(undefined+null)
+        console.log(1+true)
+        console.log([1]+null)
+
+        var a = 1
+        var b = 2
+        alert('a+b'+a+b);
+    </script>
+</body>
+</html>

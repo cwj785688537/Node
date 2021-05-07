@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        赋值操作符：
+            - 简单的赋值操作，把等号右边赋值给等号左边（变量、对象属性、数组的值）
+            - 复杂的赋值操作1，先把右侧进行计算，然后再赋值给左侧
+            - 复杂的赋值操作2，使用 += -= *= /= %=进行赋值操作
+            - 赋值语句也有返回值，返回的是等号右边的值
+            - 还可以进行连续的赋值
+        */
+
+        var a = 1;
+        a += 3//a+3
+        console.log(a)
+
+        var b = 3
+        b -= 2
+        console.log(b)
+
+        var c = 8
+        c /= 2
+        console.log(c)
+        var c = 9
+        
+
+        var d = 3
+        d *= 2
+        console.log(d)
+
+        var e = 5
+        e %= 2
+        console.log(e)
+
+        console.log(a=2)
+
+        a = b = c = d = 2
+        console.log(a,b,c,d)
+    </script>
+</body>
+</html>

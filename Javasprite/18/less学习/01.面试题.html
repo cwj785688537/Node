@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Foo() {
+            abc = function () {
+                alert(0);
+            }
+            return this;
+        }
+        Foo.abc = function () {alert(1);}
+        Foo.prototype.abc = function () {alert(2);}
+        var abc = function () {alert(3);}
+        function abc() {
+            alert(4); 
+        }
+
+        Foo.abc();//1  只调用了abc这个方法
+        abc();//3   abc自调用
+        Foo().abc();//0   在Foo中调用了abc方法
+        abc();//0     因为foo中的abc方法没有声明，所以把全局的abc都改了
+        new Foo.abc();//1   new Foo 的操作符优先级没有点操作符高，所以先执行右边
+        new Foo().abc();//2     new Foo()的操作符优先级和点操作符优先级一样，代码从左往右执行，所以先执行左边，实例化对象的方法只能在其原型链上找
+        new new Foo().abc();//2     操作符优先级的问题
+
+
+        /* function Person(name) {
+            this.name = name;
+        }
+        Person.prototype.fn = function () {
+
+        }
+        var p = new Person;
+        console.log(p) */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a;
+        if(typeof a === 'undefined'){
+            alert("a不行")
+        }
+        var b = 1;
+        if(typeof b === 'number'){
+            alert("b是数字")
+        }
+        var c = "hello"
+        if(typeof c ==="string"){
+            alert("c是字符串")
+        }
+        var d =true
+        if(typeof d ==="boolean"){
+            alert("d是布尔值")
+        }
+        var e=null
+        if(typeof e === "object"){
+            alert("e是我没有的东西")
+        }
+        var f ={}
+        if(typeof f === "object"){
+            alert("f也是我没有的东西")
+        }
+        var g = []
+        if(typeof g === "object"){
+            alert("g怎么还是我没有的东西？")
+        }
+        var h = function(){}
+        if(typeof h === "function"){
+            alert("h终于是函数了！！！")
+        }
+    </script>
+</body>
+</html>

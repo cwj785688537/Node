@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            检测类型：
+                typeof 可以检测出的类型
+                    - number
+                    - boolean
+                    - string
+                    - function
+                    - undefined
+
+            全等判断：
+                ===：有一些类型只有一个值 可以直接全等检测
+                    - null
+                    - undefined
+
+            Object.prototype.toString.call(数据)
+                - 检测任意类型的值
+                    [object Array]  [object Function]  [object Null]
+                - 完整写法
+                    Object.prototype.toString.call(数据).slice(8,-1).toLowerCase()
+         */
+
+         var arr = [1,2,3]
+         //首先拿到了对象的toString
+         //call的含义是：1.把调用的call的方法的this指向call的第一个参数  2.让调用call的函数执行
+         //toString真正转的是arr
+         console.log(({}).toString.call(arr))
+        console.log(({}).toString.call(arr).slice(8, -1).toLowerCase())
+        console.log(({}).toString.call("123"))
+        console.log(({}).toString.call("123").slice(8, -1).toLowerCase())
+        console.log(({}).toString.call(function () {}))
+        console.log(({}).toString.call(true))
+        console.log(({}).toString.call(1))
+        console.log(({}).toString.call(null))
+        console.log(({}).toString.call(undefined))
+        console.log(({}).toString.call(new Date()))
+        console.log(({}).toString.call(/[0-9]/gi))
+        console.log(({}).toString.call(Symbol()))
+        console.log(({}).toString.call(1n))
+
+        //伪代码模拟toString
+        obj.toString = function(){
+            //想要在toString中拿到obj
+            //this指向的就是要转字符串的对象
+            //方法内部 就是拿到了this 然后对this进行转字符串
+        }
+    </script>
+</body>
+</html>

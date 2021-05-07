@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="ipt">
+        <button id="btn">点击</button>
+    </div>
+    <script>
+        /* 
+        需求：点击按钮时，判断输入框是否为空，如果为空，则输入框变红，否则弹出输入内容
+
+        1.获取元素
+        2.绑定点击事件
+        3.获取输入框内容
+        4.判断输入框是否为空
+        */
+    // 1.获取元素
+    var oIpt = document.getElementById("ipt")
+    var oBtn = document.getElementById("btn")
+    //2.绑定点击事件
+        oBtn.onclick = function(){
+            // 获取输入框内容
+            var userCon = oIpt.value
+            // 判断输入框是否为空
+            if(userCon){
+                alert(userCon)
+            }else{
+                oIpt.style.borderColor="red"
+            }
+        }
+    </script>
+</body>
+</html>

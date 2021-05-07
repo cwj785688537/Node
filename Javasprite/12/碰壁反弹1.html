@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 800px;
+            height: 500px;
+            background-color: #eee;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        #box {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            left: 40px;
+            top: 120px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="box"></div>
+    </div>
+    <script>
+        var oOuter = document.getElementById('outer')
+        var oBox = document.getElementById('box')
+
+        //初始化一个left的值
+        var l = 40
+        var t = 120
+
+        var baseX = 1// 定义一个每次改变的值
+        var baseY = 1 //定义一个每次改变的值
+
+        setInterval(function () {
+            //进入计时器 每次让1对base进行加法计算
+            l += baseX
+            t += baseY
+            //只要到达临界值，就让base取原来值的负数 1就变成反方向了
+            if (l <= 0 || l >= oOuter.clientWidth - oBox.offsetWidth) {
+                baseX *= -1
+            }
+            if (t <= 0 || t >= oOuter.clientHeight - oBox.offsetHeight) {
+                baseY *= -1
+            }
+            oBox.style.left = l + 'px'
+            oBox.style.top = t + 'px'
+        }, 1)
+    </script>
+</body>
+
+</html>

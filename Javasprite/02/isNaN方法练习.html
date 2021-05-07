@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"  id="ipt">
+    <button id="btu">提交</button>
+    <script>
+        /* 
+        需求：
+        当用户点击按钮时，判断用户输入内容是否为纯数字，如果是，则弹出纯内容，否则弹出请重新输入
+
+        1.获取元素
+        2.绑定点击按钮
+        3.获取输入框的内容
+        4.通过isNan判断输入的是否为纯数字，然后进行相应的操作
+        */
+
+        // 1.获取元素
+        var oIpt = document.getElementById("ipt")
+        var oBtu = document.getElementById("btu")
+        // console.log(oIpt,oBtu)
+
+        //2.绑定点击按钮
+        // 给按钮绑定一个函数，当按钮被按下时就会触发函数
+        oBtu.onclick = function(){
+            //3.获取输入框的内容
+            // console.log(oIpt.value);
+            var userCon = oIpt.value;//以后要用到这个值，所以用变量接收
+            
+            //用isNaN判断用户输入的是否为纯数字
+            if(isNaN(userCon)){
+                //如果输入的不是纯数字，就会变成NaN
+                alert("请重新输入，包含了非数字字符")
+            }else{
+                alert("欢迎登录")
+            }
+        }
+    </script>
+</body>
+</html>

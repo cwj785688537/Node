@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #banner{
+            position: relative;
+            width: 1130px;
+            height: 286px;
+            margin: 0 auto;
+            /* border: 1px solid red; */
+            overflow: hidden;
+        }
+        #banner ul{
+            position: absolute;
+            left: 0;
+            width: 5650px;
+            height: 286px;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            
+        }
+        #banner ul li{
+            float: left;
+        }
+        #banner ul li img{
+            width: 1130px;
+            height: 286px;
+        }
+        #arrow-left,#arrow-right{
+            position: absolute;
+            width:42px;
+            height: 70px;
+            top: 50%;
+            margin-top: -35px;
+            /* border: 1px solid red; */
+        }
+        #arrow-left{
+            left: 0;
+            background-image: url(../../picture/17/icon-slides.png);
+            background-position: -84px 0;
+        }
+        #arrow-right{
+            right: 0;
+            background-image: url(../../picture/17/icon-slides.png);
+            background-position: -126px 0;
+        }
+        #banner:hover #arrow-left{
+            background-position: 0 0;
+        }
+        #banner:hover #arrow-right{
+            background-position: -42px 0;
+        }
+        #bottom{
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
+            bottom: 10px;
+            width: 100px;
+            height: 10px;
+            /* border: 1px solid red; */
+        }
+        #bottom div{
+            float: left;
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background-color:rgba(0,0,0,.3);
+        }
+        #bottom div:first-of-type{
+            background-color:rgba(255,255,255,.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="banner">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="../../picture/17/gundong/0121365f23ed70a80120a82197289b.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../../picture/17/gundong/012f595f23ab03a80120a8218c8e64.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../../picture/17/gundong/0148a25f23aaf6a801215aa038b8a3.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../../picture/17/gundong/0149115f23ab31a80120a8212535f0.png">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="../../picture/17/gundong/015e9c5f23ab15a801215aa0795d4e.png">
+                </a>
+            </li>
+        </ul>
+        <div id="arrow-left"></div>
+        <div id="arrow-right"></div>
+        <div id="bottom">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+</body>
+</html>

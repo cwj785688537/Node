@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #list{
+            position: relative;
+            width: 210px;
+            background-color: #fafafa;
+        }
+        #list>li{
+            padding-left: 15px;
+            height: 30px;
+            line-height: 30px;
+        }
+        #list>li>a{
+            color: #333;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        #list>li>.next{
+            display: none;
+            position: absolute;
+            left: 210px;
+            width: 500px;
+            top: 0;
+            bottom: 0;
+            background-color: #f7f7f7;
+        }
+        #list>li:hover .next{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li>
+            <a href="#">图书、音像、数字商品</a>
+            <div class="next">
+                <ul>
+                    <li>
+                        <a href="#">电子书</a>
+                    </li>
+                    <li>
+                        <a href="#">免费</a>
+                    </li>
+                    <li>
+                        <a href="#">小说</a>
+                    </li>
+                    <li>
+                        <a href="#">励志与成功</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="#">家用电器</a>
+            <div class="next">
+                <ul>
+                    <li>
+                        <a href="#">电子书</a>
+                    </li>
+                    <li>
+                        <a href="#">免费</a>
+                    </li>
+                    <li>
+                        <a href="#">小说</a>
+                    </li>
+                    <li>
+                        <a href="#">励志与成功</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="#">手机、数码、充值</a>
+            <div class="next">
+                <ul>
+                    <li>
+                        <a href="#">电子书</a>
+                    </li>
+                    <li>
+                        <a href="#">免费</a>
+                    </li>
+                    <li>
+                        <a href="#">小说</a>
+                    </li>
+                    <li>
+                        <a href="#">励志与成功</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="#">电脑、办公</a>
+            <div class="next">
+                <ul>
+                    <li>
+                        <a href="#">电子书</a>
+                    </li>
+                    <li>
+                        <a href="#">免费</a>
+                    </li>
+                    <li>
+                        <a href="#">小说</a>
+                    </li>
+                    <li>
+                        <a href="#">励志与成功</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        
+       
+    </ul>
+</body>
+</html>

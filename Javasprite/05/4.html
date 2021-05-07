@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            函数调用：
+                - 直接调用
+        */
+      /*  function fn(){
+           alert()
+       }
+       fn() */
+
+       var laowang = {
+           //这个是属性
+           name:'laowang',
+           age:20,
+           sex:'男',
+           //这个是方法
+           do:function(){
+            console.log('吃白菜')
+            console.log('吃水煮白菜')
+            console.log('吃清蒸白菜')
+           }
+       }
+       console.log(laowang.age)
+       laowang.do()
+       laowang.eat = function(){
+           alert('我也不知道吃啥了')
+       }
+       laowang.eat()
+    </script>
+</body>
+</html>

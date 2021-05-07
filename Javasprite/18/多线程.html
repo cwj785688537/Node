@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">单线程运算</button>
+    <button id="btn2">多线程运算</button>
+    <button id="btn3">判断页面假死状态</button>
+    <script>
+        var oBtn1 = document.getElementById('btn1')
+        var oBtn2 = document.getElementById('btn2')
+        var oBtn3 = document.getElementById('btn3')
+
+        oBtn1.onclick = function(){
+            var num = 0
+            for (var i = 0; i < 1000000000; i++) {
+                num += Math.sqrt(i)
+            }
+        }
+
+        /* 
+            多线程的不足
+                - 不能操作DOM
+                - 分线程加载不能跨域
+                - 部分浏览器不支持
+        */
+
+        oBtn2.onclick = function(){
+            // alert(1)
+            //当点击开始大量运算的时候，再开启一个新的线程
+            //有一个Worker的构造函数，当实例化Worker构造函数的时候，并传入分线程的路径，就开启了一个分线程
+            //只要实例化以后 分线程就开始执行了
+            var ww = new Worker('./worker.js')
+
+            //向分线程发送数据
+            ww.postMessage(10000000)
+
+            //主线程绑定onmessage事件 监听分线程的结果
+            ww.onmessage = function(e){
+                console.log(e.data);
+
+                //得到结果之后，在主线程关闭某个分线程
+                ww.terminate()
+            }
+        }
+    </script>
+</body>
+</html>

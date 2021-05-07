@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 之前定义函数，都属于同步函数，必须要等到函数体中的代码执行完毕，函数调用后的代码才会执行
+        // function fn(){
+        //     console.log(1);
+        //     console.log(2);
+        //     console.log(3);
+        // }
+        // fn()
+        // console.log(4);
+
+        // es6之后，函数加前缀async 就变成了一个异步的函数了
+            // async function fn(){
+            //     console.log(1);
+            //     // 当代码执行到await的时候，函数调用暂缓执行（回头执行主线程代码，等主线程代码执行完成后再执行await中的代码）
+            //     await Promise.resolve()
+            //     console.log(2);
+            // }
+            // fn()
+            // console.log(3);
+
+            // 异步函数，返回的结果也是一个成功的promise(了解)
+            // async function fn(){
+            //     console.log(1);
+            //     // return的结果就是成功的promise的值
+            //     return 123
+            // }
+            // console.log(fn());
+
+            // async取代Generator函数的星号*，await取代Generator的yield
+            
+            // async function fn(){
+            //     // 不是promise，默认成功，往下执行
+            //     let res = await Promise.resolve()
+            //     console.log(2);
+            //     console.log(res);
+            //     // await只能接收正确的promise的值，如果是失败的promise则接收不到并退出函数
+            //     console.log(await Promise.resolve());
+            // }
+            // console.log(fn());
+            // console.log(1);
+
+            // async function fn(){
+            //     console.log('fn函数执行了');
+            //     await 123
+            //     await setTimeout(() => {
+            //         console.log(222);
+            //     }, 1000);
+            // }
+            // fn()
+
+
+            async function fn(){
+                console.log('333');
+                const re2 = await new Promise((resolve,reject) => {
+                    setTimeout(() => {
+                        console.log(222);
+                        resolve('test')
+                        // reject('heng')
+                    }, 2000);
+                })
+                console.log(111);
+                console.log(re2);
+                return 'hello'
+            }
+            const re = fn()
+            // 解决await的reject状态报错
+            re.catch((error) => {
+                console.log(error);
+            })
+            // data是成功时候的结果，是函数返回值
+            re.then((data) => {
+                console.log(data);
+            })
+    </script>
+</body>
+</html>

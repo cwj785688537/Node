@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">添加元素</button>
+    <ul id="outer">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        /* 
+            旧方法：
+                获取元素是动态的，当元素改变了，获取的变量保存的值也会跟着改变
+
+            新方法：
+                获取元素是静态的，无论以后元素怎么改变，都不会影响获取的效果
+        */
+
+       var oBtn = document.getElementById('btn')
+       var oOuter = document.getElementById('outer')
+       var oOuterLis = oOuter.getElementsByTagName('li')
+
+       oBtn.onclick = function(){
+           var ln = oOuterLis.length
+           //如果把oOuterLis.length放在for循环里，就会一直循环卡死
+           //原来有几个li 我就生成几个Li
+           for (var i = 0; i < ln; i++) {
+               //创建一个li
+               var oNewLi = document.createElement('li')
+               oNewLi.textContent = 'new'
+               //把新Li插入到ul的末尾
+               oOuter.appendChild(oNewLi)
+            //    console.log(oOuterLis.length);
+           }
+       }
+
+      /*  var oBtn = document.getElementById('btn')
+       var oOuter = document.getElementById('outer')
+       var oOuterLis = document.querySelectorAll('#outer>li')
+
+       oBtn.onclick = function(){
+           for (var i = 0; i < oOuterLis.length; i++) {
+               //创建一个Li
+               var oNewLi = document.createElement('li')
+               oNewLi.textContent = 'new'
+               //把新li插入到ul的末尾
+               oOuter.appendChild(oNewLi)
+           }
+       } */
+    </script>
+</body>
+</html>

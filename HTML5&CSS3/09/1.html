@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            
+            width: 490px;
+            height: 28px;
+            margin: 10px auto;
+            font-size: 0;
+        }
+        a{
+            display: inline-block;
+            width: 150px;
+            height: 28px;
+            line-height: 28px;
+            color: #656565;
+            background-color: #ececec;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+        }
+        .sj{
+            position: relative;
+        }
+        .sj img{
+            position: absolute;
+            top: -10px;
+        }
+        .angle{
+            width: 0;
+            height: 0;
+            border-top: 10px solid #0479D6;
+            border-right: 10px solid #fff;
+            border-bottom: 10px solid #fff;
+            border-left: 10px solid #fff;
+            
+        }
+        
+        a:hover{
+            background-color: #0479D6;
+            color: #feffff;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="http://www.iqiyi.com" target="qwer">
+            注册新浪邮箱
+        </a>
+        <a href="http://www.baidu.com"  target="qwer" class="sj" >
+           注册手机邮箱 <img src="../../picture/09/registerNew.gif" alt="">
+        </a>
+        <iframe src="http://www.baidu.com" frameborder="0" name="qwer"></iframe>
+        <div class="angle"></div>
+    </div>
+</body>
+</html>

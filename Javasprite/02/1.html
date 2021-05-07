@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //不给函数传参时，可以用null
+        function fn(name,age,add){
+            console.log(name,age,add)
+        }
+        fn("laowang","18",null);
+        //声明一个全局变量但是暂时不需要赋值的时候
+        var a = null;
+        function fn1(){
+            a=2;
+            
+        }
+        console.log(fn1);
+        
+        //当一个值只用一次的时候是一个垃圾对象，把变量赋值为null可以不占内存
+        var obj = {
+            name:"laowang",
+            age:"18"
+        }
+        console.log(obj);
+        obj = null;
+        console.log(obj)
+    </script>
+</body>
+</html>

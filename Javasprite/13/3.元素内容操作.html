@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <div id="box">
+        <span>我是span</span>
+    </div>
+    <script>
+        /* 
+            innerHTML:设置和获取元素内容
+                - 设置的时候：可以把标签解析，并且覆盖原来的内容
+                - 获取的时候：可以把标签都获取出来
+            innerText: 设置和获取元素内容
+                - 设置的时候：不会解析标签，把标签当成普通字符串
+                - 获取的时候：不会获取到标签
+            textContent: 设置和获取元素的内容（IE9+）
+                - 设置的时候：和innerText一致
+                - 获取的时候：和innerText一致，获取的时候可以获取到空格换行等
+
+            outerHTML:
+                - 设置：把当前元素直接替换 其他和innerHTML一致
+                - 获取：也可以获取到当前的标签 其他和innerHTML一致
+            outerText:
+                - 设置：替换当前元素 不解析标签
+                - 获取：获取当前元素 只获内容 和innerText结果一致
+        */
+
+        var oBox = document.getElementById('box')
+        var oBtn = document.getElementById('btn')
+
+        oBtn.onclick = function(){
+            //innerHTML
+            console.log(oBox.innerHTML);
+            oBox.innerHTML = '<a href="###">我是a</a>'
+            //追加
+            // oBox.innerHTML += '<a href="###">我是a</a>'
+
+           /*  //innerText
+            console.log(oBox.innerText);
+            oBox.innerText = '<a href="###">我是a</a>' */
+
+           /*  //textContent
+            console.log(oBox.textContent);
+            oBox.textContent = '<a href="###">我是a</a>' */
+
+           /*  //outerHTML
+            console.log(oBox.outerHTML);
+            oBox.outerHTML = '<a href="###">我是a</a>' */
+
+            /* //outerText
+            console.log(oBox.outerText);
+            oBox.outerText = '<a href="###">我是a</a>' */
+        }
+    </script>
+</body>
+</html>

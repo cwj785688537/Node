@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        ul li{
+            /* border: 1px solid red; */
+            width: 500px;
+            height: 40px;
+            overflow: hidden;
+            transition: height 1s linear;
+            margin-top: 1px;
+        }
+        ul li:hover{
+            height: 340px;
+        }
+        ul li h2{
+            margin: 0;
+            padding: 0;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+            font-size: 14px;
+            color: #fff;
+        }
+        ul li div{
+            height: 300px;
+            line-height: 300px;
+            text-align: center;
+        }
+        ul li div img{
+            height: 200px;
+            vertical-align: middle;
+            opacity: 0;
+            transition: opacity 1s linear 1s;
+        }
+        ul li:hover div img{
+            opacity: 1;
+        }
+        ul li:first-of-type h2{
+            background-color: #DBE5F3;
+        }
+        ul li:nth-of-type(2) h2{
+            background-color: #F3E0E8;
+        }
+        ul li:nth-of-type(3) h2{
+            background-color: #CF93C1;
+        }
+        ul li:nth-of-type(4) h2{
+            background-color: #BECB86;
+        }
+        ul li:nth-of-type(5) h2{
+            background-color: #AD9BAD;
+        }
+    </style>
+</head>
+
+<body>
+   <ul>
+       <li>
+           <h2>温柔贤惠</h2>
+           <div>
+               <img src="../../picture/13/5710984334b7e.jpg">
+           </div>
+       </li>
+       <li>
+           <h2>甜美时尚</h2>
+           <div>
+               <img src="../../picture/13/5ba44d4304441.jpg">
+           </div>
+       </li>
+       <li>
+           <h2>独立稳重</h2>
+           <div>
+               <img src="../../picture/13/5cb450ae20929.jpg">
+           </div>
+       </li>
+       <li>
+           <h2>妩媚性感</h2>
+           <div>
+               <img src="../../picture/13/56af0da3ae601.jpg">
+           </div>
+       </li>
+       <li>
+           <h2>女汉子</h2>
+           <div>
+               <img src="../../picture/13/F8F2-fxipenp2527999.jpg">
+           </div>
+       </li>
+   </ul>
+</body>
+
+</html>

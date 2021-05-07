@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <div class="con">1</div>
+    </div>
+    <script>
+        /* 
+         offsetWith:
+            - 获取元素的宽度（content+padding+border）
+            - 当元素隐藏的时候 获取不到offsetWidth
+            - 当图片没有加载完成，并且没有设置width属性的时候，也获取不到
+        
+        */
+
+        var oBox = document.getElementById('box')
+        console.log(oBox.offsetWidth);
+    </script>
+</body>
+</html>

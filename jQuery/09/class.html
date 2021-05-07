@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在JS中，如果要批量创建对象，首选使用构造函数
+        // 当一个函数，要被用来new的时候，这个函数就可以被叫做构造函数，一般要求首字母大写
+        // function Person(name,age){
+        //     // name和age属性，其实加到实例身上，只有实例可以访问
+        //     this.name = name
+        //     this.age = age
+            
+        // }
+
+        // Person.prototype.do = () => {
+        //     console.log('吃饭');
+        // }
+
+        // function Student(name,age,sex){
+        //     // 使用借用构造函数继承，来继承属性
+        //     Person.call(this,name,age)
+        //     this.sex = sex
+        // }
+
+        // // 除了要继承属性，还要继承方法，继承方法，主要使用原型继承
+        // // 将person的形式原型赋值到student的原型对象上
+        // Student.prototype = new Person()
+
+        // let p1 = new Person('laowamg',18)
+        // let p2 = new Student('laoli',20,'男')
+        // console.log(p1);
+        // console.log(p2);
+        // p1.do()
+        // p2.do()
+
+        //class是es6中新增的语法糖（构造函数和继承）
+        class Person{
+            // constructor就相当于person的构造函数
+            constructor(name,age){
+                // 属性加到实例上
+                this.name = name
+                this.age = age
+            }
+
+            // 将方法加到原型上
+            do(){
+                console.log('吃饭');
+            }
+        }
+
+        // 使用extends 让Student继承person
+        class Student extends Person{
+            constructor(name,age,sex){
+                // 这个super函数指向的其实就是person的constructor函数
+                super(name,age)
+                this.sex = sex
+            }
+        }
+        // person上的方法也会被继承
+        let p1 = new Person('laowamg',18)
+        let p2 = new Student('laoli',20,'男')
+        console.log(p1);
+        console.log(p2);
+        p1.do()
+        p2.do()
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            width: 400px;
+            margin: 50px auto;
+            position: relative;
+        }
+        h2{
+            height: 40px;
+            background-color: green;
+        }
+        #con{
+            position: absolute;
+            left: 0;
+            top: 40px;
+            background-color: pink;
+            width: 400px;
+            height: 300px;
+            display: none ;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <h2>标题</h2>
+        <div id="con">内容</div>
+    </div>
+    <script>
+        var oOuter = document.querySelector('.outer')
+        var oCon = document.querySelector('#con')
+        var timer = null
+        oOuter.onmouseenter = function(){
+            //只要我移入 我就把让元素隐藏的计时器清空，防止时间到了 元素又隐藏了
+            clearTimeout(timer)
+            oCon.style.display = 'block'
+        }
+
+        oOuter.onmouseleave = function(){
+            timer = setTimeout(function(){
+                oCon.style.display = 'none'
+            },500)
+        }
+    </script>
+</body>
+</html>

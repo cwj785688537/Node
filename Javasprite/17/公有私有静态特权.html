@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            公有属性和公有方法：
+                设置给实例化对象的属性和方法被称作公有属性和公有方法
+            私有属性和私有方法：
+                在构造函数中声明的变量和函数被称作为私有属性和私有方法
+            静态属性和静态方法：
+                无需实例化构造函数，就可以直接调用的属性和方法，被称作静态属性和静态方法
+            特权方法：
+                直接在构造函数中设置给实例化对象的方法，被称作为特权方法
+        */
+
+        function Person(name,age){
+            //公有属性
+            this.name = name
+            this.age = age
+            //特权方法
+            this.say = function(){
+                console.log('hello');
+            }
+
+            //私有属性
+            var _this = this
+            //私有方法
+            function fn(){
+
+            }
+        }
+
+        //公有方法
+        Person.prototype.study = function(){
+            console.log('学习');
+        }
+
+        //静态的属性和方法
+        Person.eat = function(){
+            console.log('eat');
+        }
+        Person.hello = 'world'
+
+        console.log(Person.hello);
+        Person.eat()
+    </script>
+</body>
+</html>

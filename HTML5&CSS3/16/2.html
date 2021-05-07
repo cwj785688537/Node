@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html,body{
+                margin:0;
+                height:100%;
+            }
+            #content{
+                position:relative;
+                width:100%;
+                height:100%;
+                background-color:black;
+            }
+            #left{
+                position: absolute;
+                width:300px;
+                height:100%;
+                /* z-index:1; */
+                background-color:cornflowerblue;
+            }
+            #right{
+                position:absolute;
+                top:0;
+                right:0;
+                left:0;
+                bottom:0;
+                /* 将right 的内容顶出来了 */
+                margin-left:300px;
+                background-color:cyan;
+
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <div id="left">
+                000
+            </div>
+            <div id="right">
+                1111
+            </div>
+        </div>
+    </body>
+</html>

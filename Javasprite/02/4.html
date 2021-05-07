@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var con1 = "hello world"
+        var con2 = 'hello world'
+        console.log(con1===con2)
+
+        //外层用单引号或者双引号，内层就要用双引号或单引号
+        var con3 = "小王说：'今天天气真不错！'"
+        var con4 = '小王说："今天天气真不错！"'
+        console.log(con3,con4)
+
+        //字符串输出的时候进行换行,使用\n
+        var con5 = "小王\n老王";
+        console.log(con5);
+
+        //字符串书写的时候需要换行，在末尾加一个\（转义符）把回车转义成空格
+        var con6 = "\
+        <ul>\
+            <li></li>\
+            <li></li>\
+            <li></li>\
+            </ul>\
+        "
+        console.log(con6)
+
+        //如果要在双引号中嵌套双引号，就要使用转义符\，要在内嵌双引号前加\
+        var con7 = "小王说\"今天天气\\真不错！\""
+        console.log(con7);
+
+        //字符串中的顺序都是从前往后获取的，可以通过[]获取其中一个值，但是不能被修改
+        var con8 = "abcdefg"
+        console.log(con8[5]);
+
+        //获取字符串的长度，用length属性
+        var con9 = "abcdef"
+        console.log(con9.length)
+        //如果要获取字符串的最后一个值
+        console.log(con9[con9.length-1])
+    </script>
+</body>
+</html>

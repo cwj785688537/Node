@@ -1,0 +1,53 @@
+//变量作为属性值来使用
+@mainColor:red;
+@bdWidth:2px;
+
+//变量作为css选择器 使用按照@{变量名}
+@o:#outer;
+@o1:outer;
+
+//变量作为CSS的属性名 使用按照@{变量名}
+@bs:box-shadow;
+
+//作为地址保存
+@url1:'http://www.baidu.com';
+
+@url2:url(http://www.baidu.com);
+
+@url3:url(@url1);
+
+body{
+    background-color: @mainColor;
+
+    #box{
+        width: 100px;
+        height: 100px;
+        border: @bdWidth solid #000;
+    }
+
+    @{o}{
+        width: 100px;
+    }
+
+    #@{o1} {
+        width:100px;
+
+        background:@url3 0 0 no-repeat ;
+    }
+}
+
+//less的变量延迟加载，也就是等当前作用域的内容执行完毕之后，才开始加载变量的值
+
+@var:0
+
+.class{
+    @var:1;
+
+    .brass{
+        @var:2;
+        three:@var;
+        @var:3
+    }
+
+    one:@var;
+}

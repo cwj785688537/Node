@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            replace(a,b):a是匹配字符串的字符，b是替换的内容
+
+            一般a 是一个正则匹配
+        */
+       var str = '123456673'
+       var re = str.replace('3','a')//只能替换一个
+       console.log(re);
+
+       var reg = /英俊|帅哥|好/ig
+       var str = '闫海静真英俊，就像一个帅哥，他真的很好'
+       var re = str.replace(reg,'**')
+       console.log(re);
+    </script>
+</body>
+</html>

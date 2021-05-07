@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+        function checktype(obj){
+            return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase()
+        }
+       
+        function deepClone(obj){
+            //深拷贝需要考虑 属性值是对象或数组
+            //因为拿到每一个值之后，会递归进入函数再次拷贝，所以判断进来的值是否是obj或者arr
+            if(checktype(obj) === 'object'){
+                //如果拷贝的是一个对象，则我们即将返回一个新对象
+                var newObj = {}
+            }else if(checktype(obj) === 'array'){
+                //如果拷贝的是一个对象，则我们即将返回一个新数组
+                var newObj = []
+            }else{
+                //如果拷贝的是其他类型，则不再向下执行，直接把当前值返回，不需要拷贝
+                return obj
+            }
+
+            for(var key in obj){
+                //递归调用，如果拷贝的是对象或数组，就会用一个新的对象或数组接受
+                newObj[key] = deepClone(obj[key])
+            }
+
+            return newObj
+        }
+
+
+        var obj1 = {
+            name:'laowang',
+            hobby:['唱','跳','rap'],
+            eat:function(){
+                console.log('eat');
+            }
+        }
+        console.log(checktype(obj1));
+
+        var re = deepClone(obj1)
+        console.log(re);
+
+        console.log(re === obj1);
+        console.log(re.hobby === obj1.hobby);
+</script>
+</body>
+
+</html>

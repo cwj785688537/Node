@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //整数
+        var a = 3;
+        var b = -3;
+        console.log(a,b);
+
+        //小数
+        var c =3.14;
+        var d =-3.14;
+        console.log(c,d)
+
+        //八进制
+        var e =0o16;
+        console.log(e);//打印会默认转换为十进制
+        console.log(typeof e);
+
+        //十六进制
+        var f =0xff
+        console.log(f);
+        console.log(typeof f);
+
+        //二进制
+        var g = 0b10110;
+        console.log(g);
+
+        //无穷
+        var h = 3/0;
+        console.log(h);
+        var h2 = -3/0;
+        console.log(h2);
+
+        //NaN
+        // var i = 'a'/2;
+        // cnosole.log(i);
+
+        //科学计数法
+        var j = 1.32e9;
+        console.log(j); 
+
+        //Number.MIN_VALUE
+        console.log(Number.MIN_VALUE);
+        //Number.MAX_VALUE
+        console.log(Number.MAX_VALUE);
+
+        //到达Infinity
+        console.log(2**1024);//到达Infinty的最小值
+        console.log(2**1023);
+
+        //2的53次方后的数不精准
+        console.log(2**53);
+        console.log(2**53+1);
+        console.log(2**53+2);
+
+        //number用小数计算也不精准
+        console.log(0.1+0.2);
+        //需要让小数变成整数再相加，不超过2的53次方是准确的
+        var a = 0.1;
+        var b = 0.2;
+        var base = 10;
+        console.log((a*base+b**base)/base);
+    </script>
+</body>
+</html>

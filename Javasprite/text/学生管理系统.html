@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+        <div>
+            <label>
+                姓名：<input type="text" id="name">
+            </label>
+        </div>
+        <div>
+            <label>
+                年龄：<input type="text" id="age">
+            </label>
+        </div>
+        <div>
+            <label>
+                性别：<input type="text" id="sex">
+            </label>
+        </div>
+        <button id="btn">添加</button>
+    </form>
+
+    <table id="table" border='1' style="border-collapse: collapse;" width=500>
+        <caption>学生管理系统</caption>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>14</td>
+            <td>男</td>
+            <td><a href="#">删除</a></td>
+        </tr>
+    </table>
+    <script>
+        var oName = document.getElementById('name')
+        var oAge = document.getElementById('age')
+        var oSex = document.getElementById('sex')
+        var oBtn = document.getElementById('btn')
+        //    var oTbody = document.getElementsByTagName('tbody')
+        var oTbody = document.querySelector('#table tbody')
+        console.log(oTbody);
+        //绑定按钮点击事件
+        oBtn.onclick = function () {
+            //获取输入的信息
+            var name = oName.value.trim()
+            var age = oAge.value.trim()
+            var sex = oSex.value.trim()
+
+            //获取到内容后清空输入框
+            oName.value = ''
+            oAge.value = ''
+            oSex.value = ''
+
+            var str = '\
+            <td>'+ name + '</td>\
+            <td>'+ age + '</td>\
+            <td>'+ sex + '</td>\
+            <td><a href="#">删除</a></td>'
+
+            //创建一个tr
+            var tr = document.createElement('tr')
+
+            //将获取的信息合并
+            tr.innerHTML = str
+            console.log(tr);
+            //将tr插入到tbody中
+            oTbody.appendChild(tr)
+
+            /*  //在这里获取的a标签加上了新加上的a标签
+             var oDeles = document.querySelectorAll('#table tr a')
+             //遍历所有a标签
+             oDeles.forEach(function (item) {
+                 item.onclick = function () {
+                     //删除当前的tr
+                     this.parentNode.parentNode.remove()
+                 }
+             }) */
+        }
+        /* //将a元素的点击事件放在外面就可以在不点击添加按钮的时候删除tr
+        var oDeles = document.querySelectorAll('#table tr a')
+         //遍历所有a标签
+         oDeles.forEach(function(item){
+             item.onclick = function(){
+                 //删除当前的tr
+                 this.parentNode.parentNode.remove()
+             }
+         })
+  */
+        oTbody.onclick = function (e) {
+            // console.log(e);
+           console.log(this.getChildElements);
+            if (e.target.nodeName.toLowerCase() === 'a') {
+                // e.target.parentNode.parentNode.remove()
+                this.getChildElements.remove()
+            }
+        }
+    </script>
+</body>
+
+</html>

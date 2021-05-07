@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 56px;
+            height: 100px;
+            border: 1px solid red;
+            background-image: url(../../picture/15/dancer.png);
+           animation: dancer 5s steps(22) infinite;
+           /* animation-name: dancer;
+           animation-duration: 5s;
+           animation-iteration-count: infinite;
+           animation-timing-function: steps(22); */
+        }
+        @keyframes dancer {
+                0%{
+                    background-position: 0px 0px;
+                }
+                100%{
+                    background-position: -1229px 0px;
+                }
+            }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

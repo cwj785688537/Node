@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object.creat的作用：用来创建一个对象
+        //第一个参数：创建出来的实例的原型对象，可以写null，如果写null，实例的原型就是undefined
+        //第二个参数：是对象属性中一些描述信息
+        /* 
+            属性：{
+                value:这个属性的值
+                writeable:属性是否可以设置
+                enumerable:属性是否可以遍历
+                configurable:属性是否可以删除
+            }
+            属性:{
+                value:'值'
+                其他属性没有写，默认为false
+            }
+        */
+       var obj1 = Object.create(Object.prototype,{
+           name:{
+            value:'laowang',
+            writable:true,
+            Enumerator:true,
+            configurable:true,
+           },
+           sex:{
+               value:'男'
+           }
+       })
+
+       console.log(obj1);
+       obj1.name = 'laoli'
+       obj1.sex = 'nv'//因为其他都为false，所以不能被修改
+       console.log(obj1);
+       for(var key in obj1){
+           console.log(key);
+       }
+    //    console.log(obj1);
+    delete obj1.name
+    delete obj1.sex
+    console.log(obj1);
+    console.log(obj1.__proto__);
+
+    var obj2 = {key:'key',name:'obj2'}
+    var obj3 = Object.create(obj2)
+    console.log(obj3);//空对象，但是继承了obj2
+    console.log(obj3.name);
+    console.log(obj3.__proto__);//指向OBJ2
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #top{
+            width: 100%;
+            min-width: 1200px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, .9);
+        }
+        #top>li{
+            position: relative;
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            padding:0 20px ;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        #top > li a{
+            display: block;
+            height: 40px;
+            text-decoration: none;
+            color: #fff;
+        }
+        #top > li a:hover{
+            color: #00cc4c;
+        }
+        #top > li ul{
+            position: absolute;
+            overflow: hidden;
+            height: 0px;
+            left: 0;
+            right: 0;
+            top: 40px;
+        }
+        #top > li ul li{
+            position: relative;
+            height: 30px;
+            line-height: 30px;
+        }
+        #top > li:hover ul{
+            height: auto;
+            
+        }
+        #top > li ul li a{
+            position: absolute;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background-color:  rgba(0, 0, 0, .9);
+        }
+        /* #top > li ul li{
+            height: 30px;
+            line-height: 30px;
+        } */
+        #top > li ul li:nth-of-type(odd) a{
+            left: -80px;
+            opacity: .1;
+        }
+        #top > li ul li:nth-of-type(even) a{
+            left: 80px;
+            opacity: .1;
+        }
+        #top > li:hover ul a{
+            transition-property: left,top,opacity;
+            transition-duration: 1s;
+            left: 0 !important;
+            top: 0 !important;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body>
+    <ul id="top">
+        <li>
+            <a href="#">菜单一</a>
+            <ul>
+                <li>
+                    <a href="#">1-1</a>
+                </li>
+                <li>
+                    <a href="#">1-2</a>
+                </li>
+                <li>
+                    <a href="#">1-3</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">菜单二</a>
+            <ul>
+                <li>
+                    <a href="#">2-1</a>
+                </li>
+                <li>
+                    <a href="#">2-2</a>
+                </li>
+                <li>
+                    <a href="#">2-3</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">菜单三</a>
+            <ul>
+                <li>
+                    <a href="#">3-1</a>
+                </li>
+                <li>
+                    <a href="#">3-2</a>
+                </li>
+                <li>
+                    <a href="#">3-3</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

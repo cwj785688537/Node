@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            apply将函数中的this指向了传入的第一个参数
+            apply调用了这个函数
+
+            apply的第一个参数分为三类，一类是指向window的（null，undefined）。一类是基本类型，要让他变成包装对象（number，string，Boolean）。还有一种就是对象类型
+        */
+
+        //因为所有类型的__proto__最终都会指向Function的prototype，所以要在prototype上添加apply方法
+        Function.prototype.myapply = function(content,argArr){
+            //首先要判断content是什么类型，如果不是对象类型则需要提前处理一下
+            if(content === null || content === undefined){
+                //如果进来的是null或者undefined，则让他指向window
+                content = window
+            }
+            if(typeof content != 'boject' && typeof content != 'function'){
+                //如果是null和undefined就进不来这条if函数
+                //如果是对象类型也进不来这个函数，所以只有基本类型可以进来
+                //使用Object（）方法可以把基本类型变成包装对象
+                //变成包装对象就可以拥有属性和方法了 
+                content = Object(content)
+            }
+            //因为构造函数的this指向其实例化对象
+            //所以将this的地址值给到content的一个属性上，就可以将函数的this指向content
+
+            //因为可能content的属性会重复，所以给content扩展一个独一无二而的值
+            var f = Date.now().toString(36)
+            content[f] = this
+
+            //eval可以将字符串代码执行
+            //content[f]相当于fn()
+            //因为传入的是一个数组，所以直接把数组转成字符串并调用就可以了
+            eval('content[f]('+argArr.toString()+')')
+            
+            //因为给content扩展了一个f方法，现在不用了，要把content的f方法删除
+            delete content[f]
+        }
+        function fn(a, b) {
+            console.log(a + b);
+            console.log(this);
+        }
+
+        fn.myapply(null,[1,2])
+        fn.myapply(undefined,[1,2])
+        fn.myapply(true,[1,2])
+        fn.myapply({},[1,2])
+        fn.myapply([],[1,2])
+    </script>
+</body>
+</html>

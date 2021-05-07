@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            事件轮询机制：
+                代码分类：
+                    - 同步代码：for等。。注意：定时器的声明，事件的绑定都是同步的
+                    - 异步代码：定时器的回调函数 事件函数 ajax回调函数
+                    - js先执行同步代码 然后再执行异步代码
+
+                事件循环模型：
+                    - js主线程
+                    - 回调队列
+                    - 事件管理模块
+
+                事件循环机制：
+                    - 执行主线程的同步代码，把事件回调函数交给浏览器对应的事件管理模块
+                    - 在浏览器的管理模块中，如果回调函数到了该执行的时候，则把对应的回调函数交给回调队列
+                    - 当主线程的同步代码执行完成，然后遍历调用回调队列中的回调函数并执行
+        */
+    </script>
+</body>
+</html>

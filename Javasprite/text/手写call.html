@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Function.prototype.myCall = function(content){
+             //如果不是对象类型，null和undefined指向window
+             if (content === null || content === undefined) {
+                content = window
+            }
+            //如果是content是null或者undefined就已经变成了window，是对象类型
+            //如果是object则无法进入if，所以可以进入if的是基本类型了
+            //使用Object()方法可以把基本类型变成包装对象
+            if (typeof content != 'object' && typeof content != 'function') {
+                content = Object(content)
+            }
+
+            //获取给调用myCall的函数传递的参数
+            //不要arguments的第一个值
+            //Array.from()方法可以把伪数组转数组
+            var argArr = Array.from(arguments).slice(1)
+
+            //原型对象的this指向其实例化对象，把当前函数中的this指向content
+            //把当前myApply的this所代表的函数，当成content对象的方法即可
+            //所以给content扩展一个方法，值为this代表的函数
+
+            var f = Date.now().toString(36)
+            content[f] = this
+
+            //当content调用了f方法，f的this就指向了content，因为f和fn是同一个函数，所以fn的this也指向了content
+            // eval可以将字符串的代码执行
+            eval('content[f]('+argArr.toString()+')')
+
+            //因为给content扩展了一个f方法，现在f方法已经不用了，所以需要删除
+            delete content[f]
+        }
+
+        function fn(a,b){
+           console.log(a+b);
+           console.log(this);
+       }
+
+       fn.apply(1,[1,2])
+    </script>
+</body>
+</html>

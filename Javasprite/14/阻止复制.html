@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>asfsafasfasfsaf</div>
+    <script>
+        document.onkeydown = function(e){
+            //阻止ctrl+c复制
+            //每次事件发生的时候，都有一个ctrlKey是一个布尔值，代表当前事件发生的时候，是否触发ctrl键
+            if(e.ctrlKey&&e.keyCode === 67){
+                e.preventDefault()
+            }
+        }
+        document.oncontextmenu = function(e){
+            e.preventDefault()
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         /* 
+            onload事件：绑定给window元素，当页面全部（DOM节点、图像、音视频等等所有的资源）加载完成以后执行
+                还可以绑定给某个图片或音视频资源
+         */
+         /* window.onload = function(){
+             var oBox = document.getElementById('box')
+             console.log(oBox);
+         } */
+    </script>
+</head>
+<body>
+    <div id="box">box</div>
+    <img src="../../../Javasprite.picture/11/01.jpg" id="img">
+    <script>
+       window.onload = function(){
+           var oImg = document.getElementById('img')
+           console.log(oImg);
+
+           //获取图片的宽度
+           console.log(oImg.offsetWidth);
+       }
+         
+       var oImg = document.getElementById('img')
+       console.log(oImg);
+
+       oImg.onload = function(){
+           //获取图片的宽度
+           console.log(oImg.offsetWidth);
+       }
+    </script>
+</body>
+</html>

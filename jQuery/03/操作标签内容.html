@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" value="默认值">
+    <div id="box"><span>哈哈</span></div>
+    <div id="box1">嘿嘿</div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        // console.log($('input').val());
+        // $('input').val('新的内容')
+        console.log($('#box').text());//只能获取内容值
+        console.log($('#box').html());// 可以获取标签及内容
+        $('#box1').text('<h3>新的内容</h3>')//会将标签也加入到内容中
+        $('#box1').html('<h3>新的内容</h3>')//会将标签解析并加入到内容中
+
+    </script>
+</body>
+</html>

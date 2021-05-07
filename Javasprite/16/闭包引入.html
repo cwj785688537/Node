@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        /* 
+            需求：点击Li的时候，弹出li的下标
+        */
+
+        var oLis = document.querySelectorAll('ul li')
+
+        /* for (var i = 0; i < oLis.length; i++) {
+            oLis[i].index = i //把每一个I的下标都保存起来了
+            oLis[i].onclick = function(){
+                console.log(this.index);
+            }
+        } */
+
+        for (var i = 0; i < oLis.length; i++) {
+            (function(i){
+                oLis[i].onclick = function(){
+                    console.log(i);
+                }
+            })(i)
+        }
+
+        oLis.forEach(function(item,index){
+            item.onclick = function(){
+                console.log(index);
+            }
+        })
+    </script>
+</body>
+</html>

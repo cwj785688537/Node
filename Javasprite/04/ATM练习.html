@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ATM按键， 用户输入对应数字 执行相应的功能
+        function con() {
+            var use = +prompt('请输入您的操作：1.取钱 2.查询 3.转账 4.退出')
+            console.log(typeof(use));
+            switch ((use)) {
+                case 1:
+                    alert('取钱')
+                    break
+                case 2:
+                    alert('查询')
+                    break
+                case 3:
+                    alert('转账')
+                    break
+                case 4:
+                    alert('退出')
+                    break
+                default:
+                    alert('请按提示操作')
+                    con()
+            }
+        }
+        con()
+    </script>
+</body>
+
+</html>

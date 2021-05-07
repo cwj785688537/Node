@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let i = 0
+        let arr = []
+        function fn(a, b) {
+
+            while (i < (b - a)) {
+                let re = Math.floor(Math.random() * (b - a) + a)
+                if (arr.indexOf(re) == -1) {
+                    arr[i] = re
+                    i++
+                }
+            }
+            return arr
+        }
+        // console.log(fn(11, 54));
+        let re = fn(11,54)
+        re.sort(function(a,b){
+            return a-b
+        })
+        console.log(re);
+    </script>
+</body>
+
+</html>

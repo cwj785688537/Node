@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // // js原生写法
+        // function Person(name,age){
+        //     this.name = name
+        //     this.age = age
+        // }
+
+        // Person.prototype.do = function(){
+        //     console.log('睡觉');
+        // }
+
+        // function Student(name,age,score){
+        //     // 使用借用构造函数继承，来继承属性
+        //     Person.call(this,name,age)
+        //     this.score = score
+        // }
+        // // 除了继承属性，还要继承方法
+        // Student.prototype = new Person()
+
+        // class是es6中新增的语法糖（构造函数和继承）
+        class Person{
+            // constructor就相当于是person的构造函数
+            constructor(name,age){
+                // 属性加到实例上
+                this.name = name
+                this.age = age
+            }
+
+            // 将方法加到原型上
+            do(){
+                console.log('吃饭');
+            }
+        }
+
+        // 使用extends 让sStudent继承person
+        class Student extends Person{
+            constructor(name,age,score){
+                // super函数指向的其实就是Person的constructor函数
+                super(name,age)
+                this.score = score
+            }
+        }
+        let p1 = new Person('laowang',18)
+        let p2 = new Student('xiaowang',20,100)
+        console.log(p1);
+        console.log(p2);
+        p1.do()
+        p2.do()
+    </script>
+</body>
+</html>

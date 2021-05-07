@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            break：遇到break，直接退出循环
+        */
+        for (var i = 0; i < 10; i++) {
+            if (i === 5) {
+                break
+            }
+            console.log(i)
+        }
+        /* 
+         continue:遇到continue直接退出本次循环，去执行下一个循环
+        */
+        for (var i = 0; i < 10; i++){
+            if(i===5){
+                continue
+            }
+            console.log(i)
+        }
+
+        //break和label声明配合使用
+        outer:
+        for(var i = 0;i<10;i++){
+            inner:for(var j =0;j<10;j++){
+                if(j===5){
+                    break outer//当j等于5的时候，整个循环都断了
+                }
+                console.log(i,j)
+            }
+        }
+    </script>
+</body>
+
+</html>

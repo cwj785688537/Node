@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oList = document.querySelector('.list');
+        var oListLis = document.querySelectorAll('.list li');
+        
+        /* 
+           替换节点
+                A.replaceChild(new,old)
+                A是new和old的父级
+                用new来替代old
+        */
+
+        var oBtn = document.getElementById('btn')
+       
+        oBtn.onclick = function(){
+            //创建新元素 替代旧元素
+           /*  var newLi = document.createElement('li')
+            newLi.innerHTML = 'xin'
+
+            oList.replaceChild(newLi,oListLis[1]) */
+
+            //拿已经存在的元素替换旧元素
+            oList.replaceChild(oListLis[3],oListLis[1])
+        }
+       
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">box</div>
+    <script>
+        /* 
+            event事件对象：
+                - event对象由事件自动创建，记录了当前事件的状态
+
+            获取event事件对象：
+                - W3C规定，在事件发生的时候，会自动的向事件函数传递一个实参，这个实参是event事件对象
+                - IE8以下：直接把事件对象放在了Window对象上，在事件中后去window.evnet即可获取
+        */
+
+        var oBox = document.getElementById('box')
+        //直接在事件函数中书写一个形参，就可以接受到event事件对象
+        oBox.onclick = function(e){
+            // console.log(e);
+            // console.log(window.event);//IE8以下
+
+            //兼容性
+            var e = e || window.event
+            console.log(e);
+        }
+        oBox.onclick({})
+    </script>
+</body>
+</html>

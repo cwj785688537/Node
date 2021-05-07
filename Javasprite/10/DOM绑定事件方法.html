@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">box</div>
+    <script>
+        /* 
+         DOM绑定事件的方法
+                Ele.on+事件名 = fn
+                当元素的事件触发，就会调用后边的函数
+
+                相当于给元素的事件属性赋值了一个方法，当事件调用的时候，就会自动的调用这个事件方法
+        */
+
+        //默认情况下 本身元素就有这个事件属性 值为null
+        oBox.onclick = null
+
+        //当我们想要绑定事件的时候 只需要给这个事件属性赋值一个函数即可
+        oBox.onclick = function(){
+            
+        }
+    </script>
+</body>
+</html>

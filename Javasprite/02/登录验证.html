@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="form">
+        <div>
+            <label>
+                用户名<input type="text" id="username" autocomplete="on">
+            </label>
+        </div>
+        <div>
+            <label>
+                密码<input type="password" id="password" autocomplete="on">
+            </label>
+        </div>
+        <button id="btn">登录</button>
+    </div>
+    <script>
+        /* 
+        需求：当用户点击登录时，检测用户输入的账号密码是否正确，如果正确登录成功，否则提示输入的账号密码有误
+
+        1.获取元素
+        2.绑定登录按钮
+        3.获取用户输入的账号密码
+        4.判断用户输入的账号密码是否正确
+        */
+
+       //1.获取元素
+       var oUser = document.getElementById("username");
+       var oPass = document.getElementById("password");
+       var oBtn = document.getElementById("btn");
+    //    console.log(oUser,oPass)
+
+       //2.绑定登录按钮
+       oBtn.onclick = function(){
+           //3.获取用户输入的账号密码
+           var userName = oUser.value
+           var passWord = oPass.value
+           console.log(userName,passWord)
+
+           //判断用户输入的账号密码是否正确 &&与
+           if(userName === "lipeihua" && passWord === "123456"){
+               alert("欢迎登录")
+           }else{
+               alert("账号密码错误，请重新输入")
+           }
+       }
+    </script>
+</body>
+</html>

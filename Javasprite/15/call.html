@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        /* 
+            在JavaScript中，call、apply和bind是function对象自带的三个方法
+            这三个函数的存在意义是 改变函数执行时的上下文，再具体一点就是改变函数运行时的this指向
+            ({}).toString.call(1)
+            obj.fn(1,2,3)
+            obj.fn.call(o,1,2,3)
+            call:
+                参数1：被指向的上下文对象
+                    - 如果是null\undefined 则默认指向window
+                    - 如果是 基本类型 则指向当前对象
+                    - 如果是对象类型 则指向当前函数
+                参数2：调用call的一定是一个函数，有的时候函数需要参数，所以从call的第二个参数开始，其他参数都是调用call的函数的参数
+
+            call的作用：
+                1.改变函数的this指向
+                2.调用函数
+        */
+
+       /*  var oLis = document.getElementById('box').getElementsByTagName('li')
+        Array.prototype.forEach.call(oLis,function(item,index){
+            item.style.background = 'red'
+        }) */
+
+        var obj = {
+            name:'laownag',
+            fn:function(a,b){
+                console.log(a+b);
+                return this
+            }
+        }
+        console.log(obj.fn.call(window,1,2));//window
+        console.log(obj.fn.call(null, 1, 2)); //window
+        console.log(obj.fn.call(undefined, 1, 2)); //window
+        console.log(obj.fn.call(1, 1, 2)); //number的包装类型
+        console.log(obj.fn.call("1", 1, 2)); //string的包装类型
+        console.log(obj.fn.call(true, 1, 2)); //boolean的包装类型
+        console.log(obj.fn.call([], 1, 2)); //当前对象
+        console.log(obj.fn.call({}, 1, 2)); //当前对象
+        console.log(obj.fn.call(function () {}, 1, 2)); //当前函数
+        console.log(obj.fn.call(new Date(), 1, 2)); //当前对象
+    </script>
+</body>
+</html>

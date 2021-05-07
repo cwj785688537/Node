@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        while语句：
+            - while（判断式）{语句}
+            - 先执行判断，如果符合条件就执行语句，然后再判断，再执行语句。。知道判断为false 则退出while
+        */
+       /* var a = 0
+       while(a<10){
+           console.log(1);
+           a++
+       } */
+       // 用while() 循环来计算1 + 2 + 3...+98 + 99 + 100 的值。
+       var a =1//定义一个初始值，然后到while中每次递增，就能得到1-100的每个值了
+       var sum = 0//把每次得到的a累加到sum里
+       while(a<=100){
+           sum += a
+           a++
+       }
+       console.log(sum)
+       //将1-100之间  3的倍数找出来 并打印
+       var a = 1
+       while(a<=100){
+           if(a%3===0){
+               console.log(a)
+           }
+           a++
+       }
+       for(var i =3;i<=100;i += 3){
+           console.log(i)
+       }
+    </script>
+</body>
+</html>

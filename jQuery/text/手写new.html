@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Student(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+
+            //构造函数本身一般没有返回值，直接返回实例化对象
+            //但是如果构造函数书写了return了呢？
+            //如果构造函数中return的是基本类型值，则不影响构造函数返回实例化对象
+            //如果构造函数中return的是对象类型，则不再返回实例化对象，而是直接返回这个对象类型值
+            return null;
+        }
+
+        /* 
+            new干了什么：
+                - 返回了一个对象
+                - 让这个对象的隐式原型指向构造函数的显示原型
+                - 构造函数的this指向其实例化对象
+                - 判断构造函数的返回值是什么类型
+        */
+
+        function myNew(content) {
+            //返回了一个对象
+            var obj = {}
+            //让这个对象的隐式原型指向构造函数的显示原型
+            obj.__proto__ = content.prototype
+            //因为第一个参数是构造函数，所以从下标为1的地方开始截取传入的内容
+            var argArr = Array.from(arguments).slice(1)
+            //调用构造函数，将他的this指向实例化对象
+            var re = content.apply(obj, argArr)
+            //因为构造函数如果返回的是对象类型的话他就不再返回实例化对象，而是返回对象类型值
+            //判断re是对象类型还是基本类型
+            if(typeof re === 'object' && re !== null || typeof re === 'function'){
+                return re
+            }
+            return obj
+        }
+    </script>
+</body>
+
+</html>

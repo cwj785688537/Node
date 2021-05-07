@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">点我</button>
+    <div id="box" study="js"></div>
+    <script>
+        /* 
+         自定义属性的添加 删除 获取 修改
+         添加：
+            setAttribute(key,value)
+        获取：
+            getAttribute(key)
+        删除：
+            removeAttribute(key)
+        修改：
+            直接设置覆盖即可
+        */
+
+        var oBox = document.getElementById('box')
+        var oBtn = document.getElementById('btn')
+
+        oBtn.onclick = function(){
+            //添加
+           // oBox.setAttribute('eat','noodle')
+
+            //获取
+           //console.log(oBox.getAttribute('study'));
+
+            //删除
+           // oBox.removeAttribute('study')
+
+            //修改
+            oBox.setAttribute('study','jquery')
+        }
+    </script>
+</body>
+</html>

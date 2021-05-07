@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 600px;
+            height: 600px;
+            background-color: red;
+            border: 1px solid #000;
+            margin: 100px;
+            position: relative;
+        }
+
+        #inner {
+            width: 350px;
+            height: 350px;
+            background-color: yellow;
+            border: 1px solid #000;
+            margin: 80px;
+            position: absolute;
+        }
+
+        #con {
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            border: 1px solid #000;
+            margin: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner">
+            <div id="con"></div>
+        </div>
+    </div>
+    <script>
+        /* 
+            获取一个元素到文档边缘的距离
+        
+        */
+
+        var oCon = document.getElementById('con')
+
+        /* oCon.offsetLeft
+
+        oCon.offsetParent.offsetLeft
+
+        oCon.offsetParent.offsetParent.offsetLeft
+
+        oCon.offsetParent.offsetParent.offsetParent.offsetLeft */
+
+        /* var num = 0;
+        var o = oCon;
+        while (o) {
+            //判断当前元素是不是要获取的元素，如果是则不加边框
+            if (o === oCon) {
+                num += o.offsetLeft;
+            } else {
+                num += o.offsetLeft + o.clientLeft;
+            }
+
+            //把o变成最近定位父级
+            o = o.offsetParent;
+
+        }
+
+        console.log(num) */
+
+
+
+        function getEleToDoc(obj) {
+            //初始化值
+            var l = 0;
+            var t = 0;
+            var o = obj;
+            while (o) {
+                //判断是不是第一个元素
+                if (o === oCon) {
+                    l += o.offsetLeft;
+                    t += o.offsetTop;
+                } else {
+                    l += o.offsetLeft + o.clientLeft;
+                    t += o.offsetTop + o.clientTop;
+                }
+
+                //把o变成最近定位父级
+                o = o.offsetParent;
+            }
+
+            return {
+                left: l,
+                top: t
+            }
+        }
+
+        var re = getEleToDoc(oCon);
+        console.log(re);
+    </script>
+</body>
+
+</html>

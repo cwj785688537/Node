@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">取消con的事件</button>
+    <div id="outer">
+        outer
+        <div id="inner">
+            inner
+            <div id="con">con</div>
+        </div>
+    </div>
+    <script>
+        var oOuter = document.getElementById('outer')
+        var oInner = document.getElementById('inner')
+        var oCon = document.getElementById('con')
+        var oBtn = document.getElementById('btn')
+
+        /* 
+            特点一：
+                对同一个元素绑定事件多次，则会覆盖
+            特点二：
+                基本事件模型：默认冒泡
+        */
+      /*  //1.给对象的属性赋值，如果多次赋值则会覆盖
+
+       oCon.onclick = function(){
+           alert(1)
+       }
+       oCon.onclick = function(){
+           alert(2)
+       }
+       oCon.onclick = function(){
+           alert(3)
+       }
+       oCon.onclick = function(){
+           alert(4)
+       } */
+
+       //2.基本事件模型：默认冒泡
+       oCon.onclick =function(){
+           alert(1)
+       }
+       oInner.onclick =function(){
+           alert(2)
+       }
+       oOuter.onclick =function(){
+           alert(3)
+       }
+
+       //取消事件
+       oBtn.onclick = function(){
+           //直接把元素的事件属性赋值为Null 则直接取消事件
+           oCon.onclick = null//只会取消当前这个事件
+       }
+    </script>
+</body>
+</html>

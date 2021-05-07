@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oList = document.querySelector('.list');
+        var oListLis = document.querySelectorAll('.list li');
+        /* 
+            复制节点
+            A.cloneNode()
+            复制的A节点
+
+            cloneNode参数：
+                true：深克隆，复制当前的节点及内部子节点
+                false：浅克隆，复制当前的节点，不会复制内容子节点
+        */
+
+        var oBtn = document.getElementById('btn')
+        oBtn.onclick = function () {
+           //复制节点 oList
+           var newList = oList.cloneNode(true)
+           console.log(newList);
+
+           //在BODY末尾插入
+           document.body.appendChild(newList)
+        }
+    </script>
+</body>
+
+</html>

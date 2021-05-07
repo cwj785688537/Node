@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            原型链的查找过程，就是通过__proto__查询的
+        */
+
+        var arr = []
+        console.log(arr);
+        console.log(arr.__proto__);//Array的prototype
+        console.log(arr.__proto__.__proto__);//object的prototype
+        console.log(arr.__proto__.__proto__.__proto__);//null
+
+        /* 
+            每一个对象都有一个__proto__属性，被称作隐式原型（因为每一个对象都可能会获取他的属性或方法）
+            每一个函数都有一个prototype属性，被称作显式原型（因为只有构造函数的实例化对象，才能获取构造函数的原型对象的方法）
+
+            总结：
+                当查找一个对象的方法或者属性的时候，如果自身没有，则会沿着隐式原型找到这个对象构造函数的显示原型
+                如果还查找不到，则会沿着隐式原型一直向上查找，直到找到，或者隐式原型返回Null
+        */
+
+        console.log(arr.__proto__ === Array.prototype);
+        console.log({}.__proto__ === Object.prototype);
+        console.log('1'.__proto__ === String.prototype);
+
+        function Person(){
+            console.log('test');
+            Person.prototype.test = 2
+            
+        }
+        var p = new Person()
+        console.log(p.test);
+
+        var arr2 = [1,2,3,4]
+        //arr2要找sort方法，自身如果没有，则会沿着隐式原型找到Array的显式原型
+        //但是如果arr2自己有了sort方法，就不会再去查找了
+
+        arr2.sort = function(){
+            console.log('拦截成功');
+            return 1
+        }
+        console.log(arr2.sort());
+    </script>
+</body>
+</html>

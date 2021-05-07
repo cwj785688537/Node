@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" id="ipt" placeholder="请输入电话号码"> -->
+    <input type="text" id="ipt" value="请输入电话号码">
+    <script>
+        /* 
+            模拟placeholder占位符
+        */
+       
+        var oIpt = document.getElementById('ipt')
+
+        oIpt.onfocus = function(){
+            if(this.value==='请输入电话号码'){
+                this.value = ''
+            }
+        }
+        oIpt.onblur = function(){
+            if(this.value===''){
+                this.value = '请输入电话号码'
+            }
+        }
+    </script>
+</body>
+</html>

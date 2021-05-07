@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            手写instanceof
+            A instanceof B
+            检测B的原型对象是否在A的原型链上
+        */
+
+        function myInstanceof(A,B){
+            var _A = A.__proto__
+            //只要B的原型对象在A的原型量上，则while执行结束之前，一定会返回true
+            while(_A){
+                if(_A === B.prototype){
+                    return true
+                }
+                _A = _A.__proto__
+            }
+
+            //while在结束之后，仍然函数没有return值，则说明B的原型对象不在A的原型链上
+            return false 
+        }
+
+        function Foo(){}
+        var f1 = new Foo()
+        console.log(myInstanceof(f1,Foo));
+        console.log(myInstanceof(f1,Object));
+
+        console.log(Object instanceof Function);
+        console.log(Object instanceof Object);
+        console.log(Function instanceof Object);
+        console.log(Function instanceof Function);
+        console.log(Object instanceof Foo);
+    </script>
+</body>
+</html>

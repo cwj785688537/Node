@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Object.create是创建对象，返回一个新的实例
+
+        //Object.defineProperty(要修改的对象，‘要修改的数据’，｛value，。。。｝)修改本来就存在的一个对象的属性
+        // 注意：Object.defineProperty只能修改一个属性
+
+        // 如果要修改多个属性，使用
+        /* 
+            Object.defineProperties(要修改的对象，{
+                属性：{
+                    描述信息
+                }
+            })
+        */
+
+        var obj1 = {
+            name:'laowang'
+        }
+        //如果obj1中没有sex，就会添加
+        // Object.defineProperty(obj1,'sex',{
+        //     value:'女'
+        // })
+        Object.defineProperty(obj1,'name',{
+            value:'xiaowang'
+        })
+        console.log(obj1);
+
+        //如果已经用过defineProperties添加了一个没有的属性时，不能再次修改
+        Object.defineProperties(obj1,{
+            sex:{
+                value:'男'
+            },
+            name:{
+                value:'xiaoli'
+            }
+        })
+        console.log(obj1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ad{
+            margin: 0 auto;
+            /* border: 1px solid red; */
+            width: 500px;
+        }
+        #ad .ad-pic{
+            position: relative;
+            width: 500px;
+            height: 400px;
+        }
+        #ad .ad-pic a{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #ad .ad-pic img{
+            
+            height: 400px;
+            
+        }
+        #ad .ad-pic a:first-of-type{
+            z-index: 9;
+        }
+        #ad .ad-pic a:target{
+            z-index: 99;
+        }
+        #ad ul{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            margin-top: 10px;
+            height: 70px;
+            /* width: 500px; */
+        }
+        #ad ul li{
+            float: left;
+            height: 70px;
+            padding-left: 10px;
+           
+        }
+        #ad ul li a{
+            display: block;
+        }
+        #ad ul li img{
+            height: 70px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="ad">
+        <div class="ad-pic">
+            <a name="kof-1">
+                <img src="../../picture/10/img/kof-01.jpg">
+            </a>
+            <a name="kof-2">
+                <img src="../../picture/10/img/kof-02.jpg">
+            </a>
+            <a name="kof-3">
+                <img src="../../picture/10/img/kof-03.jpg">
+            </a>
+            <a name="kof-4">
+                <img src="../../picture/10/img/kof-04.jpg">
+            </a>
+            <a name="kof-5">
+                <img src="../../picture/10/img/kof-05.jpg">
+            </a>
+        </div>
+        <ul>
+            <li>
+                <a href="#kof-1">
+                    <img src="../../picture/10/img/kof-01.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#kof-2">
+                    <img src="../../picture/10/img/kof-02.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#kof-3">
+                    <img src="../../picture/10/img/kof-03.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#kof-4">
+                    <img src="../../picture/10/img/kof-04.jpg">
+                </a>
+            </li>
+            <li>
+                <a href="#kof-5">
+                    <img src="../../picture/10/img/kof-05.jpg">
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

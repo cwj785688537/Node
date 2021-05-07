@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #text{
+            outline: none ;
+        }
+    </style>
+</head>
+<body>
+    <textarea  id="text"></textarea>
+    <p id="con">还可以输入40字</p>
+    <script>
+        var oText = document.getElementById('text')
+        var oCon = document.getElementById('con')
+
+        var allNum = 40
+        // oText.slice(0,40)
+        oText.oninput = function(){
+            //获取文本内容的长度
+            var userLen = this.value.length
+            
+            console.log(userLen);
+
+            //计算剩余字数
+            var lastNum= allNum-userLen
+            oCon.textContent = '还可以输入'+lastNum+'字'
+            
+            if(lastNum<0){
+                oText.style.borderColor = 'red '
+            }else{
+                oText.style.borderColor = '#000'
+            }
+            // oText.slice(0,40)
+        }
+    </script>
+</body>
+</html>

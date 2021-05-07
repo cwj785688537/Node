@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box')
+
+        //两种颜色变色
+       /*  var flag = true//默认true是粉色
+        oBox.onclick = function(){
+            if(flag){
+                oBox.style.background = 'red'
+            }else{
+                oBox.style.background = 'pink'
+            }
+            flag = !flag
+        } */
+
+        //多种颜色变色
+        var con = 0//默认0是粉色
+        oBox.onclick = function(){
+            con++
+            //需要几种颜色就对几取余
+            switch(con%4){
+                case 0:
+                    oBox.style.background='pink'
+                    break
+                case 1:
+                    oBox.style.background='blue'
+                    break
+                case 2:
+                    oBox.style.background='red'
+                    break
+                case 3:
+                    oBox.style.background='yellow'
+                    break
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .outer {
+            width: 300px;
+            border: 1px solid #000;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .inner {
+            overflow: auto;
+        }
+
+        .con {
+            display: flex;
+            width: 2000px;
+        }
+
+        .con img {
+            width: 300px;
+            height: 500px;
+        }
+
+        #left,
+        #right {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(20, 255, 40, .7);
+            line-height: 50px;
+            text-align: center;
+            color: #fff;
+            font-size: 30px;
+            position: absolute;
+        }
+
+        #left {
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #right {
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .list {
+            display: flex;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+        }
+
+        .list li {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: rgba(24, 145, 34, 0.4);
+            margin: 10px;
+        }
+
+        .list li.active {
+            background-color: rgb(11, 180, 25)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="inner">
+            <div class="con">
+                <img src="../../images/01.jpg" alt="">
+                <img src="../../images/02.jpg" alt="">
+                <img src="../../images/03.jpg" alt="">
+                <img src="../../images/04.jpg" alt="">
+                <img src="../../images/05.jpg" alt="">
+                <img src="../../images/01.jpg" alt="">
+            </div>
+
+            <p id="left">&lt;</p>
+            <p id="right">&gt;</p>
+
+            <ul class="list">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        /* 
+            需求：
+                每隔两秒换一张图  动画形式换图
+        
+        
+        */
+        var oInner = document.querySelector('.inner');
+        var oImgs = document.querySelectorAll('.con img');
+        var oList = document.querySelector('.list');
+        var oListLis = document.querySelectorAll('.list li');
+        var moveTimer = null;
+        var autoMoveTimer = null;
+        //初始化一个变量 代表图片的下标
+        var i = 0;
+
+        function autoMove() {
+            autoMoveTimer = setInterval(function () {
+                clearInterval(moveTimer)
+                i++;
+                //判断临界值
+                if (i >= oImgs.length) {
+                    //当到达临界值的时候，i是最后一个img 也是第一张图，所以i要变成第二张图 所以i = 1;
+                    i = 1;
+                    //到达临界值之后，瞬间把滚动条变成前边第一张图的位置
+                    oInner.scrollLeft = 0;
+                }
+                //以下代码是一步到位，可以换成动画的方式书写
+                // oInner.scrollLeft = i * oImgs[0].offsetWidth;
+
+
+                //通用动画
+                move();
+
+                //控制下标的跟随
+                list();
+
+            }, 2000)
+        }
+ 
+        function move() {
+            //起始位置：当前滚动条的位置
+            var startLocation = oInner.scrollLeft;
+            //结束位置：
+            var endLocation = i * oImgs[0].offsetWidth;
+            //起始步数
+            var startStep = 0;
+            //结束步数
+            var endStep = 40;
+            //每一步走的距离
+            var everyStep = (endLocation - startLocation) / endStep;
+
+            //设置动画计时器
+            moveTimer = setInterval(function () {
+                startLocation += everyStep;
+                startStep++;
+                if (startStep >= endStep) {
+                    clearInterval(moveTimer)
+                }
+                oInner.scrollLeft = startLocation;
+            }, 10)
+        }
+
+        function list() {
+            //控制下标的跟随
+            oListLis.forEach(function (item) {
+                item.classList.remove("active");
+            })
+            //i不能是5，但是在这个位置千万不能修改i的值
+            oListLis[i === 5 ? 0 : i].classList.add("active")
+        }
+
+        function clear() {
+            clearInterval(moveTimer)
+            clearInterval(autoMoveTimer)
+        }
+
+
+        //调用自动走
+        autoMove()
+        //点击右侧按钮
+        var oRight = document.querySelector('#right');
+        oRight.onclick = function () {
+            //清计时器
+            clear();
+
+            i++;
+            //判断临界值
+            if (i >= oImgs.length) {
+                i = 1;
+                oInner.scrollLeft = 0;
+            }
+            //以下代码是一步到位，可以换成动画的方式书写
+            // oInner.scrollLeft = i * oImgs[0].offsetWidth;
+
+            //通用动画
+            move();
+
+
+            //控制下标的跟随
+            list();
+
+            //重新添加自动走
+            autoMove();
+        }
+
+        //点击左侧按钮
+        var oLeft = document.querySelector('#left');
+        oLeft.onclick = function () {
+            clear();
+            i--;
+            if (i < 0) {
+                i = oImgs.length - 2;
+                oInner.scrollLeft = (oImgs.length - 1) * oImgs[0].offsetWidth;
+            }
+
+
+            move();
+
+
+            //控制下标的跟随
+            list();
+
+
+            autoMove();
+
+        }
+
+
+        //点击下标
+
+        oListLis.forEach(function (item, index) {
+            item.onclick = function () {
+                clear();
+                //先清空
+                oListLis.forEach(function (item, index) {
+                    item.classList.remove("active");
+                });
+
+                item.classList.add("active");
+
+                //当点击的时候 让全局代表图片位置的下标i 等于当前点击元素的下标
+                i = index;
+
+                move();
+
+                autoMove();
+            }
+        })
+    </script>
+</body>
+
+</html>

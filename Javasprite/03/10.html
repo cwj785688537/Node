@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        逻辑或：||
+            一般用两个操作数进行逻辑或运算
+            A||B
+                - 先执行A，如果A语句返回的是true（可能类型转换），则直接逻辑或语句返回A语句的返回值
+                - 如果A语句返回false，则继续执行B语句，并返回B语句的返回值
+        */
+
+        console.log(true || 0)
+        var a = 2
+        console.log(a>1 || 0)
+        console.log(4||0)
+        console.log('-----------------')
+        console.log(false|| 1)
+        console.log(false|| a>1)
+        console.log(false|| a<1)
+        console.log(false|| false)
+
+        console.log('-----------------')
+        var hj=4;
+        if(hj === 2 || hj === 4){
+            alert("可以走了")
+        }
+    </script>
+</body>
+</html>

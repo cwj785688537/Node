@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <ul class="list">
+        <li>1<a href="#">删除</a></li>
+        <li>2<a href="#">删除</a></li>
+        <li>3<a href="#">删除</a></li>
+        <li>4<a href="#">删除</a></li>
+    </ul>
+    <script>
+        var oList = document.querySelector('.list');
+        var oListLis = document.querySelectorAll('.list li');
+        var oDeles = document.querySelectorAll('.list li a')
+        /* 
+           删除节点：
+            A.removeChild(B)
+            在A中 删除元素B
+            B是A的子元素
+
+            B.remove()
+            直接删除B节点
+        */
+
+        var oBtn = document.getElementById('btn')
+        oDeles.forEach(function(item,index){
+            item.onclick = function(){
+                //点击之后要删除，当前的删除按钮所在的li 所以删除的是item,parentNode
+                // item.parentNode.parentNode.removeChild(item.parentNode)
+
+                //方法二
+                item.parentNode.remove()
+            }
+        })
+       
+    </script>
+</body>
+
+</html>

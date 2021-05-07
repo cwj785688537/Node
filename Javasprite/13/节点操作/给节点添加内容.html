@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+    <ul class="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var oList = document.querySelector('.list')
+        var oListLis = document.querySelectorAll('.list li')
+
+        //创建一个新的元素
+        document.createElement('元素名')
+
+        var oBtn = document.getElementById('btn')
+        oBtn.onclick = function(){
+            //创建一个元素，这个元素对象会存放在内存中，并不会在页面中出现
+            var newLi = document.createElement('li')
+            console.log(newLi);
+        }
+    </script>
+</body>
+</html>

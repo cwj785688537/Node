@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../08/css/normalize.css" type="text/css">
+    <style>
+        /* 顶部 */
+        .borderclear{
+            border: 0px !important;
+        }
+        /* .clearboth::after{
+            content: "";
+            display: block;
+            clear: both;
+        } */
+        #topkuan{
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 30px;
+            min-width: 1200px;
+            background-color: #EAEAEA;
+        }
+        #top{
+            /* border: 1px solid blue; */
+            width: 1200px;
+            height: 30px;
+            margin: 0 auto;
+            font-size: 0px;
+        }
+        #top .topleft{
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            font-size:12px;
+        }
+        #top .topleft a{
+            text-decoration: none;
+            color: #333;
+            border-right: 1px solid #B3AEAE;
+            padding-left: 5px;
+            padding-right: 5px;
+
+        }
+        #top .topleft a:hover{
+            color: #E1251B;
+        }
+
+        #top ul{
+            margin: 0;
+            padding: 0;
+            /* border: 1px solid yellow; */
+            float:right;
+            list-style: none;
+        }
+        #top ul li{
+            float: left;
+            height: 30px;
+            line-height: 30px;
+        }
+        #top ul li a{
+            /* border: 1px solid green; */
+            text-decoration: none;
+            font-size: 12px;
+            color: #333;
+            padding-left: 10px;
+            padding-right: 10px;
+            border-right: 1px solid #b3aeae;
+
+        }
+        #top ul li a:hover{
+            color:#E1251B ;
+            /* 顶部结束 */
+            /* LOGO部分 */
+        }
+        #serch{
+            /* border: 1px solid red; */
+            width: 1200px;
+            height: 110px;
+            margin: 0 auto;
+        }
+        #serch .logo{
+            /* border: 1px solid blue; */
+            float: left;
+            font-size: 0;
+            width:250px ;
+            height: 110px;
+            line-height: 110px;
+            text-align: center;
+        }
+        #serch .logo img{
+            vertical-align: middle;
+        }
+        #serch .logo img a{
+            display: inline-block;
+        }
+        #serch form{
+            /* border: 1px solid yellow; */
+            float: right;
+            height: 110px;
+            line-height: 110px;
+            font-size: 0px;
+        }
+        #serch form input{
+          box-sizing: border-box;
+            width: 490px;
+            height: 32px;
+            border: 2px solid #ea4a36;
+            border-right: 0;
+            font-size: 14px;
+            vertical-align: middle;
+            outline: none;
+            
+        }
+        #serch form button{
+            font-size:12px ;
+            width: 68px;
+            height: 32px;
+            vertical-align: middle;
+            background-color: #ea4a36;
+            color: #fff;
+            cursor: pointer;
+            outline: none;
+            border: 0px;
+        }
+        /* LOGO部分结束 */
+        /* 菜单开始 */
+
+        #list{
+            width: 100%;
+            height: 46px;
+            min-width: 1200px;
+            border-bottom: 2px solid #e1251b;
+           
+            
+        }
+        #list ul{
+            /* border: 1px solid yellow; */
+            list-style: none;
+            margin: 0 auto;
+            padding: 0;
+            width: 1200px;
+            height: 46px;
+            line-height: 46px;
+            
+        }
+        #list ul li{
+            /* border: 1px solid blue; */
+            float: left;
+            /* height: 46px;
+            line-height: 46px; */
+            padding-left: 22px;
+            padding-right: 22px;
+            
+        }
+        #list ul li a{
+            text-decoration: none;
+            color: #333;
+        }
+        #list ul .first{
+            padding: 0;
+            background-color: #e1251b;
+            color: #fff;
+            width:210px ;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        #list ul li a:hover{
+            color: #e1251b;
+        }
+    </style>
+</head>
+<body>
+        <div id="topkuan">
+        <div id="top">
+            <div class="topleft">
+            <span>尚品汇欢迎您！</span>
+            请 <a href="#">登录</a>
+            <a href="#" class="borderclear">免费注册</a>
+        </div>
+            <ul>
+                <li><a href="#">我的订单</a></li>
+                <li><a href="#">我的购物车</a></li>
+                <li><a href="#">我的尚品汇</a></li>
+                <li><a href="#">尚品汇会员</a></li>
+                <li><a href="#">企业采购</a></li>
+                <li><a href="#">关注尚品汇</a></li>
+                <li><a href="#">合作招商</a></li>
+                <li><a href="#" class="borderclear">商家后台</a></li>
+            </ul>
+        </div>
+    </div>
+        <div id="serch">
+            <div class="logo">
+                <a href="#"><img src="./picture/Logo.png"></a>
+            <h1>尚品汇</h1>
+        </div>
+            <form action="#">
+                <input type="text" name="sousuo">
+                <button type="submit">搜索</button>
+            </form>
+        </div>
+        <div id="list">
+            <ul>
+                <li class="first">全部商品分类</li>
+                <li><a href="#">服装城</a></li>
+                <li><a href="#">美妆馆</a></li>
+                <li><a href="#">尚品汇超市</a></li>
+                <li><a href="#">全球购</a></li>
+                <li><a href="#">闪购</a></li>
+                <li><a href="#">团购</a></li>
+                <li><a href="#">有趣</a></li>
+                <li class="clearboth"><a href="#">秒杀</a></li>
+            </ul>
+        </div>
+
+</body>
+</html>

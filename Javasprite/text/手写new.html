@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function myNew(constr){
+            //返回了一个对象
+            var obj = {}
+            //让这个对象的隐式原型指向构造函数的显示原型
+            obj.__proto__ = constr.prototype
+
+            //获取给构造函数传递的参数 通过arguments来拿
+            var argArr = Array.from(arguments).slice(1)
+            //调用构造函数，并把他的this指向实例化对象obj
+            var re = constr.apply(obj,argArr)
+            //判断re是对象类型还是基本类型
+            if(typeof re === 'object' && re !==null || typeof re === 'function'){
+                return re
+            } 
+            return obj
+        }
+       
+    </script>
+</body>
+
+</html>

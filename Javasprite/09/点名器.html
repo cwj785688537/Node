@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #000;
+            text-align: center;
+        }
+        p{
+            font-size: 50px;
+            margin:40px 0;
+            color:#fff;
+        }
+        h2{
+            margin: 60px 0;
+            font-size: 100px;
+            color: sandybrown;
+        }
+    </style>
+</head>
+<body>
+    <div class="'outer">
+        <p id="btn">start</p>
+        <h2 id="user">请开始点名</h2>
+    </div>
+    <script>
+        var oBtn = document.getElementById('btn')
+        var oUser = document.getElementById('user')
+        var timer = null
+        var flag = false//默认是关闭状态
+        var userName = ['a','b','c','d','e','f','g']
+        console.log(userName);
+        oBtn.onclick = function(){
+            if(flag){
+                //停止计时器
+                clearInterval(timer)
+            }else{
+                timer = setInterval(function(){
+                    //随机一个[0,userName.length）的下标
+                    var newUser = userName[Math.floor(Math.random()*userName.length)]
+                    oUser.textContent = newUser
+                },10)
+            }
+            flag = !flag
+        }
+    </script>
+</body>
+</html>

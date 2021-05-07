@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+         click事件：左键单击
+            - 触发条件：鼠标左键单次点击 在当前元素上按下，并在当前元素上抬起，即可算一次点击
+        dblclick:左键双击
+            - 两次单击间隔 在300ms以内
+        contextmenu:右键单击
+        */
+
+        var oBox = document.getElementById('box')
+       /*  oBox.onclick = function(){
+            alert('click')
+        } */
+       /*  oBox.ondblclick = function(){
+            alert('dblclick')
+        } */
+        oBox.oncontextmenu = function(){
+            alert('contextmenu')
+        }
+    </script>
+</body>
+</html>

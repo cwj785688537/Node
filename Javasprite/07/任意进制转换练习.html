@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //任意进制转换
+        function to2B(num, par) {
+            //每次把num除以2 把得到的值取整，如果值为0，则说明计算完毕了
+            var n = 0
+            //定义一个数组用来存放余数
+            var arr = []
+            var str = ''//最后用字符串保存起来
+            var strArr = '0123456789abcdefghijklmnopqrstuvwxyz'
+            while (num > 0) {
+                n = num % par
+                arr.push(n)
+                num = parseInt(num / par)
+            }
+            while (arr.length > 0) {
+                str += strArr[arr.pop()]
+            }
+            return str
+        }
+        var re = to2B(200,16)
+        console.log(re)
+    </script>
+</body>
+
+</html>

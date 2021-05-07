@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #content{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content:space-around ;
+            width: 350px;
+            height: 255px;
+            border: 1px solid green;
+        }
+        #content>div{
+            display: flex;
+            width: 100px;
+            height: 100px;
+            padding: 5px;
+            border: 1px solid red;
+        }
+        .red,.blue{
+            width:25px;
+            height: 25px;
+            border-radius: 50%;
+        }
+        .red{
+            background-image: radial-gradient(red,black);
+        }
+        .blue{
+            background-image:radial-gradient(blue,black);
+        }
+        #s1{
+            justify-content: center;
+            align-items: center;
+        }
+        #s2{
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #s3{
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #s3>div:nth-of-type(2){
+            align-self: center;
+        }
+        #s3>div:nth-of-type(3){
+            align-self: flex-end;
+        }
+        #s4,#s6{
+            justify-content: space-around;
+        }
+        #s4 >.col,#s6 > .col{
+            display: flex;
+           
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        #s5{
+            justify-content: space-around;
+        }
+        #s5 > .col{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        #s5>div:nth-of-type(2){
+            position: absolute;
+            align-self: center;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div id="s1">
+            <div class="red"></div>
+        </div>
+        <div id="s2">
+            <div class="blue"></div>
+            <div class="blue"></div>
+        </div>
+        <div id="s3">
+            <div class="blue"></div>
+            <div class="blue"></div>
+            <div class="blue"></div>
+        </div>
+        <div id="s4">
+            <div class="col">
+                <div class="red"></div>
+                <div class="red"></div>
+            </div>
+            <div class="col">
+                <div class="red"></div>
+                <div class="red"></div>
+        </div>
+        </div>
+        <div id="s5">
+            <div class="col">
+                <div class="blue"></div>
+                <div class="blue"></div>
+            </div>
+            <div class="blue"></div>
+            <div class="col">
+                <div class="blue"></div>
+                <div class="blue"></div>
+        </div>
+        </div>
+        <div id="s6">
+            <div class="col">
+                <div class="blue"></div>
+                <div class="blue"></div>
+                <div class="blue"></div>
+            </div>
+            <div class="col">
+                <div class="blue"></div>
+                <div class="blue"></div>
+                <div class="blue"></div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container"></div>
+    <script>
+         let data = {
+        message: {
+          title: '今天天气真的很好',
+          todo: '打台球',
+          time: '时间2020.3.25',
+          isLike: false,
+        },
+      }
+
+      // 需求：将data中的数据，动态的渲染到container盒子中，要求按照指定的格式渲染
+
+      // 获取container盒子
+      // 获取类名的时候返回的是一个数组，要用下标来获取标签
+      let container = document.getElementsByClassName('container')[0]
+      // 往盒子中添加字符串
+      container.innerHTML = `<div>
+                            <h1>${data.message.title}</h1>
+                            <p>${data.message.todo}</p>
+                            <span>${data.message.time}</span>
+                            <i>${data.message.isLike}</i>
+                        </div>`
+    </script>
+</body>
+</html>

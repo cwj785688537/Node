@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        创建函数：
+            - 函数声明 function声明一个函数
+            - 函数表达式
+        */
+       //函数声明
+      /*  function fn1(){
+           alert('hello')
+       }
+       fn1() */
+
+       //函数表达式 把匿名函数赋值给一个变量，这个变量就代表当前函数
+       /* var fn2 = function(a,b,c,d){
+           alert('fn2')
+       }
+       fn2() */
+
+       //构造函数
+       var fn3 = new Function('a,b,c','console.log(a,b,c)')
+
+       fn3(1,2,3)
+    </script>
+</body>
+</html>

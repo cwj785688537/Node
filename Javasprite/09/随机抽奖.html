@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.onclick = function(){
+            var ran = Math.random()
+            if(ran<0.1){
+                alert('特等奖')
+            }else if(ran<0.3){
+                alert('一等奖')
+            }else if(ran<0.6){
+                alert('二等奖')
+            }else if(ran<0.9){
+                alert('三等奖')
+            }else{
+                alert('买个车模吧')
+            }
+        }
+    </script>
+</html>

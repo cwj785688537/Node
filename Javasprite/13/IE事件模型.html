@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">box</div>
+    <script>
+        /* 
+            IE事件模型(IE11以下)
+                - 绑定事件：
+                    attachEvent（）；只支持冒泡
+                    - 参数1：on+事件名
+                    - 参数2：事件函数
+
+                - 移除事件
+                    datachEvent():
+                        - 参数1：On+事件名
+                        - 参数2：事件函数
+        */
+       
+        var oBox = document.getElementById('box')
+       /*  oBox.attachEvent('onclick',function(){
+            alert('BOX1')
+        }) */
+
+        function fn(){
+            alert('box2')
+        }
+        oBox.attachEvent('onclick',fn)
+        
+        document.onclick = function(){
+            oBox.detachEvent('onclick',fn)
+        }
+    </script>  
+</body>
+</html>

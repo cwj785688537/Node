@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+        #box1{
+            background-color: red;
+        }
+        #box2{
+            background-color: yellow;
+        }
+        #box3{
+            background-color: pink;
+        }
+        #box4{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+    <script>
+        function Drag(id){
+            this.oBox = document.getElementById(id)
+            console.log(this);
+            //给oBox绑定鼠标按下事件
+            var _this = this //用一个变量保存实例化对象
+            this.oBox.onmousedown = function(e){
+                //鼠标按下的执行的操作都是通用的，所以在原型对象上封装一个down函数，在此调用down
+                //只有实例化对象才能调用down方法，因为down方法在原型对象上
+                //在这里this不是实例化对象，而在外边的this才是实例化对象
+                _this.down(e)
+            }
+        }
+
+        Drag.prototype.down = function(e){
+            //我们一般会把一些属性放在实例化对象的属性上，这样可以在任意位置使用
+            this.mouseToBox = {
+                x:e.offsetX,
+                y:e.offsetY
+            }
+            //原型对象的方法都是实例化对象调用的，所以原型对象的方法中的this都是指向实例化对象的
+            var _this = this
+            //给Box绑定鼠标移动事件
+            document.onmousemove = function(e){
+                _this.move(e)
+            }
+
+            document.onmouseup = function(){
+                document.onmousemove = null
+                document.onmouseup = null
+            }
+        }
+
+        Drag.prototype.move = function(e){
+            //这里的this指向实例化对象
+            var oBoxLocation = {
+                left: e.clientX - this.mouseToBox.x,
+                top: e.clientY - this.mouseToBox.y
+            }
+
+            this.oBox.style.left = oBoxLocation.left + 'px'
+            this.oBox.style.top = oBoxLocation.top + 'px'
+        }
+
+        new Drag('box1')
+        new Drag('box2')
+        new Drag('box3')
+        new Drag('box4')
+    </script>
+</body>
+</html>

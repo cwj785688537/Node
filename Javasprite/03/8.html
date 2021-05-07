@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        等于判断：
+            - ==：值相等即可，可能会类型转换
+            - ===：值和数据类型都相等
+        */
+
+        // 相等判断：如果有一个是number 正常情况下都会转成number
+        // 全等判断：先比较数据类型，然后再比较值，都相等再返回true
+        console.log(1==1)
+        console.log(1===1)
+        console.log(1=='1')
+        console.log(1==='1')
+        console.log(0 == false)
+        console.log(1 == true)
+        console.log('-----------------')
+        console.log('1' == true)
+        console.log('1' === true)
+        console.log([1] == true)
+        console.log([1] === true)
+
+        console.log('-----------------')
+        // Null和自身相等，和undefined相等以外，全部不相等
+        console.log(null == 0)
+        console.log(null == undefined )
+        console.log(null > 0)
+        console.log(null <= 0)
+        console.log(null == null)
+
+        console.log('-----------------')
+        // 对象的比较都是地址值的比较
+        // 每个对象都有对应的地址值，都是不同的
+        console.log([]=== [])
+        console.log({} === {})
+
+        console.log('-----------------')
+        // != 不等：不管类型，只看值，可以有类型转换
+        console.log(1 != '1')
+        // !== 不全等：只要类型和值有一个不等，则返回true
+        console.log(1 !== '1')
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1,32,4,4,5,3,2,56,3,4]
+
+        // 排序去重
+        // let newArr = []
+        // arr.sort(function(a,b){
+        //    return a-b
+        // })
+        // for (var i = 0; i < arr.length; i++) {
+        //     if(arr[i] === arr[i+1]){
+        //         continue
+        //     }else{
+        //         newArr.push(arr[i])
+        //     }
+        // }
+        // console.log(newArr);
+
+        // 数组方法去重
+        // let newArr = []
+        // for (var i = 0; i < arr.length; i++) {
+        //     if(newArr.indexOf(arr[i]) === -1){
+        //         newArr.push(arr[i])
+        //     }
+        // }
+        // console.log(newArr);
+
+        //reduce方法去重
+        // const re = arr.reduce((pre,item) => {
+        //     // 如果新建的数组中有重复的，就退出函数并返回之前的数组
+        //     if(pre.includes(item)){
+        //         return pre
+        //     // 如果没有重复的，就将之前的数组展开并将当前数字加进去
+        //     }else{
+        //         return [...pre,item]
+        //     }
+        // },[])
+        // console.log(re);
+
+        // es6方法去重
+        function unique(arr){
+            return [...new Set(arr)]
+        }
+        let re = unique(arr)
+        console.log(re);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        do{语句}while（判断）
+            - 先执行语句，然后再判断，然后再执行语句，再进行判断
+
+        do.while和while的区别
+            do.while先执行一次，然后才判断，至少可以执行一次
+            while先判断，再执行，至少可以执行0次
+        */
+
+
+       /* var a = 20 
+       do{
+           console.log(1);
+           a--
+       }while(a>1) */
+
+       // 用while() 循环来计算1 + 2 + 3...+98 + 99 + 100 的值。
+       var a = 0
+       var sum = 0
+       do{
+           sum +=a
+           a++
+       }while(a<=100)
+       console.log(sum)
+
+        //将1-100之间  3的倍数找出来 并打印
+        var a = 1
+        do{
+            if(a%3===0){
+                console.log(a)
+            }
+            a++
+        }while(a<=100)
+    </script>
+</body>
+</html>

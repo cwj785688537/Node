@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        对象的增删改查
+            增： 添加一个属性进去 obj.XXX=XXX
+            删： delete obj.XXX
+            改： 覆盖原有的属性obj.XXX=XXX
+            查： 获取obj.XXX返回当前对象的XXX属性
+        */
+       var obj = {
+           name:'xiaowang',
+           age:18,
+           do:function(){
+
+           }
+       }
+
+       //添加属性
+       obj.score=100
+       console.log(obj)
+
+       //删除属性
+       delete obj.age
+       console.log(obj)
+
+       //改
+       obj.score=80
+       console.log(obj)
+
+       //查
+       var re = obj.name
+       console.log(re)
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        #outer{
+            width: 604px;
+            
+            border: 1px solid red;
+            margin: 50px auto;
+            overflow: auto;
+            position: relative;
+        }
+        #inner{
+            display: flex;
+            width: 3020px;
+            height: 100%;
+        }
+        #left,#right{
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            background-color: #bfa;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+        #left{
+            left: 0;
+        }
+        #right{
+            right: 0;
+        }
+        #list{
+            display: flex;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 10px;
+        }
+        #list li{
+            width:10px  ;
+            height: 10px;
+            border-radius: 50px;
+            background-color: rgba(250,255,255,.3);
+            margin: 5px;
+        }
+        #list li.active{
+            background-color: rgba(255,250,250,.7);
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner">
+        <img src="./王者/4a06772373b537c2f8bf31b0fa3943d9.jpeg">
+        <img src="./王者/9d9573a10cca524cdcf1003b519c45f1.jpeg">
+        <img src="./王者/b269030b137594cf1edc57c3b3813e00.jpeg">
+        <img src="./王者/c2195132d9f11c3bd320539395ee89b7.jpeg">
+        <img src="./王者/cc533125c6baaaaba933f1a94d3d0811.jpeg">
+        <img src="./王者/4a06772373b537c2f8bf31b0fa3943d9.jpeg">
+    </div>
+        <p id="left">&lt;</p>
+        <p id="right">&gt;</p>
+
+        <ul id="list">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        /* 
+            两秒换一张图，拥有动画效果
+        */
+       var oOuter = document.getElementById('outer')
+       var oInner = document.getElementById('inner')
+       var oImgs = document.querySelectorAll('#inner img')
+       var oLeft = document.getElementById('left')
+       var oRight = document.getElementById('right')
+       var oList = document.getElementById('list')
+       var oLis = document.querySelectorAll('#list li')
+        var autoMoveTimer = null
+        var moveTimer = null
+       var i = 0
+
+       //封装动画函数
+       function move() {
+            //起始位置：当前滚动条的位置
+            var startLocation = oInner.scrollLeft;
+            //结束位置：
+            var endLocation = i * oImgs[0].offsetWidth;
+            //起始步数
+            var startStep = 0;
+            //结束步数
+            var endStep = 40;
+            //每一步走的距离
+            var everyStep = (endLocation - startLocation) / endStep;
+
+            //设置动画计时器
+            moveTimer = setInterval(function () {
+                startLocation += everyStep;
+                startStep++;
+                if (startStep >= endStep) {
+                    clearInterval(moveTimer)
+                }
+                oInner.scrollLeft = startLocation;
+            }, 10)
+        }
+
+        //封装下标跟随
+        function list(){
+            oLis.forEach(function(item){
+                item.classList.remove('active')
+            })
+            oLis[i===6?0:i].classList.add('active')
+        }
+
+       //自动播放
+       function autoMove(){
+        autoMoveTimer = setInterval(function(){
+            clearInterval(moveTimer)
+            i++
+            //判断临界值
+            if(i >= oImgs.length){
+                //因为最后一个i是第一张图，所有要把i变成1
+                i = 1
+                //当到达临界值后，瞬间将最后的滚轮变到第一张图前
+                oInner.scrollLeft = 0
+
+                //通用动画
+                move()
+
+                //下标跟随
+                list()
+            }
+        },2000)
+       }
+       autoMove()
+    </script>
+</body>
+</html>

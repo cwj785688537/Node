@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">盒子移动到某个位置上</button>
+    <div id="box"></div>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        //需求：让box从左边移动到右边
+        $('#btn').click(function(){
+            $('#box').animate({
+                top:300,
+                left:300,
+                opacity:.5,
+                width:400,
+                height:400
+            },1000,'linear',function(){
+                console.log('我柜子动了！');
+            })
+        })
+    </script>
+</body>
+</html>

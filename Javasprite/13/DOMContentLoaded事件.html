@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+        onload:
+            当节点及所有的资源全部加载完成以后出发
+
+        DOMContentLoaded事件：
+            当节点加载完成以后触发 不需要等待资源加载
+        */
+
+        window.onload = function(){
+            var oImg=document.querySelector('#outer img')
+            console.log(oImg);
+            console.log('**********');
+            console.log(oImg.offsetWidth);
+        }
+
+        window.addEventListener('DOMContentLoaded',function(){
+            var oImg = document.querySelector('#outer img')
+            console.log(oImg);
+            console.log('-----------');
+            console.log(oImg.offsetWidth);
+        })
+        
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <img src="../../../Javasprite.picture/11/01.jpg" alt="">
+    </div>
+</body>
+</html>

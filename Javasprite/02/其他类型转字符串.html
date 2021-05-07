@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        Number转String
+            先把数字转为10进制或正常写法，然后转成对应的字符串
+        null、undefined、true、false都是正常加引号
+        Object转String
+            数组 去掉中括号加引号
+            对象 [object object]
+            函数 加引号
+
+        toString方法
+            除了null和undefined外都有自己的toString方法
+        */
+       console.log(String(NaN))
+       console.log(String(Infinity))
+       console.log(String(0))
+       console.log(String(3.14))
+       console.log(String(0xff))
+       console.log(String(10E10))
+       console.log("---------------")
+       console.log(String(true))
+       console.log(String(false))
+       console.log("---------------")
+       console.log(String(null))
+       console.log(String(undefined))
+       console.log("---------------")
+       console.log(String([]))
+       console.log(String([2]))
+       console.log(String(["a"]))
+       console.log(String(["a,b"]))
+       console.log(String([1,2]))
+       console.log(String({}))
+       console.log(String(function(){}))
+       console.log(String({name:"laowang"}))
+       
+       console.log("---------------")
+       //toString
+    //    console.log(null.toSring)
+    //    console.log(undefined.toSring)
+    console.log((2).toString())
+    console.log(true.toString())
+    console.log(false.toString())
+    console.log([].toString())
+    console.log([1,2].toString())
+    console.log({}.toString())
+    console.log({name:"laowang"}.toString())
+    console.log(function(){}.toString())
+    
+    </script>
+</body>
+</html>

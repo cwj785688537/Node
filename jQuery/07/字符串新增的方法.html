@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const { log } = console
+      // 字符串新增的方法
+    //   {
+    //     let message = '      hello    world      '
+    //     log(message)
+    //     log(message.trim())
+    //     log(message.trimStart())
+    //     log(message.trimEnd())
+    //   }
+    //   {
+    //     let message = 'hello    world'
+    //     log(message.startsWith('hello')) //true
+    //     log(message.endsWith('world')) ////true
+    //     log(message.endsWith('ld')) //true
+    //     log(message.includes('ld')) //true
+    //     log(message.includes('or')) //true
+    //     log(message.includes('你好啊')) //false
+    //   }
+
+    // 重复内容
+    //   {
+    //     // let message = '海静，你好s啊'
+    //     // // 返回新的字符串
+    //     // log(message.repeat(10))
+    //   }
+
+    // 如果不够位数就将后面的内容添加到字符串中
+    {
+        let message = '这个是密码'
+        log(message.padStart(8, '#'))
+        log(message.padEnd(8, '#'))
+        log(message.padStart(8, '#*2222'))
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>节点互换练习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #outer {
+            width: 700px;
+            margin: 50px auto;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+
+        #con1 {
+            width: 300px;
+            height: 400px;
+            float: left;
+            background-color: #4c71ff;
+        }
+
+        f #con2 {
+            width: 300px;
+            height: 400px;
+            float: right;
+            background-color: #4c71ff;
+        }
+
+        #controls {
+            width: 100px;
+            height: 400px;
+            float: left;
+            background-color: #2ba5eb;
+            text-align: center;
+        }
+
+        #con1 .red,
+        #con2 .red {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <ul id="con1">
+            <li>我是con1的内容1</li>
+            <li>我是con1的内容2</li>
+            <li>我是con1的内容3</li>
+            <li  click='true' id="li">我是con1的内容4</li>
+        </ul>
+        <div id="controls">
+            <button id="right">&gt;&gt;&gt;&gt;&gt;&gt;</button>
+            <button id="left">&lt;&lt;&lt;&lt;&lt;&lt;</button>
+        </div>
+        <ul id="con2">
+            <li>我是con2的内容1</li>
+            <li>我是con2的内容2</li>
+            <li>我是con2的内容3</li>
+            <li>我是con2的内容4</li>
+        </ul>
+    </div>
+    <script>
+        var li = document.getElementById('li')
+        console.log(li.dataset);
+        var oCon1 = document.getElementById("con1");
+        var oCon2 = document.getElementById("con2");
+        var oRight = document.getElementById("right");
+        var oLeft = document.getElementById("left");
+        var oCon1Lis = document.querySelectorAll('#con1 li');
+        var oCon2Lis = document.querySelectorAll('#con2 li');
+
+        //给左侧所有li绑定点击事件
+        oCon1.onclick = function(e){
+            if(e.target.nodeName.toLowerCase() === 'li'){
+                //给li做一个标记 并让li变红
+                console.log(e.target.dataset);
+            e.target.dataset.click = true
+                e.target.style.background = 'red'
+            }
+        }
+
+        //给右侧所有li绑定点击事件
+        oCon2.onclick = function(e){
+            if(e.target.nodeName.toLowerCase() === 'li'){
+                //给li做一个标记 并让li变红
+                e.target.dataset.click = true
+                e.target.style.background = 'red'
+            }
+        }
+
+        oRight.onclick = function(){
+            //每次点击都要重新获取最新的li集合
+            var oCon1Lis = document.querySelectorAll('#con1 li')
+            //遍历所有的li 判断是否有标记 并插入右侧
+            oCon1Lis.forEach(function(item){
+                if(item.dataset.click){
+                    oCon2.appendChild(item)
+                    //移除当前元素的标记和样式
+                    delete item.dataset.click
+                    item.style.background = 'transparent'
+                }
+            })
+        }
+        oLeft.onclick = function(){
+            //每次点击都要重新获取最新的li集合
+            var oCon2Lis = document.querySelectorAll('#con2 li')
+            //遍历所有的li 判断是否有标记 并插入右侧
+            oCon2Lis.forEach(function(item){
+                if(item.dataset.click){
+                    oCon1.appendChild(item)
+                    //移除当前元素的标记和样式
+                    delete item.dataset.click
+                    item.style.background = 'transparent'
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

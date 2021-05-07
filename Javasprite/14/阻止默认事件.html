@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" id="form">
+        <input type="text" name="user" id="user">
+        <button id="btn">按钮</button>
+    </form>
+    <script>
+        /* 
+            默认事件：
+                - 表单默认提交
+                - 右键菜单
+                - 选中文字
+
+            在有的时候我们不需要这些默认事件，所以需要阻止默认事件
+                主流: e.preventDefault
+                IE: e.returnValue = false
+
+            还有一个简单粗暴的阻止默认事件：
+                return false
+                但是必须写在最后一行，否则return就会立刻退出函数
+        */
+
+        document.oncontextmenu = function(e){
+            // e.preventDefault()
+            return false
+        }
+
+        //表单提交事件
+        //1.给form绑定submit事件 2.给提交按钮绑定点击事件
+        var oForm = document.getElementById('form')
+        oForm.onsubmit = function(e){
+            //阻止默认事件 表单就不会被提交
+            // e.preventDefault()
+
+            return false
+        }
+    </script>
+</body>
+</html>

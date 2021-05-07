@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            方法一：
+                字面量书写
+                最明显的缺点：代码冗余
+        */
+
+        /* var student1 = {}
+        student1.name = 'laowang'
+        student1.age = 21
+        student1.sex = 'nan'
+        student1.study = function () {
+            console.log('学习');
+        }
+        student1.eat = function () {
+            console.log('吃饭');
+        }
+
+        var student2 = {}
+        student2.name = 'laowang'
+        student2.age = 21
+        student2.sex = 'nan'
+        student2.study = function () {
+            console.log('学习');
+        }
+        student2.eat = function () {
+            console.log('吃饭');
+        } */
+
+        /* 
+            方法二：工厂模式
+                - 对于一个对象来说，无法知道这个对象是谁构造的
+        */
+
+       /*  function studentCreat(name, age, sex) {
+            var student = {}
+            var student1 = {}
+            student.name = 'laowang'
+            student.age = 21
+            student.sex = 'nan'
+            student.study = function () {
+                console.log('学习');
+            }
+            student.eat = function () {
+                console.log('吃饭');
+            }
+            return student
+        }
+
+        var student1 = studentCreat('laowang',16,'nan')
+        var student2 = studentCreat('xiaowang',12,'nv')
+
+        console.log(student1.constructor); */
+
+        /* 
+            方法三：
+                构造函数
+                    - 构造函数要求首字母大写
+                    - 当函数被new 实例化调用，这个函数才能被称作构造函数
+                    - 如果构造函数被new实例化调用，则构造函数会返回实例化对象
+                    - 构造函数的this 指向其实例化对象
+
+                优点：
+                    - 直接返回一个实例化对象
+                    - 可以得到构造器是谁
+
+                缺点：
+                    方法不共有
+        */
+
+       /*  function Student(name,age,sex){
+            this.name = name
+            this.age = age
+            this.sex = sex
+            this.study = function(){
+                console.log('学习');
+            }
+            this.eat = function(){
+                console.log('吃饭');
+            }
+        }
+
+        var s1 = new Student('laowang',17,'nan')
+        var s2 = new Student('laozhang',12,'nv')
+        console.log(s1);
+        console.log(s2);
+        console.log(s1.constructor === Student);
+        console.log(s1.study)
+        console.log(s2.study)
+        
+        console.log([1].sort === [1,2].sort);
+        console.log(s1.study === s2.study);//false 每次创建的时候都会单独拥有自己的属性 */
+
+        /* 
+            方法四：构造函数+原型方法
+        */
+
+        /* function Student(name,age,sex){
+            this.name = name
+            this.age = age
+            this.sex = sex
+        }
+        Student.prototype.study = function(){
+            console.log('学习');
+        }
+        Student.prototype.eat = function(){
+            console.log('吃饭');
+        }
+
+        var s1 = new Student('laowang',17,'nan')
+        var s2 = new Student('laozhang',12,'nv')
+        console.log(s1);
+        console.log(s1.constructor);
+        console.log(s1.study === s2.study); */
+    </script>
+</body>
+
+</html>

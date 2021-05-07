@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WXY</title>
+</head>
+
+<body>
+  <script>
+    // 1.封装函数实现深拷贝
+    function getType(data) {
+      const result = Object.prototype.toString.call(data).slice(8, -1)
+      return result
+    }
+    function deepClone(data) {
+      var type = getType(data)
+      var wrap;
+      if (type === 'Array') {
+        wrap = []
+      } else if (type === 'Object') {
+        wrap = {}
+      } else {
+        return data
+      }
+      for (var i in data) {
+        var type = getType(data[i])
+        if (type == 'Object' || type == 'Array') {
+          wrap[i] = deepClone(data[i])
+
+        } else if (type == 'Function') {
+          wrap[i] = data[i].bind(data)
+        } else {
+          wrap[i] = data[i]
+        }
+      }
+      return wrap
+    }
+    // 2.使用两种不同的方式实现数组去重（原生和数组方法）
+    //数组方法
+    // var arr = [1, 5, 6, 7, 5, 1]
+    // var newArr = []
+    // for (var i = 0; i < arr.length; i++) {
+    //   if (newArr.indexOf(arr[i]) == -1) {
+    //     newArr.push(arr[i])
+    //   }
+    // }
+    //冒泡
+    // var flag = true
+    // for (var i = 0; i < arr.length; i++) {
+    //   for (var j = 0; j < newArr.length; j++) {
+    //     if (arr[i] == newArr[j]) {
+    //       flag = false
+    //       break
+    //     }
+    //   }
+    //   if (flag) {
+    //     newArr[newArr.length] = arr[i]
+    //   }
+    //   flag = true
+    // }
+
+    //快排
+    // function quickSort(arr) {
+    //   if (arr.length <= 1) {
+    //     return arr
+    //   }
+    //   var center = arr.shift()
+    //   var left = []
+    //   var right = []
+    //   arr.forEach(function (item) {
+    //     if (item <= center) {
+    //       left.push(item)
+    //     } else {
+    //       right.push(item)
+    //     }
+    //   })
+    //   var result = quickSort(left).concat(center, quickSort(right))
+    //   return result
+    // }
+
+
+    // 3.
+    // var arr = [
+    //   { method: 'get', fn: function () { console.log(this) } }
+    // ];
+    // Array.prototype.forEach = function (cb) {
+    //   var obj = {}
+    //   // cb()
+    //   // this指向arr  因为是Array的实例
+    //   for (var i = 0; i < this.length; i++) {
+    //     var { method, fn } = this[i]
+    //     cb.call(this, fn.bind(obj), method)
+    //   }
+    // };
+    // arr.forEach(function (fn, method) {
+    //   fn()//obj
+    //   console.log(this)//arr
+    // })
+
+
+    // 4.填写内容让下面代码支持 a.name = “name1”; b.name = “name2”; 
+    // function obj(name) {
+    //   if (!name) {
+    //     this.name = obj.w
+    //     return
+    //   }
+    //   return {
+    //     name
+    //   }
+    // }
+    // obj.w = "name2";
+    // var a = obj("name1");
+    // var b = new obj;
+    // console.log(a.name, b.name)
+
+
+    //5. 空数组,随机添加1-100中的值，不能重复
+    // let arr = []
+    // let flag = true
+    // while (arr.length !== 100) {
+    //   let randomNum = Math.floor(Math.random() * 100 + 1)
+    //   for (let i = 0; i < arr.length; i++) {
+    //     if (arr[i] === randomNum) {
+    //       flag = false
+    //       break
+    //     }
+    //   }
+    //   arr.push(randomNum)
+    //   flag = true
+    // }
+    // console.log(arr)
+
+
+    // 6. 
+    // function Foo() {
+    //   getName = function () { console.log(1); };
+    //   return this;
+    // }
+    // Foo.getName = function () { console.log(2) };
+    // Foo.prototype.getName = function () { console.log(3); };
+    // var getName = function () { console.log(4); };
+    // function getName() { console.log(5); }
+    // //请写出以下输出结果：
+    // Foo.getName();//2
+    // getName();//4
+    // Foo().getName();//1
+    // getName();//1
+    // new Foo.getName();//2
+    // new Foo().getName();//3
+
+    // 7.
+    // var name2 = "The Window";
+    // var object2 = {
+    //   name2: "My Object",
+    //   getNameFunc: function () {
+    //     var that = this;
+    //     return function () {
+    //       return that.name2;
+    //     };
+    //   }
+    // };
+    // console.log(object2.getNameFunc()());
+
+
+    // 8. 
+    // var num;
+    // num = 123;
+    // var obj = {
+    //   num: 456,
+    //   fn: function () {
+    //     console.log(num)
+    //     console.log(this.num)
+    //   }
+    // }
+    // obj.fn()
+    // num = 789
+
+
+    //9. 
+    // var x = 10;
+    // function fn() {
+    //   console.log(x);
+    // }
+    // function show(f) {
+    //   var x = 20;
+    //   f();
+    // }
+    // show(fn);
+
+    //10. 
+    // var c = 1;
+    function c(c) {
+      function c() {
+
+      }
+      var c
+      console.log(c)
+      c = 3
+    }
+    c(2)
+
+    // function c(c) {
+    //   console.log(c)
+    //   var c = 3
+    // }
+    // // var c;
+    // c = 1
+    // c(2)
+    // 11.谈一谈闭包（产生条件，是什么，作用，缺点）
+    //函数嵌套 内部引用外部函数中的变量  外部函数调用？
+    // 是一个引用关系 （对象） 对象中储存着引用外部函数的变量名（key）和变量值（value）
+    // 外部使用函数内部中的变量
+    // 内存泄漏  白屏
+
+    // 12.谈一谈执行上下文
+    // js执行先有 执行上下文栈结构  全执先入栈  先入后出  后入先出
+    // 全局 局部
+    // 收集变量形成变量对象  确定作用域链   确定this指向
+
+    // 13.谈一谈原型和原型链
+    // 原型分为隐式原型和显示原型   函数才有prototype  对象就有__proto__
+    // 对象的隐式原型指向构造函数的显示原型
+    // 所有显示原型对象都是Object的实例
+
+    // 14.谈一谈面向对象
+      // 万物皆对象
+      // 封装继承多态
+
+
+
+
+
+
+      // 封装
+      // 把特定的某一个事物封装为对象  
+      // 例：人  肤色  名字  年龄
+      //        跑步   吃饭
+
+
+      // 继承
+      // 让子类的原型  =  父类的一个实例          原型继承主要是让子类继承父类的方法的
+      // 子类中Dog.call(this,name,age,color);   借助构造函数继承  专门用来继承父类中的属性的
+
+
+      // 多态
+      // 方法重写  其实就是重写父类的方法
+      // 方法重载，根据传递参数不同，函数具有不同的功能
+
+
+    // 15.this常见的场景写出五项
+    // 普通函数 对象方法 构造函数 事件回调 定时器 数组方法 call apply bind 箭头函数   
+
+
+  </script>
+</body>
+
+</html>

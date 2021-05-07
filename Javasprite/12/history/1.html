@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>01010101010101010101</h1>
+    <a href="./2.html">02</a>
+    <a href="./3.html">03</a>
+    <button id="btn">按钮</button>
+    <script>
+        /* 
+         history对象有三个方法
+         back（）：回退一页
+         forward（）：前进一页
+         go():参数是一个number类型 用正负来区分返回和前进
+         */
+         var oBtn = document.getElementById('btn')
+         oBtn.onclick = function(){
+            //  history.back()
+            //  history.forward()
+            // history.go(2)
+            history.go(-2)
+         }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1 = {
+            name:'laowang',
+            hobby:['唱','跳','rap'],
+            eat:function(){
+                console.log('eat');
+            }
+        }
+
+        //把obj复制（拷贝）一份
+
+        var obj2 = {}
+        //遍历obj 把obj的值一个个的遍历拿进来
+        for(var key in obj1){
+            obj2[key] = obj1[key]
+        }
+
+        console.log(obj2);
+        console.log(obj2 === obj1);//只拷贝了内容，不是地址值的复制
+
+        obj2.sex = 'nan'
+        console.log(obj1);
+
+        // 只能拷贝一层，如果某个属性的值是一个对象的时候，就会地址值赋值
+        console.log(obj2.hobby === obj1.hobby);
+
+        
+        
+    </script>
+</body>
+</html>

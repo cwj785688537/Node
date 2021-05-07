@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="checkDemo.css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div>
+        <input
+          type="button"
+          value="添加数据"
+          id="j_btnAddData"
+          class="btnAdd"
+        />
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>课程名称</th>
+            <th>所属学院</th>
+            <th>已学会</th>
+          </tr>
+        </thead>
+        <tbody id="j_tb">
+          <tr>
+            <td>JavaScript</td>
+            <td>前端学院</td>
+            <td><a href="javascript:;" class="get">GET</a></td>
+          </tr>
+          <tr>
+            <td>css</td>
+            <td>前端学院</td>
+            <td><a href="javascript:;" class="get">GET</a></td>
+          </tr>
+          <tr>
+            <td>html</td>
+            <td>前端学院</td>
+            <td><a href="javascript:;" class="get">GET</a></td>
+          </tr>
+          <tr>
+            <td>jQuery</td>
+            <td>前端学院</td>
+            <td><a href="javascript:;" class="get">GET</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="j_mask" class="mask"></div>
+    <div id="j_formAdd" class="form-add">
+      <div class="form-add-title">
+        <span>添加数据</span>
+
+        <div id="j_hideFormAdd">x</div>
+      </div>
+      <div class="form-item">
+        <label class="lb" for="j_txtLesson">课程名称：</label>
+        <input
+          class="txt"
+          type="text"
+          id="j_txtLesson"
+          placeholder="请输入课程名称"
+        />
+      </div>
+      <div class="form-item">
+        <label class="lb" for="j_txtBelSch">所属学院：</label>
+        <input
+          class="txt"
+          type="text"
+          id="j_txtBelSch"
+          placeholder="请输入所属学院"
+        />
+      </div>
+      <div class="form-submit">
+        <input type="button" value="添加" id="j_btnAdd" />
+      </div>
+    </div>
+    <script src="../../jquery-1.12.4.js"></script>
+    <script>
+      $(function () {
+        //点击添加数据的时候，显示遮盖层和表单
+        $('#j_btnAddData').click(function(){
+          $('#j_mask').show()
+          $('#j_formAdd').show()
+        })
+        //点击添加的时候，将输入的数据添加到table中
+        $('#j_btnAdd').click(function(){
+          //trim()是为了删除用户输入的空格
+          var lesson = $('#j_txtLesson').val().trim()
+          var sch = $('#j_txtBelSch').val().trim()
+
+          //用户添加之前判断用户是否输入了值
+          if(!lesson || !sch){
+            alert('请输入正确的内容')
+            //如果用户没有输入值，则直接退出函数，不执行下面的内容
+            return
+          }
+
+          var arr = []
+          arr.push('<tr>')
+            arr.push('<td>'+lesson+'</td>')
+            arr.push('<td>'+sch+'</td>')
+            arr.push('<td><a href="javascript:;" class="get">GET</a></td>')
+            arr.push('</tr>')
+            
+
+            var arrStr = arr.join('')
+            $('#j_tb').append(arrStr)
+
+            //添加按钮点击完毕之后将遮盖层和表单隐藏
+            $('#j_mask').hide()
+          $('#j_formAdd').hide()
+
+          //将表单中的内容清空
+          $('#j_txtLesson').val('')
+          $('#j_txtBelSch').val('')
+
+         
+          
+        })
+
+         //点击关闭按钮，将遮盖层和表单隐藏
+        $('#j_hideFormAdd').click(function(){
+            $('#j_mask').hide()
+            $('#j_formAdd').hide()
+          })
+
+          //点击get，删除当前tr
+          //利用事件委托给父元素绑定点击事件，这样新加进来的tr才能使用删除事件
+          $('#j_tb').click(function(e){
+            //使用event事件中的target可以获取到当前点击的事件
+           
+            if(e.target.nodeName === 'A' && e.target.className === 'get'){
+              $(e.target).parent().parent().remove()
+            }
+          })
+      })
+    </script>
+  </body>
+</html>

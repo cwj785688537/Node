@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+            left: 0;
+            top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <div id="box"></div>
+    <script>
+        var oBox = document.getElementById('box')
+        var oBtn = document.getElementById('btn')
+        var boxLeft = 0
+        var boxMoveTimer = null
+        oBtn.onclick = function () {
+            //每次点击的时候，把上一次的计时器给清掉，然后重新添加
+
+            //动画，每隔多久执行一个移动
+            boxMoveTimer = setInterval(function () {
+                //因为left属性无法自己运算，所以先用一个变量保存当前的left属性，然后再赋值
+                boxLeft += 3
+
+                if(boxLeft>=1000){
+                    //在临界值的时候，再次确认赋值临界值
+                    boxLeft = 1000
+                    clearInterval(boxMoveTimer)
+                }
+                oBox.style.left = boxLeft+'px'
+            }, 1000 / 60)
+        }
+    </script>
+</body>
+
+</html>

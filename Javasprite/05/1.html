@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* function fn1(){
+            alert('hello')
+        }
+        fn1()
+ */
+      /*   function fn2(name,age){
+            alert('我是'+name)
+            alert('我今年'+age+'岁')
+        }
+        fn2('xxx',18) */
+
+        /* var fn3 = function(){
+            alert('fn3')
+        }
+        fn3() */
+
+        var fn4 = new Function('a','b','c','alert(a+b+c)')
+        fn4('null','123',456)
+
+        /* var fn5 = new Function('name','age','alert("我是"+name)','alert("我今年"+age+"岁")')
+        fn5('xxx',18) */
+
+       /*  var fn6 = new Function('alert("fn4")')
+        fn4() */
+    </script>
+</body>
+</html>

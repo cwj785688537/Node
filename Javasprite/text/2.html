@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        window.aa = 'my window'
+        var obj = {
+            aa: 'my obj',
+            fn() {
+                return this.aa
+            }
+        }
+        var re = (obj.fn)()
+        console.log(re);//window
+        var re1 = (obj.fn = obj.fn)()
+        var re2 = obj.fn()
+        console.log(re2);//obj
+        console.log(window);
+        console.log(re1);//window
+
+        console.log(parseInt(35, 36));
+        var re = ['11999', '2', '1', '2'].map(parseInt)
+        parseInt(1, 0)
+        parseInt(2, 1)
+        parseInt(3, 2)
+        console.log(re);
+    </script>
+</body>
+
+</html>

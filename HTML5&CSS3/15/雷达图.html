@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
+        body{
+            position: relative;
+            margin: 0;
+            
+            background:
+            linear-gradient(to bottom, rgba(32, 255, 77, .15) 0px, rgba(32, 255, 77, .15) 2px, transparent 2px),
+            linear-gradient(to right, rgba(32, 255, 77, .25) 0px, rgba(32, 255, 77, .25) 2px, transparent 2px),black;
+            background-size: 40px 40px;
+        }
+        /* body{
+            position: relative;
+            margin: 0;
+            background:
+                linear-gradient(to bottom, rgba(32, 255, 77, .15) 0px, rgba(32, 255, 77, .15) 2px, transparent 2px),
+                linear-gradient(to right, rgba(32, 255, 77, .25) 0px, rgba(32, 255, 77, .25) 2px, transparent 2px), black;
+            background-size: 40px 40px; 
+        } */
+        #big{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -250px;
+            margin-top: -250px;
+            width: 500px;
+            height: 500px;
+            box-sizing: border-box;
+            border: 2px solid rgb(30, 234, 71);
+            border-radius: 50%;
+            background-image: radial-gradient(rgba(32,255,77,.3) 0%,transparent 75%);
+        }
+        #big::before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            height: 2px;
+            width: 100%;
+            background-color: rgb(30, 234, 71);
+            transform: translatey(-50%);
+        }
+        #big::after{
+            content: '';
+            position: absolute;
+            left: 50%;
+            height: 100%;
+            width: 2px;
+            background-color: rgb(30, 234, 71);
+            transform: translatex(-50%);
+        }
+        #f1,#f2,#f3{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            box-sizing: border-box;
+            border: 2px solid rgb(30, 234, 71);
+            border-radius: 50%;
+        }
+        #f1{
+            margin-top: -175px;
+            margin-left: -175px;
+            width: 350px;
+            height: 350px;
+        }
+        #f2{
+            margin-top: -100px;
+            margin-left: -100px;
+            width: 200px;
+            height: 200px;
+        }
+        #f3{
+            margin-top: -25px;
+            margin-left: -25px;
+            width: 50px;
+            height: 50px;
+        }
+        #zz{
+            position: absolute;
+            width: 248px;
+            height: 248px;
+            /* border: 1px solid red; */
+            border-radius:248px 0 0 ;
+            background-image: linear-gradient(45deg,transparent 0%, rgba(1, 190, 39, 0) 50%,rgba(1, 190, 39, 1));
+            animation-name: sm;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            transform-origin: 248px 248px;
+        }
+        @keyframes sm {
+            form{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        #zz>div{
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            /* border: 1px solid red; */
+            background-image: radial-gradient(rgb(30,234,71) 0px,rgba(255,255,255,.1) 7px);
+            animation-name: yd,ss;
+            animation-duration: 10s,1s;
+            animation-direction: alternate,normal;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        #zz>div:first-of-type{
+            top: 200px;
+            left: 199px;
+        }
+        #zz>:nth-of-type(2){
+            top: 150px;
+            left: 50px;
+        }
+        #zz>:nth-of-type(3){
+            top: 100px;
+            left: 150px;
+        }
+        @keyframes yd {
+            to{
+                left: 100px;
+            }
+        }
+        @keyframes ss {
+            form{
+                opacity: 1;
+            }
+            to{
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="big">
+        <div id="zz">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="f1">
+            <div id="f2">
+                <div id="f3"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

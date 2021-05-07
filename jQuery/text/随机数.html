@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let i = 0
+        let arr = []
+        function fn(a, b) {
+
+            while (i < (b - a)) {
+                let re = Math.floor(Math.random() * (b - a) + a)
+                if (arr.indexOf(re) == -1) {
+                    arr[i] = re
+                    i++
+                }
+            }
+            return arr
+        }
+        // console.log(fn(11, 54));
+        let re = fn(11,54)
+        re.sort(function(a,b){
+            return a-b
+        })
+        console.log(re);
+
+
+        // 需求：随机添加1-100中的值，不能重复
+       let arr = []
+       let flag = true
+       while(arr.length < 100){
+           // 因为是1-100的值，所以random后要+1
+           let randomNum = Math.floor(Math.random() * 100 + 1)
+           for (var i = 0; i < arr.length; i++) {
+               // 如果随机出来的值数组中有则将flag改为false并且退出当前循环
+               if(arr[i] === randomNum){
+                   flag = false
+                   break
+               }
+           }
+           if(flag){
+               arr.push(randomNum)
+           }
+           flag = true
+       }
+    //    console.log(arr);
+       arr.sort(function(a,b){
+           return a-b
+       })
+       console.log(arr);
+    </script>
+</body>
+</html>

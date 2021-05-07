@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 判断参数的类型
+        function checkType(obj){
+            return Object.prototype.toString.call(obj).slice(8,-1).toLowerCase()
+        }
+
+        function deepClone(obj){
+            // 深拷贝需要考虑属性值是对象还是数组
+            if(checkType(obj) === 'object'){
+                // 如果拷贝的是一个对象，则返回一个新的对象
+                var newObj = {}
+            }else if(checkType(obj) === 'array'){
+                // 如果拷贝的是一个数组，则返回一个新的数组
+                var newObj = []
+            }else{
+                // 如果拷贝的是其他类型，则不再向下执行，直接把当前值返回
+                return obj
+            }
+
+            // 如果是对象或者数组，将他们进行遍历
+            for(let key in obj){
+                // 将对象或数组中的值放入到刚创建的对象中，一一对应
+                newObj[key] = deepClone(obj[key])
+            }
+
+            // 将放入数据的newObj返回
+            return newObj
+        }
+
+        var obj1 = {
+            name:'laowang',
+            hobby:['唱','跳','rap'],
+            eat:function(){
+                console.log('eat');
+            }
+        }
+        var re = deepClone(obj1)
+        console.log(re);
+        console.log(re === obj1);// 因为深克隆创建了新的数组或对象
+        console.log(re.hobby === obj1.hobby);
+        console.log(re.eat === obj1.eat);
+    </script>
+</body>
+
+</html>

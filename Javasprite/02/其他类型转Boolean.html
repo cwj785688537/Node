@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        number转Boolean
+         0为flase  非0为true NaN为false
+
+         string转Boolean
+         空为false  非空为true
+
+         null和undedined都是false
+
+         object转Boolean都是true
+        */
+
+        console.log(Boolean(2))
+        console.log(Boolean(0))
+        console.log(Boolean(Infinity))
+        console.log(Boolean(NaN))
+        console.log("---------------")
+        console.log(Boolean(""))
+        console.log(Boolean(" "))
+        console.log(Boolean("\n"))
+        console.log(Boolean("0"))
+        console.log(Boolean("abc"))
+        console.log("---------------")
+        console.log(Boolean(null))
+        console.log(Boolean(undefined))
+        console.log("---------------")
+        console.log(Boolean([]))
+        console.log(Boolean([0]))
+        console.log(Boolean([1,2]))
+        console.log(Boolean({}))
+        console.log(Boolean(function(){}))
+
+    </script>
+</body>
+</html>

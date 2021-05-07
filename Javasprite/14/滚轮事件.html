@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+            谷歌/IE：
+                onmousewheel事件
+                    上滚：wheelDelta:120
+                    下滚：wheelDelta:-120
+
+            火狐：
+                DOMMouseScroll事件
+                    上滚：detail -3
+                    下滚：detail 3
+        */
+
+        /* var oBox = document.getElementById('box')
+        var boxWith = 100
+        oBox.onmousewheel = function(e){
+            if(e.wheelDelta > 0){
+                boxWith++
+            }else{
+                boxWith--
+            }
+            oBox.style.width = boxWith + 'px'
+        }
+       
+        oBox.addEventListener('DOMMouseScroll',function(e){
+            if(e.detail < 0 ){
+                boxWith++
+            }else{
+                boxWith--
+            }
+            oBox.style.width = boxWith + 'px'
+        },false) */
+
+        //兼容性书写
+        var oBox = document.getElementById('box')
+        var boxWith = 100
+
+        function scrollFn(e){
+            //特征检测法 检测是什么浏览器
+            if(e.wheelDelta){
+                //谷歌浏览器
+                if(e.wheelDelta > 0){
+                    boxWith++
+                }else{
+                    boxWith--
+                }
+            }else{
+                //火狐浏览器
+                if(e.detail < 0){
+                    boxWith++
+                }else{
+                    boxWith--
+                }
+            }
+            oBox.style.width = boxWith + 'px'
+        }
+        oBox.addEventListener('DOMMouseScroll',scrollFn,false)
+        oBox.onmousewheel = scrollFn
+    </script>
+</body>
+</html>

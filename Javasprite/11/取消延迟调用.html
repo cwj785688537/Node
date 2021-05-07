@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">取消</button>
+    <script>
+        /* 
+            计时器返回值：
+                timerID:一个句柄 唯一的ID
+
+            取消超时调用计时器使用
+                window.clearTimeout()
+        */
+
+        var timerId1 = setTimeout(function(){
+            alert(1)
+        },3000)
+        var timerId2 = setTimeout(function(){
+            alert(2)
+        },3000)
+        var timerId3 = setTimeout(function(){
+            alert(3)
+        },3000)
+        console.log(timerId1,timerId2,timerId3);
+
+        var oBtn = document.getElementById('btn')
+        oBtn.onclick = function(){
+            clearTimeout(timerId1)
+            clearTimeout(timerId2)
+            clearTimeout(timerId3)
+        }
+    </script>
+</body>
+</html>

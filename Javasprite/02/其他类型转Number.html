@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+        String转Number
+            字符串里为纯数字的就转为对应的数字
+            字符串为空或者空白则转为0
+            其他情况转为NaN
+
+        Boolean转Number
+            true为1  false为0
+
+        null为0 undefined为NaN
+
+        Object转Number
+            除了特殊情况都为NaN
+            特殊情况：
+                空数组为0
+                数组长度为1且是一个数字或者字符串类型的数字的时候，转为对应的数字
+
+        parseInt和parseFloat：
+            功能一：字符串转为数字
+                parseInt：把字符串转为整数，直到碰到第一个非数字停止，如果没有数字，直接是NaN
+                parseFloat：把字符串转为小数，直到碰到第一个非数字或第二个小数点为止
+            
+            功能二：进制转换
+                parseInt(a,b):把b进制的a转为10进制返回
+        */
+
+        console.log(Number("123"))
+        console.log(Number("-123"))
+        console.log(Number("0"))
+        console.log(Number(""))
+        console.log(Number(" "))
+        console.log(Number("1a23"))
+        console.log("---------------")
+        console.log(Number(true))
+        console.log(Number(false))
+        console.log("---------------")
+        console.log(Number(null))
+        console.log(Number(undefined))
+        console.log("---------------")
+        console.log(Number([]))
+        console.log(Number([1]))
+        console.log(Number([1,2]))
+        console.log(Number({}))
+        console.log(Number(function(){}))
+        
+        console.log("---------------")
+        console.log(parseInt("123"))
+        console.log(parseInt("12.3"))
+        console.log(parseInt("12a3"))
+        console.log(parseInt("a123"))
+        console.log(parseInt("abc"))
+        console.log("---------------")
+        console.log(parseFloat("123"))
+        console.log(parseFloat("12.3"))
+        console.log(parseFloat("12.3.3"))
+        console.log(parseFloat("12a3"))
+        console.log(parseFloat("a123"))
+        console.log(parseFloat("abc"))
+        console.log(parseFloat(".3"))
+
+        //进制转换
+        console.log("---------------")
+        console.log(parseInt(10101,2))
+        console.log(parseInt(23,8))
+        console.log(parseInt(0xff,16))
+        console.log(parseInt('0xff',16))//十六进制需要用字符串将要转换的数字包裹住
+        
+    </script>
+</body>
+</html>

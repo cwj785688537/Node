@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //获取html body head
+        var oHtml = document.getElementsByTagName('html')[0]
+        var oBody = document.getElementsByTagName('body')[0]
+        var oHead = document.getElementsByTagName('head')[0]
+
+        console.log(oHtml);
+        console.log(oBody);
+        console.log(oHead);
+
+        //DOM提供简单的获取元素的方法（推荐使用）
+        var oHtml2 = document.documentElement;//HTML特殊一点
+        var oBody2 = document.body
+        var oHead2 = document.head
+
+        console.log(oHtml2);
+        console.log(oBody2);
+        console.log(oHead2);
+    </script>
+</body>
+</html>

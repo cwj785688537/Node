@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="open">打开窗口</button>
+    <button id="close">关闭窗口</button>
+    <script>
+        /* 
+         打开窗口：
+            window.open()
+            - 默认打开一个新标签页 空的
+            - 参数1：URL地址
+            - 参数2：窗口类型 _blank _self
+            - 参数3：新窗口的类型 宽 高 位置
+            - 返回值是对新窗口的引用
+
+        窗口名称.close()方法：
+            - 关闭窗口
+        */
+
+       var oOpen = document.getElementById('open')
+       var oClose = document.getElementById('close')
+
+       var newWin = null
+
+       oOpen.onclick = function(){
+        //    window.open()
+        //    window.open('http://www.baidu.com')
+        //    window.open('http://www.baidu.com','_blank')
+        //    window.open('http://www.baidu.com','_self')
+
+        window.open('http://www.baidu.com','_blank','width=400,height=200,left=100,top=200')
+        // newWin = window.open('http://www.baidu.com','_blank','width=400,height=200,left=100,top=200')
+       }
+    //    console.log(newWin);
+
+    oClose.onclick = function(){
+        newWin.close()
+
+        // window.close()
+    }
+    </script>
+</body>
+</html>

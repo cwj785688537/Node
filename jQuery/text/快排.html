@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function quicksort(arr){
+            //先判断数组的长度是否为1，如果为1直接返回，不再递归
+            if(arr.length<=1){
+                return arr
+            }
+
+            //选择一个基准值，要将基准值从数组中拿出
+            var base = arr.pop()
+            //定义一个基准值左侧和右侧的数组
+            var left = []
+            var right = []
+
+            //遍历数组，将大于基准值的放在右边，小于基准值的在左边
+            arr.forEach(function(item){
+                if(item<base){
+                    left.push(item)
+                }else{
+                    right.push(item)
+                }
+            })
+
+            //合并左中右三个数组，合并的时候要把左右的数组重新进行递归调用
+            var newArr = quicksort(left).concat(base,quicksort(right))
+            //返回合并后的数组
+            return newArr
+        }
+
+        var arr = [1,2,4,,5,6,,5,4,3,3]
+        var re = quicksort(arr)
+        console.log(re);
+    </script>
+</body>
+</html>
